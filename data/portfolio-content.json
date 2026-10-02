@@ -80,9 +80,9 @@
         "WebGL"
       ],
       "details": "https://example.com/projects/aquarium",
-      "modulePage": "/aquarium-module.html",
-      "moduleEmbedPath": "/aquarium/index.html?embed=1",
-      "modulePath": "/aquarium-module.html",
+      "modulePage": "./aquarium-module.html",
+      "moduleEmbedPath": "./aquarium/index.html?embed=1",
+      "modulePath": "./aquarium-module.html",
       "isStandaloneModule": true,
       "media": {
         "kind": "image",

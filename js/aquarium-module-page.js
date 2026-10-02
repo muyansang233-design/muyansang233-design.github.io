@@ -24,7 +24,7 @@ const moduleFallback = {
   tools: ["TypeScript", "React", "Three.js", "WebGL", "GLSL", "Physics"],
   link: "https://example.com/projects/aquarium",
   source: "",
-  moduleEmbedPath: "/aquarium/index.html?embed=1",
+  moduleEmbedPath: "./aquarium/index.html?embed=1",
   mediaTitle: "Original Module Resources",
   mediaText:
     "Use this block to keep direct access to the interactive content and its original explanatory UI.",
@@ -147,7 +147,7 @@ async function loadModuleData() {
 
   let data = { tech: [] };
   try {
-    const response = await fetch("/data/portfolio-content.json", { cache: "no-store" });
+    const response = await fetch("./data/portfolio-content.json", { cache: "no-store" });
     if (response.ok) {
       data = await response.json();
     }
@@ -156,7 +156,7 @@ async function loadModuleData() {
   }
 
   const allProjects = normalizeProjectList(data);
-  const project = allProjects.find((item) => item.isStandaloneModule || item.modulePage === "/aquarium-module.html") ||
+  const project = allProjects.find((item) => item.isStandaloneModule || item.modulePage === "./aquarium-module.html") ||
     allProjects.find((item) => item.name === moduleFallback.title) ||
     moduleFallback;
 
