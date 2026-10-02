@@ -1,0 +1,177 @@
+{
+  "metadata": {
+    "eyebrow": "Fresh · Calm · Interactive",
+    "intro": "A Technical Artist portfolio blending game graphics engineering with interactive visual craft. The scene below is a stylized, lightweight physics playground designed to keep interactions playful while maintaining production clarity."
+  },
+  "identity": {
+    "name": "Jacky",
+    "roles": [
+      "Technical Artist",
+      "Graphics Engineer",
+      "Game Developer"
+    ],
+    "demoReel": "https://www.w3schools.com/html/mov_bbb.mp4"
+  },
+  "games": [
+    {
+      "name": "Summerfront Tide",
+      "type": "Action Exploration Game",
+      "summary": "A cooperative wave-river traversal prototype where movement rhythm and atmosphere design are core pillars.",
+      "tools": [
+        "Unity",
+        "URP",
+        "Timeline",
+        "C#",
+        "GitHub Actions"
+      ],
+      "role": "Design gameplay flow, optimize shader-based caustics, and set up water-state state machine.",
+      "details": "https://example.com/games/summerfront",
+      "media": {
+        "kind": "video",
+        "poster": "",
+        "src": ""
+      }
+    },
+    {
+      "name": "Cloudline Relay",
+      "type": "Racing Casual",
+      "summary": "Time-based puzzle race built around environmental particles and stylized VFX.",
+      "tools": [
+        "Unreal Engine",
+        "Niagara",
+        "Blueprint",
+        "Perforce"
+      ],
+      "role": "Built VFX library, authored effect presets for rain interactions, and authored UI/UX microinteractions.",
+      "details": "https://example.com/games/cloudline",
+      "media": {
+        "kind": "image",
+        "src": ""
+      }
+    }
+  ],
+  "tech": [
+    {
+      "name": "Aquarium Interactive Module",
+      "type": "Interaction Module",
+      "summary": "A standalone WebGL water + particle playground with original on-page text explanations, interaction feedback, and visual experimentation kept intact.",
+      "introSummary": "An interactive WebGL module that stays true to the original module’s visual language while being presented inside the portfolio as a dedicated project page.",
+      "description": "This module is embedded as a standalone interactive block where viewers can see natural motion, drag interactions, and fluid feedback while still reading the original on-screen guidance from the source build.",
+      "role": "Preserved the original module flow, preserved text explanation overlays, and adapted the project page shell to the current portfolio style.",
+      "responsibilities": [
+        "Keep the built module output unchanged and avoid introducing regression in interaction behavior.",
+        "Build a dedicated project detail layout that matches the existing portfolio visual system.",
+        "Map the original module into a stable iframe embed and provide structured project metadata under it."
+      ],
+      "notes": [
+        "The original text explanations are kept in the embedded module iframe.",
+        "Project information and supporting metadata remain editable in portfolio-content.json.",
+        "All interaction assets are loaded from the existing /aquarium build."
+      ],
+      "process": [
+        "Bundle the original module and place it under /aquarium.",
+        "Create a project page route and link card flow to this page.",
+        "Render project metadata and detail lists from JSON with graceful fallback."
+      ],
+      "tools": [
+        "TypeScript",
+        "React",
+        "Three.js",
+        "WebGL"
+      ],
+      "details": "https://example.com/projects/aquarium",
+      "modulePage": "/aquarium-module.html",
+      "moduleEmbedPath": "/aquarium/index.html?embed=1",
+      "modulePath": "/aquarium-module.html",
+      "isStandaloneModule": true,
+      "media": {
+        "kind": "image",
+        "src": ""
+      }
+    },
+    {
+      "name": "Adaptive Waterline Surface",
+      "type": "Shader / Rendering",
+      "summary": "A stylized water shader with ripple propagation, specular shift, and shoreline blending designed for UI-like scenes.",
+      "tools": [
+        "WebGL",
+        "GLSL",
+        "ECS",
+        "Custom Solver"
+      ],
+      "role": "Led shader architecture and authored modular pass for ripple accumulation and shoreline attenuation.",
+      "details": "https://example.com/tech/waterline",
+      "media": {
+        "kind": "image",
+        "src": ""
+      }
+    },
+    {
+      "name": "Leaf Motion Pipeline",
+      "type": "Technical Art Tooling",
+      "summary": "A 2D/2.5D simulation toolkit to author stylized buoyancy and collision reactions with low complexity.",
+      "tools": [
+        "Three.js",
+        "TypeScript",
+        "Impulse Solver",
+        "Poisson Disk Sampling"
+      ],
+      "role": "Designed lightweight collision + drag interaction layer and tuned damping for non-chaotic motion.",
+      "details": "https://example.com/tech/leaf-pipeline",
+      "media": {
+        "kind": "image",
+        "src": ""
+      }
+    },
+    {
+      "name": "Shoreline Workflow",
+      "type": "VFX / Pipeline",
+      "summary": "Procedural material library for cards, decals, and shoreline accents with artist-friendly controls.",
+      "tools": [
+        "Substance 3D",
+        "Houdini",
+        "Python"
+      ],
+      "role": "Set parameter standards, build artist presets, and connect render previews in versioned pipelines.",
+      "details": "https://example.com/tech/shoreline-workflow",
+      "media": {
+        "kind": "image",
+        "src": ""
+      }
+    }
+  ],
+  "digital": [
+    {
+      "name": "Water Margin Study",
+      "type": "Concept Art",
+      "summary": "A mixed media study of shallow water reflections and hand-drawn textures.",
+      "tools": [
+        "Procreate",
+        "Photoshop",
+        "Illustrator"
+      ],
+      "role": "Art direction, composition, and final retouching.",
+      "details": "https://example.com/art/study",
+      "media": {
+        "kind": "image",
+        "src": ""
+      }
+    },
+    {
+      "name": "Lilypad Character Sheet",
+      "type": "3D Art / Illustration",
+      "summary": "Playful creature reference sheet with handcrafted color and stylized highlights.",
+      "tools": [
+        "Blender",
+        "After Effects",
+        "After Effects"
+      ],
+      "role": "Lighting pass, material style pass, and final panel composition.",
+      "details": "https://example.com/art/lilypad",
+      "media": {
+        "kind": "image",
+        "src": ""
+      }
+    }
+  ]
+}

@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Technical Artist / Graphics Engineer portfolio." />
+    <title>Jacky — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Raleway:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div id="preloader" aria-hidden="true"></div>
+    <a href="#intro" class="back-to-top" aria-label="Back to top">↑</a>
+
+    <header id="header">
+      <div class="container">
+        <div id="logo">
+          <h1><a href="#intro" class="scrollto">JACKY</a></h1>
+        </div>
+
+        <button id="mobile-nav-toggle" type="button" aria-label="Open navigation">☰</button>
+
+        <nav id="nav-menu-container" aria-label="Primary">
+          <ul class="nav-menu">
+            <li><a href="#portfolio" class="scrollto">Portfolio</a></li>
+            <li><a href="#jams" class="scrollto">Game Jams</a></li>
+            <li><a href="#experience" class="scrollto">Experience</a></li>
+            <li><a href="#about" class="scrollto">About</a></li>
+            <li><a href="#contact" class="scrollto">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section id="mobile-nav" aria-label="Mobile navigation">
+      <ul class="mobile-nav-list">
+        <li><a href="#portfolio" class="scrollto">Portfolio</a></li>
+        <li><a href="#jams" class="scrollto">Game Jams</a></li>
+        <li><a href="#experience" class="scrollto">Experience</a></li>
+        <li><a href="#about" class="scrollto">About</a></li>
+        <li><a href="#contact" class="scrollto">Contact</a></li>
+      </ul>
+    </section>
+    <div id="mobile-body-overly" aria-hidden="true"></div>
+
+    <section id="intro">
+      <video
+        class="video"
+        id="intro-video"
+        autoplay
+        muted
+        loop
+        playsinline
+      ></video>
+      <div class="intro-container">
+        <div class="container">
+          <h1 id="hero-name"><span>Jacky</span> <span>Technical Artist</span></h1>
+          <p class="intro-subtitle">
+            <span class="text-slider-items" id="text-slider-items"></span>
+            <strong id="text-slider" class="text-slider" aria-live="polite"></strong>
+          </p>
+          <p id="hero-description" class="intro-copy"></p>
+          <a class="hero-scroll scrollto" href="#portfolio">SCROLL</a>
+        </div>
+      </div>
+    </section>
+
+    <main id="main">
+      <section id="portfolio">
+        <div class="container">
+          <div class="section-header text-center">
+            <h2>PORTFOLIO</h2>
+            <p>Selected Projects</p>
+          </div>
+          <div class="filter-row">
+            <button type="button" class="btn portfolio-filter active" data-filter=".portfolio-featured">All</button>
+            <button type="button" class="btn portfolio-filter" data-filter=".portfolio-personal">Personal</button>
+            <button type="button" class="btn portfolio-filter" data-filter=".portfolio-professional">Professional</button>
+            <button type="button" class="btn portfolio-filter" data-filter=".portfolio-tools">Tools</button>
+          </div>
+          <div id="portfolio-grid" class="grid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="jams">
+        <div class="container">
+          <div class="section-header text-center">
+            <h2>GAME JAMS</h2>
+          </div>
+          <div class="gamejam-content">
+            <div id="gamejam-main-media" class="gamejam-main-media">
+              <img id="gamejam-main-image" src="" alt="Game jam screenshot" />
+              <video id="gamejam-main-video" controls playsinline preload="none"></video>
+            </div>
+            <div class="gamejam-details">
+              <div class="gamejam-meta">
+                <span id="gamejam-year" class="meta-container"></span>
+                <span id="gamejam-award" class="meta-container"></span>
+              </div>
+              <h3 id="gamejam-title"></h3>
+              <p id="gamejam-description"></p>
+              <a id="gamejam-download" class="gamejam-download" href="#" target="_blank" rel="noreferrer">View</a>
+            </div>
+          </div>
+          <div id="gamejam-side" class="gamejam-side">
+            <button id="gamejam-prev" class="gamejam-side-button" type="button" aria-label="Previous">⟵</button>
+            <button id="gamejam-next" class="gamejam-side-button" type="button" aria-label="Next">⟶</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience">
+        <div class="container">
+          <div class="section-header text-center">
+            <h2>EXPERIENCE</h2>
+          </div>
+          <ul id="experience-tabs" class="nav-tabs" role="tablist"></ul>
+          <div id="experience-content" class="experience-content"></div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="container">
+          <div class="section-header">
+            <h2>ABOUT</h2>
+            <p id="about-intro"></p>
+          </div>
+          <div class="about-me-wrap">
+            <h3>About Me</h3>
+            <p id="about-me-summary" class="about-me-summary"></p>
+            <div id="about-me-highlights" class="about-highlights"></div>
+          </div>
+          <div class="about-grid">
+            <article id="about-col-left"></article>
+            <article id="about-col-right"></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="container">
+          <div class="section-header text-center">
+            <h2>CONTACT</h2>
+            <p>Open to opportunities in technical art, graphics R&D, and interactive art production.</p>
+            <a href="mailto:hello@jacky-portfolio.com">hello@jacky-portfolio.com</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="site-footer">
+      <div class="container">© <span id="current-year"></span> Jacky</div>
+    </footer>
+
+    <section id="portfolio-modal" class="portfolio-modal" aria-hidden="true" role="dialog" aria-label="Portfolio detail">
+      <div class="modal-backdrop" data-modal-close></div>
+      <article class="modal-content">
+        <button id="modal-close" class="modal-close" type="button" aria-label="Close modal">Close</button>
+        <h3 id="modal-title"></h3>
+        <p id="modal-type"></p>
+        <p id="modal-summary"></p>
+        <p id="modal-role"></p>
+        <p id="modal-tools"></p>
+      </article>
+    </section>
+
+    <script src="./js/app.js"></script>
+  </body>
+</html>

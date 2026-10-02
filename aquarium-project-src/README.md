@@ -1,0 +1,3 @@
+# Creative 1!
+
+See [assignment docs](https://www.cs.cornell.edu/courses/cs4620/2025fa/assignments/docs/category/creative-1)

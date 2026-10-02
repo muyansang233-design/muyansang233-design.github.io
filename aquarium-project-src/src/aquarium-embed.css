@@ -1,0 +1,164 @@
+.aquarium-embed-root {
+  width: 100%;
+  height: auto;
+  min-height: min(560px, 74vh);
+  padding: 10px;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background: linear-gradient(160deg, #f5fcff 0%, #e5f0f8 100%);
+  color: #eef2fb;
+}
+
+.aquarium-embed-shell {
+  width: min(1280px, 100%);
+  min-height: min(560px, 74vh);
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.aquarium-embed-canvas {
+  position: relative;
+  min-width: 0;
+}
+
+.aquarium-embed-panel {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  padding: 14px;
+  background: linear-gradient(160deg, rgba(8, 15, 27, 0.92), rgba(14, 20, 32, 0.92));
+  display: grid;
+  gap: 10px;
+}
+
+.aquarium-embed-panel h3 {
+  margin: 0 0 6px;
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+}
+
+.aquarium-embed-panel label {
+  color: #dbe4f6;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  display: grid;
+  gap: 6px;
+}
+
+.aquarium-embed-panel input[type="range"] {
+  width: 100%;
+}
+
+.aquarium-embed-panel input[type="color"] {
+  width: 56px;
+  height: 36px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+
+.aquarium-embed-panel select,
+.aquarium-embed-panel button {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 6px;
+  padding: 9px 10px;
+  color: #fff;
+  background: #121724;
+}
+
+.aquarium-embed-panel button {
+  cursor: pointer;
+}
+
+.aquarium-embed-panel button:hover,
+.aquarium-embed-panel button:focus,
+.aquarium-embed-panel select:hover,
+.aquarium-embed-panel select:focus {
+  background: #1a2131;
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.aquarium-toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.aquarium-toggle-row span {
+  color: #d2d8e5;
+  font-weight: 600;
+}
+
+.aquarium-canvas-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #08101a;
+  min-height: 280px;
+}
+
+.aquarium-canvas-frame .anigraph-parent {
+  width: 100%;
+  height: 100%;
+}
+
+.aquarium-canvas-frame .anigraph-parent > .anigraphcontainer {
+  width: 100%;
+  height: 100%;
+}
+
+.aquarium-canvas-placeholder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  color: rgba(228, 234, 247, 0.92);
+  font-size: 14px;
+  text-align: center;
+  padding: 0 18px;
+}
+
+.aquarium-canvas-error {
+  position: absolute;
+  inset: 12px;
+  z-index: 6;
+  background: rgba(70, 18, 21, 0.86);
+  border: 1px solid rgba(255, 102, 102, 0.65);
+  border-radius: 6px;
+  color: #ffe8e8;
+  padding: 8px 10px;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.aquarium-canvas-status {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  z-index: 5;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(5, 10, 16, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+@media (max-width: 1000px) {
+  .aquarium-embed-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .aquarium-embed-root {
+    min-height: 720px;
+  }
+}

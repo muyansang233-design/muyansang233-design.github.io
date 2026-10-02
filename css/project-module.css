@@ -1,0 +1,218 @@
+.project-page-wrap {
+  background: var(--bg-3);
+  min-height: 100vh;
+  padding-top: 90px;
+}
+
+.project-breadcrumb {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 14px;
+  padding-top: 26px;
+}
+
+.project-back {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text);
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.project-back:hover,
+.project-back:focus {
+  border-bottom-color: #fff;
+  color: #fff;
+}
+
+.project-hero {
+  padding: 24px 0 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.project-hero .container {
+  display: grid;
+  gap: 10px;
+}
+
+.project-kicker {
+  color: var(--link);
+  letter-spacing: 0.12em;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+#project-title {
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0;
+}
+
+.project-subtitle {
+  font-size: 16px;
+  color: #d5d8e1;
+  font-weight: 600;
+}
+
+.project-types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.project-type {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  padding: 6px 12px;
+  color: #d7dce8;
+  font-size: 12px;
+}
+
+.project-summary {
+  color: #e5e7ef;
+}
+
+.project-content-wrap {
+  padding: 16px 0 18px;
+  display: block;
+}
+
+.project-intro {
+  padding-top: 22px;
+}
+
+.project-intro .project-block {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 6px;
+  background: rgba(14, 18, 31, 0.85);
+  padding: 16px;
+}
+
+.project-intro h2 {
+  margin: 0 0 10px;
+  color: #fff;
+  font-size: 22px;
+}
+
+.project-intro-summary {
+  color: #e5e7ef;
+}
+
+.project-module-wrap {
+  padding-top: 0;
+  padding-bottom: 56px;
+}
+
+.project-panel,
+.project-module-card {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 6px;
+  background: rgba(14, 18, 31, 0.85);
+  padding: 16px;
+}
+
+.project-panel h2,
+.project-module-card h2 {
+  margin: 0 0 10px;
+  color: #fff;
+  font-size: 22px;
+}
+
+.project-panel h3 {
+  margin: 16px 0 6px;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.project-panel p {
+  color: #d7d8df;
+}
+
+.project-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-list {
+  margin: 8px 0 10px;
+  padding-left: 18px;
+  color: #cdd3df;
+}
+
+.project-list li {
+  margin-bottom: 6px;
+}
+
+.project-tool {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #d5d8e1;
+  font-size: 12px;
+}
+
+.project-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.project-actions a {
+  text-decoration: none;
+  color: #fff;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.project-actions a:hover,
+.project-actions a:focus {
+  background: #fff;
+  color: #0a0c14;
+}
+
+.module-note {
+  color: #c1c4ce;
+  margin-bottom: 10px;
+}
+
+.module-frame-wrap {
+  background: #040608;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  min-height: min(560px, 62vw);
+  max-height: min(640px, 68vh);
+}
+
+.project-module-card h2 + p {
+  margin-bottom: 10px;
+}
+
+#project-module-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.project-actions a.disabled {
+  color: #b4b7c5;
+  border-color: rgba(255, 255, 255, 0.15);
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .project-page-wrap {
+    padding-top: 82px;
+  }
+}
