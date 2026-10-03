@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/paige.css" />
     <link rel="stylesheet" href="./css/project-module.css" />
     <link rel="stylesheet" href="./css/tree-scene.css" />
+    <script src="./js/tree-scene-controls.js" defer></script>
   </head>
   <body class="paige-page tree-project">
     <a class="paige-skip" href="#main">Skip to project</a>
@@ -49,7 +50,30 @@
       <section class="container paige-section" id="interactive" aria-labelledby="interactive-title">
         <div class="paige-section-heading"><span>01 / INTERACTIVE MODULE</span><h2 id="interactive-title">A living tree scene</h2><p>This embedded build contains only the tree work. The source project's water simulation and water scene are not initialized or shown.</p></div>
         <figure class="paige-wide-media tree-module-media">
-          <div class="tree-frame-wrap"><iframe src="./tree-scene/index.html" title="Interactive procedural tree scene" loading="lazy" allowfullscreen></iframe></div>
+          <div class="tree-module-layout">
+            <div class="tree-frame-wrap"><iframe id="tree-scene-frame" src="./tree-scene/index.html" title="Interactive procedural tree scene" loading="lazy" allowfullscreen></iframe></div>
+            <aside class="tree-control-panel" aria-labelledby="tree-controls-title">
+              <p class="tree-control-kicker">LIVE CONTROLS / 01</p>
+              <h3 id="tree-controls-title">Shape the scene</h3>
+              <p class="tree-control-intro">Grow another procedural tree or change the wind moving through its branches.</p>
+              <button class="tree-control-button tree-regenerate" id="tree-regenerate" type="button">↻ &nbsp; Generate new tree</button>
+              <fieldset class="tree-control-group">
+                <legend>Wind direction</legend>
+                <label for="tree-wind-x"><span>X / East–West</span><output id="tree-wind-x-value" for="tree-wind-x">1.00</output></label>
+                <input id="tree-wind-x" type="range" min="-1" max="1" step="0.01" value="1" />
+                <label for="tree-wind-y"><span>Y / North–South</span><output id="tree-wind-y-value" for="tree-wind-y">0.20</output></label>
+                <input id="tree-wind-y" type="range" min="-1" max="1" step="0.01" value="0.2" />
+                <label for="tree-wind-z"><span>Z / Vertical</span><output id="tree-wind-z-value" for="tree-wind-z">0.00</output></label>
+                <input id="tree-wind-z" type="range" min="-1" max="1" step="0.01" value="0" />
+              </fieldset>
+              <div class="tree-control-group tree-strength-group">
+                <label for="tree-wind-strength"><span>Wind strength</span><output id="tree-wind-strength-value" for="tree-wind-strength">0.45</output></label>
+                <input id="tree-wind-strength" type="range" min="0.25" max="4" step="0.05" value="0.45" />
+              </div>
+              <button class="tree-control-button tree-wind-toggle" id="tree-wind-toggle" type="button" aria-pressed="false">Show wind vectors</button>
+              <p class="tree-control-note">Visualize the sampled 3D wind field behind the tree.</p>
+            </aside>
+          </div>
           <figcaption><span>Procedural Tree Scene</span><span>Drag to explore · Scroll to zoom</span></figcaption>
         </figure>
       </section>
@@ -67,7 +91,7 @@
       <section class="container paige-section" id="systems" aria-labelledby="systems-title">
         <div class="paige-section-heading"><span>03 / TECHNICAL SYSTEMS</span><h2 id="systems-title">How the scene works</h2><p>The embedded module retains the original tree implementation while giving it a focused entry point and a lightweight presentation inside the portfolio.</p></div>
         <div class="aquarium-feature-grid">
-          <article><h3>Procedural branching</h3><p>A tree model builds trunks, branches, and leaf nodes from depth, height, branch count, direction, and scale parameters. Two instances share the same system but vary naturally through generated structure.</p></article>
+          <article><h3>Procedural branching</h3><p>A tree model builds trunks, branches, and leaf nodes from depth, height, branch count, direction, and scale parameters. Generate a new tree to explore a fresh structure from the same rules.</p></article>
           <article><h3>Spatial wind field</h3><p>A three-dimensional grid evolves over time, and trilinear interpolation supplies local wind forces. Branch and leaf motion can respond continuously rather than following a single global animation.</p></article>
           <article><h3>Stylized foliage</h3><p>Camera-facing leaf planes use textured shader materials and distance-aware geometry selection. A small pooled particle system releases falling leaves to keep the scene alive without requiring the water simulation.</p></article>
         </div>

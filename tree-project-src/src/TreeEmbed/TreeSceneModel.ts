@@ -9,6 +9,11 @@ import { LeafParticleSystemModel } from "../FinalProject/Main_gpgpu_test/Nodes/J
 // or water presets are created, loaded, or rendered by this scene.
 export class TreeSceneModel extends ABasicSceneModel {
     private windField!: WindFieldModel;
+    private tree?: TreeModel;
+    private leafParticles?: LeafParticleSystemModel;
+    private windDirection = V3(1, 0.2, 0).getNormalized();
+    private windStrength = 0.45;
+    private windVisible = false;
 
     async PreloadAssets(): Promise<void> {
         await super.PreloadAssets();
@@ -30,24 +35,50 @@ export class TreeSceneModel extends ABasicSceneModel {
         this.addViewLight();
 
         this.windField = new WindFieldModel(7, 7, 7);
-        this.windField.globalWindStrength = 0.45;
-        this.windField.globalWindDirection = V3(0.45, 0.1, 0);
-        this.windField.isVisual = false;
+        this.windField.globalWindStrength = this.windStrength;
+        this.windField.globalWindDirection = this.windDirection;
+        this.windField.isVisual = this.windVisible;
         this.windField.transform.setPosition(V3(-3.5, -3.5, -3.5));
+        this.addNode(this.windField);
 
-        this.addTree(V3(-0.85, 0, -0.1), 0.4);
-        this.addTree(V3(2, -1.1, -0.3), 0.4);
+        this.addTree(V3(0.4, -0.2, -0.1), 0.4);
     }
 
     private addTree(position: Vec3, scale: number): void {
-        const tree = new TreeModel(3, 5, 5, this.windField, this.camera,
+        this.tree = new TreeModel(3, 5, 5, this.windField, this.camera,
             position, V3(0, 0, -1), scale);
-        this.addNode(tree);
-        this.addNode(new LeafParticleSystemModel(tree.leaves, this.windField, tree, scale));
+        this.leafParticles = new LeafParticleSystemModel(this.tree.leaves, this.windField, this.tree, scale);
+        this.addNode(this.tree);
+        this.addNode(this.leafParticles);
+    }
+
+    regenerateTree(): void {
+        if (!this.windField) return;
+        this.leafParticles?.release();
+        this.tree?.release();
+        this.addTree(V3(0.4, -0.2, -0.1), 0.4);
+    }
+
+    setWindDirection(x: number, y: number, z: number): void {
+        if (![x, y, z].every(Number.isFinite)) return;
+        const direction = V3(x, y, z);
+        if (direction.length <= 0.0001) return;
+        this.windDirection = direction.getNormalized();
+        if (this.windField) this.windField.globalWindDirection = this.windDirection;
+    }
+
+    setWindStrength(strength: number): void {
+        if (!Number.isFinite(strength)) return;
+        this.windStrength = Math.max(0.25, Math.min(4, strength));
+        if (this.windField) this.windField.globalWindStrength = this.windStrength;
+    }
+
+    setWindVisualization(visible: boolean): void {
+        this.windVisible = visible;
+        if (this.windField) this.windField.isVisual = visible;
     }
 
     timeUpdate(time: number = this.clock.time): void {
-        this.windField.timeUpdate(time);
         for (const node of this.getNodeModels()) node.timeUpdate(time);
     }
 }

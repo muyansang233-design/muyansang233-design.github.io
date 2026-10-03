@@ -1,4 +1,6 @@
 import * as THREE from "three";
+import { WindFieldModel } from "../FinalProject/Main_gpgpu_test/Nodes/Jacky-test1/Tree/WindFieldModel";
+import { WindFieldView } from "../FinalProject/Main_gpgpu_test/Nodes/Jacky-test1/Tree/WindFieldView";
 import { Color } from "../anigraph";
 import { ABasicSceneController } from "../anigraph/starter";
 import { TreeNode } from "../FinalProject/Main_gpgpu_test/Nodes/Jacky-test1/Tree/TreeNode";
@@ -15,7 +17,7 @@ export class TreeSceneController extends ABasicSceneController {
         this.setClearColor(new Color(0.039, 0.05, 0.067));
 
         const island = new THREE.Mesh(
-            new THREE.CylinderGeometry(3.5, 3.6, 0.18, 72),
+            new THREE.CylinderGeometry(2.55, 2.65, 0.18, 72),
             new THREE.MeshBasicMaterial({ color: 0x354f43 })
         );
         island.rotation.x = Math.PI / 2;
@@ -27,6 +29,7 @@ export class TreeSceneController extends ABasicSceneController {
         super.initModelViewSpecs();
         this.addModelViewSpec(TreeNode, TreeView);
         this.addModelViewSpec(TreeModel, TreeModelView);
+        this.addModelViewSpec(WindFieldModel, WindFieldView);
         this.addModelViewSpec(LeafParticleSystemModel, TreeModelView);
         this.addModelViewSpec(LeafParticle, LeafParticleView);
     }
