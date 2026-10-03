@@ -70,6 +70,20 @@ const fallbackData = {
       media: { kind: "image", src: "./assets/paige/final-render.png", alt: "The PAIGE final rendering" },
     },
     {
+      name: "Procedural Tree Scene",
+      type: "Technical Art / Real-Time Graphics",
+      summary:
+        "A wind-driven procedural tree study with generated branches, camera-facing foliage, and falling leaves, isolated from the original project's water simulation.",
+      role: "Tree system, wind response, foliage rendering, and scene integration.",
+      technicalFeatures: ["Procedural Branching", "Wind Field Animation", "Billboard Foliage"],
+      tools: ["AniGraph", "TypeScript", "Three.js", "WebGL"],
+      details: "./tree-scene.html",
+      modulePage: "./tree-scene.html",
+      modulePath: "./tree-scene.html",
+      isStandaloneModule: true,
+      media: { kind: "image", src: "./assets/tree-scene-preview.svg" },
+    },
+    {
       name: "Aquarium Interactive Module",
       type: "Interaction Module",
       summary:
@@ -892,7 +906,7 @@ init();
   else mountHeroReel();
 })();
 
-// Keep the homepage Portfolio showcase focused on The PAIGE and Aquarium.
+// Keep the homepage Portfolio showcase focused on the three finished graphics projects.
 (() => {
   const mountPortfolioSelection = () => {
     const anchor = document.querySelector('#portfolio, .portfolio-section, [data-section="portfolio"]');
@@ -910,7 +924,7 @@ init();
       cards.forEach((card) => {
         const title = card.querySelector('.project-card__title, .project-title, h2, h3, h4')?.textContent || '';
         const links = [...card.querySelectorAll('a[href]')].map((link) => link.getAttribute('href')).join(' ');
-        if (!/\bpaige\b|\baquarium\b/i.test(`${title} ${links}`)) card.remove();
+        if (!/\bpaige\b|\baquarium\b|\btree\b/i.test(`${title} ${links}`)) card.remove();
       });
     };
 
