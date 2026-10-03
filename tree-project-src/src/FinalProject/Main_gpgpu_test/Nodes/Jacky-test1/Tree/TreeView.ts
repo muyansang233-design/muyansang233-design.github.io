@@ -17,7 +17,6 @@ import {
 import { TreeNode, NodeTypes} from "./TreeNode";
 import { randFloat } from "three/src/math/MathUtils";
 import {TreeModel} from "./TreeModel";
-import {addOutlineToGraphic} from "../ToonShadingHelper";
 
 @ASerializable("TreeView")
 export class TreeView extends ANodeView {
@@ -217,7 +216,6 @@ export class TreeView extends ANodeView {
         if (TreeModel.camera) {
             this.camPos = TreeModel.camera.transform.getPosition();
         }
-        addOutlineToGraphic(this.graphic)
         this.registerAndAddGraphic(this.graphic);
         this.maintainTree();
     }
