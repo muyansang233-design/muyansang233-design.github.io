@@ -16,7 +16,7 @@ export class TreeSceneController extends ABasicSceneController {
 
         const island = new THREE.Mesh(
             new THREE.CylinderGeometry(3.5, 3.6, 0.18, 72),
-            new THREE.MeshLambertMaterial({ color: 0x354f43 })
+            new THREE.MeshBasicMaterial({ color: 0x354f43 })
         );
         island.rotation.x = Math.PI / 2;
         island.position.set(0.4, -0.25, -2.25);

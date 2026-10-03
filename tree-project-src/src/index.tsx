@@ -4,6 +4,7 @@ import {createRoot} from 'react-dom/client'
 import "@fontsource/anonymous-pro";
 
 import TreeEmbedApp from "./TreeEmbedApp";
+import "./index.css";
 
 
 // ReactDOM.render(
