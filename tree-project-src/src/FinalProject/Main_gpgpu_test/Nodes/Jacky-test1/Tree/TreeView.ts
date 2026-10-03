@@ -194,6 +194,7 @@ export class TreeView extends ANodeView {
                     );
 
                     mesh.position.set(x, y, z);
+                    mesh.up.set(0, 0, 1);
 
                     const randomScale = 1.0 + (Math.random() - 0.5) * 0.5;
                     const finalScale = randomScale * baseScaleFactor;
@@ -284,6 +285,7 @@ export class TreeView extends ANodeView {
 
     private static _tempCamPos = new THREE.Vector3();
     private static _tempWorldPos = new THREE.Vector3();
+    private static _tempBillboardTarget = new THREE.Vector3();
     private lastCamPosVal = { x: 0, y: 0, z: 0 };
 
     update(t: number, ...args: any[]): void {
@@ -336,8 +338,17 @@ export class TreeView extends ANodeView {
             if (mesh.visible !== shouldShow) mesh.visible = shouldShow;
             if (!shouldShow) continue;
 
-            // Billboarding
-            mesh.lookAt(TreeView._tempCamPos);
+            // Keep foliage upright in this Z-up scene. Only yaw toward the
+            // camera's horizontal direction, so pitch cannot roll the leaves.
+            mesh.getWorldPosition(TreeView._tempWorldPos);
+            TreeView._tempBillboardTarget.set(
+                TreeView._tempCamPos.x,
+                TreeView._tempCamPos.y,
+                TreeView._tempWorldPos.z
+            );
+            if (TreeView._tempBillboardTarget.distanceToSquared(TreeView._tempWorldPos) > 1e-6) {
+                mesh.lookAt(TreeView._tempBillboardTarget);
+            }
 
             // Color LOD Assignment (Geometry Switch)
             let targetGeom = TreeView.grassGeomFar;
