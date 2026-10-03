@@ -5,6 +5,8 @@ import { TreeModel } from "../FinalProject/Main_gpgpu_test/Nodes/Jacky-test1/Tre
 import { WindFieldModel } from "../FinalProject/Main_gpgpu_test/Nodes/Jacky-test1/Tree/WindFieldModel";
 import { LeafParticleSystemModel } from "../FinalProject/Main_gpgpu_test/Nodes/Jacky-test1/Tree/LeafParticleSystemModel";
 
+export const TREE_ORBIT_TARGET = V3(0.4, -0.2, -0.9);
+
 // A focused entry point for the original procedural tree work. No water models
 // or water presets are created, loaded, or rendered by this scene.
 export class TreeSceneModel extends ABasicSceneModel {
@@ -26,7 +28,7 @@ export class TreeSceneModel extends ABasicSceneModel {
         this.initPerspectiveCameraFOV(Math.PI / 3, 1);
         this.camera.setPose(NodeTransform3D.LookAt(
             V3(-4.3, -6.2, 3.6),
-            V3(0.4, -0.2, -0.9),
+            TREE_ORBIT_TARGET,
             V3(0, 0, 1)
         ));
     }
