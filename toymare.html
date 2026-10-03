@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Toymare: game design, UI/UX, and programming case study by Jacky Pan.">
+    <title>Toymare | Jacky Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/toymare.css">
+    <script src="js/toymare-code.js" defer></script>
+  </head>
+  <body>
+    <header class="tm-topbar">
+      <a class="tm-brand" href="index.html#intro">JACKY</a>
+      <nav aria-label="Primary navigation">
+        <a href="index.html#portfolio">Portfolio</a>
+        <a href="index.html#featured-games">Games</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="tm-hero tm-container" aria-labelledby="tm-title">
+        <a class="tm-back" href="index.html#featured-games">Back to Games</a>
+        <div class="tm-hero-grid">
+          <div class="tm-hero-copy">
+            <p class="tm-kicker">Game Design / UI &amp; UX / Programming</p>
+            <img class="tm-logo" src="media/toymare/toymare_logo.png" alt="Toymare logo">
+            <h1 id="tm-title">Toymare</h1>
+            <p class="tm-lede">A fast-moving action puzzle game about Nox, a delivery cat rebuilding order in a warehouse where every parcel has come to life.</p>
+            <div class="tm-tags" aria-label="Project disciplines">
+              <span>Game Design</span><span>LibGDX</span><span>Java</span><span>UI/UX</span>
+            </div>
+          </div>
+          <figure class="tm-hero-media">
+            <video controls playsinline preload="metadata" poster="media/toymare/toymare.png" aria-label="Toymare gameplay video">
+              <source src="media/toymare/video1.mp4" type="video/mp4">
+              Your browser does not support video playback.
+            </video>
+            <figcaption>Original Toymare gameplay footage</figcaption>
+          </figure>
+        </div>
+        <div class="tm-facts" aria-label="Project facts">
+          <div><span>Role</span><strong>Programmer, UI/UX Lead, Game Designer, Project</strong></div>
+          <div><span>Engine / Framework</span><strong>IntelliJ, Git, LibGDX (Java)</strong></div>
+          <div><span>Team</span><strong>Fachoi Studio · SP25 INFO/CS 3152 Intro to Game</strong></div>
+          <div><span>Timeline</span><strong>Jan 21, 2025 - May 17, 2025</strong></div>
+        </div>
+      </section>
+
+      <section class="tm-section tm-container tm-overview" aria-labelledby="tm-game-title">
+        <div class="tm-section-head"><p class="tm-kicker">01 / Overview</p><h2 id="tm-game-title">The Game</h2></div>
+        <div class="tm-overview-grid">
+          <p>In a busy delivery warehouse, Nox the delivery cat was sorting packages as usual until a strange energy swept through, bringing every parcel to life. Now chaotic creatures are wreaking havoc, and it is up to Nox to stop them. Players fend off the rebellious parcels by quickly assembling and combining scattered toy parts into powerful constructs. Strategy, timing, and quick thinking restore order to the warehouse and keep the deliveries moving.</p>
+          <img src="media/toymare/toymare.png" alt="Toymare game artwork showing Nox and the warehouse" loading="lazy">
+        </div>
+      </section>
+
+      <section class="tm-section tm-container" aria-labelledby="tm-design-title">
+        <div class="tm-section-head"><p class="tm-kicker">02 / Game Design</p><h2 id="tm-design-title">Design Goals</h2></div>
+        <div class="tm-goals">
+          <article><span>01</span><h3>Sense of Accomplishment</h3><p>For each completed order, players should feel accomplishment by revealing a new toy and seeing the score grow exponentially.</p></article>
+          <article><span>02</span><h3>Non-trivial Solution</h3><p>Players can build deceptive toy orders in multiple ways by recognizing their structure. A goose-like shape, for example, can be completed from its head, feet, or sides, allowing flexible strategies and creative problem-solving.</p></article>
+          <article><span>03</span><h3>Speed and Skills</h3><p>Challenging puzzles and distinctive mechanics keep players engaged. They must think critically and adapt as the game progresses.</p></article>
+        </div>
+      </section>
+
+      <section class="tm-section tm-container" aria-labelledby="tm-mechanics-title">
+        <div class="tm-section-head"><p class="tm-kicker">03 / Interaction</p><h2 id="tm-mechanics-title">Game Mechanics</h2></div>
+        <div class="tm-media-grid">
+          <article class="tm-media-card"><video controls muted playsinline preload="none" poster="media/toymare/toymare.png" aria-label="Recognize and assemble the shape gameplay"><source src="media/toymare/mech_1.mp4" type="video/mp4"></video><div><h3>Recognize and Assemble the Shape</h3><p>Identify the anonymous shape shown on the order board and assemble it using enemies available on the field.</p></div></article>
+          <article class="tm-media-card"><video controls muted playsinline preload="none" poster="media/toymare/toymare.png" aria-label="Color-based scoring gameplay"><source src="media/toymare/mech_2.mp4" type="video/mp4"></video><div><h3>Color Matters</h3><p>Except for pink pieces, which act as erasers, each color grants a different bonus to the completed order's score.</p></div></article>
+          <article class="tm-media-card"><video controls muted playsinline preload="none" poster="media/toymare/toymare.png" aria-label="Eraser gameplay"><source src="media/toymare/mech_3.mp4" type="video/mp4"></video><div><h3>Made a Mistake? Use Erasers</h3><p>Correct a misplaced piece by throwing an eraser at the incorrect component.</p></div></article>
+        </div>
+      </section>
+
+      <section class="tm-section tm-container" aria-labelledby="tm-ui-title">
+        <div class="tm-section-head"><p class="tm-kicker">04 / Arts &amp; Design</p><h2 id="tm-ui-title">UI/UX Design</h2></div>
+        <div class="tm-ui-list">
+          <article class="tm-ui-row"><video controls muted playsinline preload="none" poster="media/toymare/toymare.png" aria-label="Toymare menu screen animation"><source src="media/toymare/menu_demo.mp4" type="video/mp4"></video><div><span>01 / Menu Screen</span><h3>Animated Introduction</h3><p>The menu aims for a lighthearted, cute atmosphere through animated illustration. Its motion is programmed by changing UI element offsets with oscillation constants derived from sine and cosine.</p></div></article>
+          <article class="tm-ui-row"><video controls muted playsinline preload="none" poster="media/toymare/toymare.png" aria-label="Toymare package transition"><source src="media/toymare/transition_demo.mp4" type="video/mp4"></video><div><span>02 / Transition</span><h3>Package as Interface</h3><p>Because the story centers on delivery and packages, opening and closing a delivery box became the transition between screens. The same package language appears in the level-selection buttons.</p></div></article>
+          <article class="tm-ui-row"><video controls muted playsinline preload="none" poster="media/toymare/toymare.png" aria-label="Toymare level-selection interface"><source src="media/toymare/level_selection_demo.mp4" type="video/mp4"></video><div><span>03 / Level Selection</span><h3>A Journey Through Themes</h3><p>The level-selection page uses green summer and winter themes for different chapters and music. A scrolling map invites players into Nox's journey.</p></div></article>
+        </div>
+      </section>
+
+      <section class="tm-section tm-container" aria-labelledby="tm-programming-title">
+        <div class="tm-section-head"><p class="tm-kicker">05 / Engineering</p><h2 id="tm-programming-title">Programming</h2></div>
+        <div class="tm-tech-list">
+          <article class="tm-tech-row"><div><span>01 / Architecture</span><h3>Dependency Diagram</h3><p>Toymare follows the Model-View-Control (MVC) practice. Objects are defined in the Model layer, while interactions between models are resolved in the Control layer.</p></div><figure><img src="media/toymare/dependency.png" alt="Toymare class dependency diagram" loading="lazy"><figcaption>Original dependency diagram</figcaption></figure></article>
+          <article class="tm-tech-row"><div><span>02 / Control Flow</span><h3>Activity Diagram</h3><p>The activity diagram explains the rationale behind the main control classes, Game Scene and Gameplay Controller.</p></div><figure><img src="media/toymare/activitydiagram.png" alt="Toymare gameplay activity diagram" loading="lazy"><figcaption>Original activity diagram</figcaption></figure></article>
+          <article class="tm-tech-row tm-tech-text"><div><span>03 / Runtime</span><h3>Memory Management</h3><p>Toymare uses a built-in resource-management class and AssetsDirectory. Textures are initialized before each screen, passed to the next screen through its constructor, and read from that shared directory. A screen's directory is disposed when the player exits it. This limits the number of textures loaded at once and improves memory management during play.</p></div></article>
+          <article class="tm-tech-row tm-tech-text"><div><span>04 / Level Pipeline</span><h3>Tiled JSON Parsing</h3><p>Tiled is used to design 2D levels with tilesets. Toymare's grid has 45 × 23 cells; special cells identify obstacles, spawn points, and mud. The level's exported JSON is parsed to extract these fields into the GameScene class.</p></div></article>
+          <article class="tm-tech-row tm-tech-text"><div><span>05 / Game Feel</span><h3>Animation through FSM and Bool Chain</h3><h4>Order Update Animation with FSM</h4><p>The OrderState enum divides the order animation into distinct states. An update method transitions between them using timers, flags, and conditions. Each state handles a step such as flipping, audio playback, or interpolated visual offsets, keeping a complex UI animation modular and predictable.</p><h4>Toy Complete Animation with Bool Chain</h4><p>A sequential keyframe system uses state flags and timers for shake, shrink-in, shrink-out, and bounce-back stages. Each stage provides expressive visual and audio feedback when a toy combination is completed.</p></div></article>
+        </div>
+      </section>
+
+      <section class="tm-section tm-container" aria-labelledby="tm-code-title">
+        <div class="tm-section-head"><p class="tm-kicker">06 / Source Excerpts</p><h2 id="tm-code-title">Original Code Examples</h2></div>
+        <p class="tm-code-intro">Code excerpts are carried over from the original Toymare project page, including the Tiled parser and animation logic.</p>
+        <div id="toymare-code-appendix"></div>
+      </section>
+
+      <section class="tm-section tm-container tm-preview" aria-labelledby="tm-preview-title">
+        <div class="tm-section-head"><p class="tm-kicker">07 / Motion</p><h2 id="tm-preview-title">Portfolio Preview</h2></div>
+        <video controls muted playsinline preload="none" poster="media/toymare/toymare.png" aria-label="Toymare portfolio preview video"><source src="media/toymare/toymare_hover_video.mp4" type="video/mp4"></video>
+      </section>
+    </main>
+
+    <footer class="tm-footer"><a href="index.html#featured-games">Back to Games</a><span>Jacky Pan · Toymare</span></footer>
+  </body>
+</html>

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="The PAIGE: a rendering and graphics study by Jacky Pan, with original artwork and side-by-side technical comparisons." />
+    <title>The PAIGE | Jacky Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Raleway:wght@400;500;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/paige.css" />
+  </head>
+  <body class="paige-page">
+    <a class="paige-skip" href="#main">Skip to project</a>
+    <header class="paige-header">
+      <div class="container paige-header-inner">
+        <a class="paige-brand" href="./index.html#intro">JACKY</a>
+        <nav aria-label="Project navigation">
+          <a href="./index.html#portfolio">Portfolio</a>
+          <a href="./index.html#about">About</a>
+          <a href="https://docs.google.com/presentation/d/1ZhORQN8BSRTG6c9IkzeNZpxrGNumrVtzt-s6jLfEijw/edit" target="_blank" rel="noopener noreferrer">Original slides ↗</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="container paige-breadcrumb"><a href="./index.html#portfolio">← Back to Portfolio</a><span> / </span><span>The PAIGE</span></div>
+
+      <section class="container paige-intro" aria-labelledby="paige-title">
+        <div class="paige-intro-copy">
+          <p class="paige-eyebrow">TECH ART &amp; GRAPHICS / RENDERING STUDY</p>
+          <h1 id="paige-title">THE <span>PAIGE</span></h1>
+          <p class="paige-lead">A scene-led graphics study exploring how light, materials, depth, and denoising shape a final image.</p>
+          <p class="paige-author">Final presentation by Jacky Pan · CS 5630</p>
+          <div class="paige-tags" aria-label="Topics">
+            <span>Volumetrics</span><span>Textured Light</span><span>Depth of Field</span><span>Metal BRDF</span><span>Denoising</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="container paige-index" aria-label="On this page">
+        <span>CONTENTS</span>
+        <a href="#scene">01 / Scene</a>
+        <a href="#volumetrics">02 / Volume</a>
+        <a href="#textured-light">03 / Textured light</a>
+        <a href="#depth">04 / Depth</a>
+        <a href="#materials">05 / Material</a>
+        <a href="#denoising">06 / Denoising</a>
+      </div>
+
+      <section id="scene" class="container paige-section" aria-labelledby="scene-title">
+        <div class="paige-section-heading"><span>01 / SCENE</span><h2 id="scene-title">Final render</h2><p>A figure surrounded by floating, luminous pages beneath a bright window. This image anchors the rendering comparisons below.</p></div>
+        <figure class="paige-wide-media paige-final-render">
+          <img src="./assets/paige/final-render.png" width="1920" height="1080" alt="Final render of glowing pages floating around the character by a bright arched window" fetchpriority="high" />
+          <figcaption><span>Final rendered scene</span><span>1920 × 1080 · 4096 spp</span></figcaption>
+        </figure>
+      </section>
+
+      <section id="volumetrics" class="container paige-section" aria-labelledby="volumetrics-title">
+        <div class="paige-section-heading"><span>02 / LIGHT TRANSPORT</span><h2 id="volumetrics-title">Homogeneous volumetric rendering</h2><p>Comparing the same composition with and without a participating medium shows how visible light and atmospheric haze add depth around the window, character, and pages.</p></div>
+        <div class="paige-compare" aria-label="Volumetric rendering comparison">
+          <figure><img src="./assets/paige/volumetric-off.png" width="960" height="540" alt="Scene without volumetric rendering, with dark air around the glowing pages" loading="lazy" decoding="async" /><figcaption><span class="paige-state paige-state-off">WITHOUT</span> Volumetric rendering</figcaption></figure>
+          <figure><img src="./assets/paige/volumetric-on.png" width="960" height="540" alt="Same scene with volumetric rendering, showing light and haze in the air" loading="lazy" decoding="async" /><figcaption><span class="paige-state">WITH</span> Volumetric rendering</figcaption></figure>
+        </div>
+        <p class="paige-sample-note">Comparison renders: 2048 spp</p>
+      </section>
+
+      <section id="textured-light" class="container paige-section" aria-labelledby="texture-title">
+        <div class="paige-section-heading"><span>03 / SURFACE &amp; PROJECTION</span><h2 id="texture-title">Texture mapping &amp; textured light</h2><p>Original glyph textures are shown alongside the rendered result. In the comparison, the papers first receive their markings; the textured-light pass then makes the symbols themselves part of the scene's illumination.</p></div>
+        <div class="paige-texture-strip" aria-label="Original glyph textures">
+          <figure><img src="./assets/paige/glyph-01.png" width="596" height="842" alt="Original black rune lettering texture used on the pages" loading="lazy" decoding="async" /><figcaption>Glyph texture 01</figcaption></figure>
+          <figure><img src="./assets/paige/glyph-02.png" width="596" height="842" alt="Original black rune and eye-symbol texture used on the pages" loading="lazy" decoding="async" /><figcaption>Glyph texture 02</figcaption></figure>
+        </div>
+        <div class="paige-compare" aria-label="Texture mapping comparison">
+          <figure><img src="./assets/paige/texture-off.png" width="960" height="540" alt="Floating pages in the scene before their rune textures are applied" loading="lazy" decoding="async" /><figcaption><span class="paige-state paige-state-off">WITHOUT</span> Texture mapping</figcaption></figure>
+          <figure><img src="./assets/paige/texture-on.png" width="960" height="540" alt="Floating pages after rune textures are applied" loading="lazy" decoding="async" /><figcaption><span class="paige-state">WITH</span> Texture mapping</figcaption></figure>
+        </div>
+        <p class="paige-sample-note">The original presentation also isolates the textured-light result at 2048 spp.</p>
+      </section>
+
+      <section id="depth" class="container paige-section" aria-labelledby="depth-title">
+        <div class="paige-section-heading"><span>04 / CAMERA</span><h2 id="depth-title">Depth of field</h2><p>Depth of field shifts attention toward the center of the scene. The nearby pages soften while the character and illuminated midground remain the visual focus.</p></div>
+        <div class="paige-compare" aria-label="Depth of field comparison">
+          <figure><img src="./assets/paige/dof-off.png" width="960" height="540" alt="Rendered scene without depth of field; foreground pages appear sharper" loading="lazy" decoding="async" /><figcaption><span class="paige-state paige-state-off">WITHOUT</span> Depth of field</figcaption></figure>
+          <figure><img src="./assets/paige/dof-on.png" width="960" height="540" alt="Rendered scene with depth of field; foreground pages are softer" loading="lazy" decoding="async" /><figcaption><span class="paige-state">WITH</span> Depth of field</figcaption></figure>
+        </div>
+        <p class="paige-sample-note">Comparison renders: 2048 spp</p>
+      </section>
+
+      <section id="materials" class="container paige-section" aria-labelledby="materials-title">
+        <div class="paige-section-heading"><span>05 / MATERIAL RESPONSE</span><h2 id="materials-title">Metal BRDF</h2><p>The close-up comparison isolates the character and surrounding pages to show the material-response change. The source presentation directs attention to the small reflective area around the character's eyewear.</p></div>
+        <div class="paige-compare" aria-label="Metal BRDF comparison">
+          <figure><img src="./assets/paige/metal-off.png" width="960" height="540" alt="Close-up render of the character and glowing pages without the metal BRDF treatment" loading="lazy" decoding="async" /><figcaption><span class="paige-state paige-state-off">WITHOUT</span> Metal BRDF</figcaption></figure>
+          <figure><img src="./assets/paige/metal-on.png" width="960" height="540" alt="Matching close-up render with the metal BRDF treatment" loading="lazy" decoding="async" /><figcaption><span class="paige-state">WITH</span> Metal BRDF</figcaption></figure>
+        </div>
+        <p class="paige-sample-note">Comparison renders: 2048 spp</p>
+      </section>
+
+      <section id="denoising" class="container paige-section" aria-labelledby="denoising-title">
+        <div class="paige-section-heading"><span>06 / FINAL IMAGE</span><h2 id="denoising-title">Medium radiance denoiser</h2><p>The last two comparisons use both a close crop and the full frame. They make it easier to inspect the treatment of noise across the illuminated pages, character, and atmospheric background.</p></div>
+        <h3 class="paige-compare-title">Detail view</h3>
+        <div class="paige-compare" aria-label="Medium radiance denoiser detail comparison">
+          <figure><img src="./assets/paige/denoise-detail-off.png" width="1920" height="1080" alt="Close-up of the character and pages without medium radiance denoising" loading="lazy" decoding="async" /><figcaption><span class="paige-state paige-state-off">WITHOUT</span> Medium radiance denoiser</figcaption></figure>
+          <figure><img src="./assets/paige/denoise-detail-on.png" width="1920" height="1080" alt="Matching close-up with medium radiance denoising" loading="lazy" decoding="async" /><figcaption><span class="paige-state">WITH</span> Medium radiance denoiser</figcaption></figure>
+        </div>
+        <h3 class="paige-compare-title">Full frame</h3>
+        <div class="paige-compare" aria-label="Medium radiance denoiser full-frame comparison">
+          <figure><img src="./assets/paige/denoise-wide-off.png" width="1920" height="1080" alt="Full rendered scene without medium radiance denoising" loading="lazy" decoding="async" /><figcaption><span class="paige-state paige-state-off">WITHOUT</span> Medium radiance denoiser</figcaption></figure>
+          <figure><img src="./assets/paige/denoise-wide-on.png" width="1920" height="1080" alt="Full rendered scene with medium radiance denoising" loading="lazy" decoding="async" /><figcaption><span class="paige-state">WITH</span> Medium radiance denoiser</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="container paige-outro" aria-label="Project source">
+        <p>The final render and comparison images are extracted from Jacky Pan's CS 5630 final presentation. This page reorganizes the material for web reading rather than reproducing slide layouts.</p>
+        <a href="https://docs.google.com/presentation/d/1ZhORQN8BSRTG6c9IkzeNZpxrGNumrVtzt-s6jLfEijw/edit" target="_blank" rel="noopener noreferrer">View original presentation ↗</a>
+      </section>
+    </main>
+    <footer class="paige-footer"><div class="container"><span>© Jacky Pan</span><a href="./index.html#portfolio">Back to Portfolio ↑</a></div></footer>
+  </body>
+</html>

@@ -1,0 +1,329 @@
+.project-card-morph {
+  position: relative;
+  z-index: 2;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.project-card-morph::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  background-image:
+    linear-gradient(90deg, rgba(5, 10, 18, .14), rgba(5, 10, 18, .32)),
+    var(--project-card-cover, linear-gradient(135deg, #10243c, #173a55));
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 500ms ease;
+}
+
+.project-card-morph:hover::before,
+.project-card-morph:focus-within::before {
+  opacity: 1;
+}
+
+.project-card-morph__motes {
+  position: fixed;
+  z-index: 1;
+  overflow: visible;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 450ms ease;
+}
+
+.project-card-morph__motes.is-active {
+  opacity: 1;
+}
+
+.project-card-morph__mote {
+  position: absolute;
+  top: var(--mote-y);
+  left: var(--mote-x);
+  width: var(--mote-size);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, .96) 0 7%, rgba(157, 239, 255, .76) 23%, rgba(54, 209, 242, .36) 48%, transparent 76%);
+  opacity: 0;
+}
+
+.project-card-morph__mote:nth-child(4n) {
+  background: radial-gradient(circle, rgba(255, 255, 255, .92) 0 8%, rgba(255, 239, 190, .62) 26%, rgba(255, 223, 154, .18) 52%, transparent 76%);
+}
+
+.project-card-morph__motes.is-active .project-card-morph__mote {
+  animation: project-card-mote-drift var(--mote-duration) ease-out var(--mote-delay) infinite;
+}
+
+@keyframes project-card-mote-drift {
+  0% { opacity: 0; transform: translate3d(0, 0, 0) scale(.55); }
+  20% { opacity: .72; }
+  65% { opacity: .42; }
+  100% { opacity: 0; transform: translate3d(var(--mote-dx), var(--mote-dy), 0) scale(1.25); }
+}
+
+.project-card-morph__original-info {
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.project-card-morph__panel {
+  position: absolute;
+  z-index: 11;
+  left: 0;
+  top: 76%;
+  width: 100%;
+  height: 24%;
+  overflow: hidden;
+  color: #f7f9fc;
+  background: rgba(8, 13, 22, .98);
+  transition:
+    left 560ms cubic-bezier(.22, 1, .36, 1),
+    top 560ms cubic-bezier(.22, 1, .36, 1),
+    width 560ms cubic-bezier(.22, 1, .36, 1),
+    height 560ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.project-card-morph:hover .project-card-morph__panel,
+.project-card-morph:focus-within .project-card-morph__panel {
+  left: 67%;
+  top: 0;
+  width: 33%;
+  height: 100%;
+}
+
+.project-card-morph__header {
+  position: absolute;
+  top: 50%;
+  left: 18px;
+  right: 18px;
+  transform: translateY(-50%);
+  text-align: center;
+  transition: top 560ms cubic-bezier(.22, 1, .36, 1), transform 560ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.project-card-morph:hover .project-card-morph__header,
+.project-card-morph:focus-within .project-card-morph__header {
+  top: 5%;
+  transform: translateY(0);
+}
+
+.project-card-morph__title {
+  margin: 0 0 .45rem;
+  color: #fff;
+  font-size: clamp(1rem, 1.4vw, 1.55rem);
+  line-height: 1.2;
+}
+
+.project-card-morph__subtitle {
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  color: #d6dae3;
+  font-size: clamp(.78rem, .95vw, .95rem);
+  line-height: 1.35;
+  transition: max-height 300ms ease, opacity 250ms ease;
+}
+
+.project-card-morph__preview-features {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  max-height: 90px;
+  margin-top: .4rem;
+  opacity: 1;
+  transition: max-height 300ms ease, margin 300ms ease, opacity 250ms ease;
+}
+
+.project-card-morph__preview-feature {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  padding: 7px;
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, .06);
+  color: #edf3f8;
+  font-size: clamp(.58rem, .68vw, .72rem);
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.project-card-morph:hover .project-card-morph__preview-features,
+.project-card-morph:focus-within .project-card-morph__preview-features {
+  max-height: 0;
+  margin-top: 0;
+  opacity: 0;
+}
+
+.project-card-morph:hover .project-card-morph__subtitle,
+.project-card-morph:focus-within .project-card-morph__subtitle {
+  max-height: 3rem;
+  opacity: 1;
+}
+
+.project-card-morph__category {
+  margin: .65rem 0 0;
+  color: #47d2f4;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.project-card-morph__expanded {
+  position: absolute;
+  top: 29%;
+  right: 18px;
+  bottom: 18px;
+  left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 260ms ease, transform 260ms ease, visibility 260ms;
+}
+
+.project-card-morph:hover .project-card-morph__expanded,
+.project-card-morph:focus-within .project-card-morph__expanded {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition-delay: 240ms;
+}
+
+.project-card-morph__description {
+  margin: 0;
+  color: #d7dce5;
+  font-size: clamp(.76rem, .85vw, .88rem);
+  line-height: 1.55;
+}
+
+.project-card-morph__features {
+  display: grid;
+  gap: 8px;
+}
+
+.project-card-morph__feature {
+  display: grid;
+  place-items: center;
+  min-height: 42px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 4px;
+  background: #151d2b;
+  color: #edf3f8;
+  font-size: .75rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.project-card-morph__detail-slot {
+  display: grid;
+  place-items: center;
+  min-height: 54px;
+  margin-top: auto;
+}
+
+.project-card-morph__detail {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 8px 24px;
+  border: 1px solid #47d2f4;
+  border-radius: 4px;
+  color: #47d2f4;
+  background: transparent;
+  font: inherit;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.project-card-morph__detail:hover,
+.project-card-morph__detail:focus-visible {
+  color: #0a0c14;
+  background: #47d2f4;
+}
+
+@media (max-width: 1100px) and (min-width: 801px) {
+  .project-card-morph:hover .project-card-morph__panel,
+  .project-card-morph:focus-within .project-card-morph__panel {
+    left: calc(100% - max(33%, 280px));
+    width: max(33%, 280px);
+  }
+}
+
+@media (max-width: 800px), (hover: none) {
+  .project-card-morph__preview-features { display: none; }
+  .project-card-morph__subtitle { max-height: none; overflow: visible; opacity: 1; }
+  .project-card-morph {
+    min-height: 740px;
+  }
+
+  .project-card-morph::before {
+    opacity: 1;
+  }
+
+  .project-card-morph__panel,
+  .project-card-morph:hover .project-card-morph__panel,
+  .project-card-morph:focus-within .project-card-morph__panel {
+    left: 0;
+    top: 40%;
+    width: 100%;
+    height: 60%;
+  }
+
+  .project-card-morph__header,
+  .project-card-morph:hover .project-card-morph__header,
+  .project-card-morph:focus-within .project-card-morph__header {
+    top: 18px;
+    transform: none;
+  }
+
+  .project-card-morph__expanded,
+  .project-card-morph:hover .project-card-morph__expanded,
+  .project-card-morph:focus-within .project-card-morph__expanded {
+    top: 130px;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition-delay: 0ms;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card-morph__motes { display: none; }
+  .project-card-morph::before,
+  .project-card-morph__panel,
+  .project-card-morph__header,
+  .project-card-morph__expanded {
+    transition: none;
+  }
+}
+
+/* Let the project imagery show through the information surface without fading its text. */
+#portfolio .project-card__info,
+#portfolio .project-card__panel,
+#portfolio .project-card__content,
+#portfolio .project-card-panel,
+#portfolio .portfolio-card__info,
+#portfolio .portfolio-card__panel,
+#portfolio .portfolio-card__content,
+#portfolio [class*="project"][class*="info"],
+#portfolio [class*="project"][class*="panel"] {
+  background: rgba(10, 16, 28, .7) !important;
+}

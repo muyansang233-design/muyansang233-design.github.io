@@ -59,6 +59,17 @@ const fallbackData = {
   ],
   tech: [
     {
+      name: "The PAIGE",
+      type: "Rendering / Graphics Study",
+      summary:
+        "A scene-led rendering study presented through original artwork and comparisons of volumetric light, texture mapping, depth of field, metal BRDF, and medium radiance denoising.",
+      role: "Final presentation by Jacky Pan for CS 5630.",
+      technicalFeatures: ["Physically Based Rendering", "Path Tracing", "Volumetric Rendering"],
+      tools: ["Rendering", "Graphics", "BRDF", "Denoising"],
+      details: "./paige.html",
+      media: { kind: "image", src: "./assets/paige/final-render.png", alt: "The PAIGE final rendering" },
+    },
+    {
       name: "Aquarium Interactive Module",
       type: "Interaction Module",
       summary:
@@ -720,3 +731,201 @@ document.querySelectorAll("#mobile-nav a").forEach((link) => {
 });
 
 init();
+
+// Let the hero video become an unobstructed, replayable Demo Reel.
+(() => {
+  const mountHeroReel = () => {
+    const intro = document.getElementById('intro');
+    const hero = intro?.matches('section, header') ? intro : intro?.closest('section, header') || intro;
+    const video = hero?.querySelector('video') || document.querySelector('video.hero-video, video.intro-video, video[data-hero]');
+    if (!hero || !video || hero.querySelector('.hero-reel-toggle')) return;
+
+    video.classList.add('hero-reel-video');
+    if (video.parentElement && video.parentElement !== hero) video.parentElement.classList.add('hero-reel-media');
+    hero.querySelectorAll('h1, h2, p, [class*="scroll-cue"], [class*="scroll-hint"], [class*="scroll-indicator"]').forEach((element) => {
+      if (!element.closest('nav')) element.classList.add('hero-reel-fadable');
+    });
+    hero.querySelectorAll('[class*="overlay"], [class*="scrim"], [class*="shade"]').forEach((element) => {
+      if (!element.contains(video)) element.classList.add('hero-reel-veil');
+    });
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'hero-reel-toggle';
+    button.setAttribute('aria-pressed', 'false');
+    const icon = document.createElement('span');
+    icon.className = 'hero-reel-toggle__icon';
+    icon.setAttribute('aria-hidden', 'true');
+    icon.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path class="hero-reel-toggle__play" d="M8 5v14l11-7z"/><path class="hero-reel-toggle__close" d="M6 6l12 12M18 6 6 18"/></svg>';
+    const label = document.createElement('span');
+    label.className = 'hero-reel-toggle__label';
+    label.setAttribute('aria-hidden', 'true');
+    label.textContent = 'Demo Reel';
+    const backLabel = document.createElement('span');
+    backLabel.className = 'hero-reel-toggle__back';
+    backLabel.setAttribute('aria-hidden', 'true');
+    backLabel.textContent = 'Back to Intro';
+    button.append(icon, label, backLabel);
+    let reelRngState = (Date.now() ^ Math.floor(Math.random() * 0xffffffff)) || 1;
+    const reelRng = () => {
+      reelRngState ^= reelRngState << 13;
+      reelRngState ^= reelRngState >>> 17;
+      reelRngState ^= reelRngState << 5;
+      return (reelRngState >>> 0) / 4294967296;
+    };
+    const reelAnimations = new Set();
+    const reelLayer = document.createElement('div');
+    reelLayer.className = 'hero-reel-motes-layer';
+    reelLayer.setAttribute('aria-hidden', 'true');
+    for (let i = 0; i < 10; i++) {
+      const mote = document.createElement('span');
+      mote.className = 'hero-reel-toggle__mote';
+      mote.setAttribute('aria-hidden', 'true');
+      mote.style.animation = 'none';
+      reelLayer.append(mote);
+    }
+    const spawnReelMote = (mote, initial = false) => {
+      const edge = Math.floor(reelRng() * 4);
+      const position = `${reelRng() * 100}%`;
+      const outward = 5 + reelRng() * 10;
+      const sideways = (reelRng() - .5) * 16;
+      const x = edge === 0 ? '-2px' : edge === 1 ? 'calc(100% + 2px)' : position;
+      const y = edge === 2 ? '-2px' : edge === 3 ? 'calc(100% + 2px)' : position;
+      const driftX = edge === 0 ? -outward : edge === 1 ? outward : sideways;
+      const driftY = edge === 2 ? -outward : edge === 3 ? outward : sideways;
+      const life = .6 + reelRng() * .4;
+      mote.style.setProperty('--mote-x', x);
+      mote.style.setProperty('--mote-y', y);
+      mote.style.setProperty('--mote-size', `${11 + reelRng() * 11}px`);
+      const animation = mote.animate([
+        { opacity: 0, transform: 'translate3d(0, 0, 0) scale(.55)', offset: 0 },
+        { opacity: .72, offset: .2 },
+        { opacity: .42, offset: .65 },
+        { opacity: 0, transform: `translate3d(${driftX}px, ${driftY}px, 0) scale(1.25)`, offset: 1 }
+      ], { duration: life * 1000, delay: initial ? reelRng() * 1100 : reelRng() * 180, easing: 'ease-out' });
+      reelAnimations.add(animation);
+      animation.onfinish = () => {
+        reelAnimations.delete(animation);
+        if (button.matches(':hover, :focus-visible')) spawnReelMote(mote);
+      };
+    };
+    let reelFrame = 0;
+    const followReelButton = () => {
+      const rect = button.getBoundingClientRect();
+      reelLayer.style.left = `${rect.left}px`;
+      reelLayer.style.top = `${rect.top}px`;
+      reelLayer.style.width = `${rect.width}px`;
+      reelLayer.style.height = `${rect.height}px`;
+      reelFrame = reelAnimations.size ? requestAnimationFrame(followReelButton) : 0;
+    };
+    const startReelMotes = () => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !button.matches(':hover, :focus-visible') || reelAnimations.size) return;
+      reelLayer.querySelectorAll('.hero-reel-toggle__mote').forEach((mote) => spawnReelMote(mote, true));
+      if (!reelFrame) followReelButton();
+    };
+    const stopReelMotes = () => {
+      if (button.matches(':hover, :focus-visible')) return;
+      for (const animation of reelAnimations) animation.cancel();
+      reelAnimations.clear();
+      cancelAnimationFrame(reelFrame);
+      reelFrame = 0;
+    };
+    button.addEventListener('pointerenter', startReelMotes);
+    button.addEventListener('pointerleave', stopReelMotes);
+    button.addEventListener('focusin', startReelMotes);
+    button.addEventListener('focusout', () => queueMicrotask(stopReelMotes));
+    hero.append(reelLayer, button);
+
+    const primaryNav = [...document.querySelectorAll('nav')].find((nav) =>
+      nav.querySelector('a[href*="portfolio"]') && nav.querySelector('a[href*="contact"]'));
+    const navHeader = primaryNav?.closest('header');
+    const topBar = navHeader && !navHeader.contains(hero)
+      ? navHeader
+      : primaryNav?.parentElement && !primaryNav.parentElement.contains(hero)
+        ? primaryNav.parentElement
+        : primaryNav;
+    const topBarWasInert = topBar?.inert ?? false;
+    topBar?.classList.add('hero-reel-topbar');
+    const ambientLoop = video.loop;
+
+    let moveAnimation = null;
+    const setReelMode = (playing) => {
+      const start = button.getBoundingClientRect();
+      moveAnimation?.cancel();
+      hero.classList.toggle('hero-reel-active', playing);
+      topBar?.classList.toggle('hero-reel-topbar-hidden', playing);
+      if (topBar) topBar.inert = playing || topBarWasInert;
+      button.setAttribute('aria-pressed', String(playing));
+      button.setAttribute('aria-label', playing ? 'Back to introduction' : 'Play Demo Reel');
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const end = button.getBoundingClientRect();
+        moveAnimation = button.animate([
+          { transform: `translate(${start.left - end.left}px, ${start.top - end.top}px)` },
+          { transform: 'translate(0, 0)' }
+        ], { duration: 760, easing: 'cubic-bezier(.22, 1, .36, 1)' });
+      }
+      if (playing) {
+        video.loop = false;
+        video.pause();
+        try { video.currentTime = 0; } catch (_) { /* Wait for video metadata if needed. */ }
+        const playback = video.play();
+        if (playback && typeof playback.catch === 'function') {
+          playback.catch(() => setReelMode(false));
+        }
+      } else {
+        video.loop = ambientLoop;
+      }
+    };
+    button.addEventListener('click', () => setReelMode(!hero.classList.contains('hero-reel-active')));
+    video.addEventListener('ended', () => {
+      if (!hero.classList.contains('hero-reel-active')) return;
+      setReelMode(false);
+      try { video.currentTime = 0; } catch (_) { /* Keep the final frame if seeking is unavailable. */ }
+      const ambientPlayback = video.play();
+      if (ambientPlayback && typeof ambientPlayback.catch === 'function') ambientPlayback.catch(() => {});
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && hero.classList.contains('hero-reel-active')) setReelMode(false);
+    });
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mountHeroReel, { once: true });
+  else mountHeroReel();
+})();
+
+// Keep the homepage Portfolio showcase focused on The PAIGE and Aquarium.
+(() => {
+  const mountPortfolioSelection = () => {
+    const anchor = document.querySelector('#portfolio, .portfolio-section, [data-section="portfolio"]');
+    const portfolio = anchor?.closest('section') || anchor;
+    if (!portfolio) return false;
+
+    const pruneCards = () => {
+      const selectors = ['.project-card', '.portfolio-card', '.portfolio-project', '.work-card', 'article'];
+      let cards = [];
+      for (const selector of selectors) {
+        cards = [...portfolio.querySelectorAll(selector)];
+        if (cards.length >= 2) break;
+      }
+      if (cards.length < 2) return;
+      cards.forEach((card) => {
+        const title = card.querySelector('.project-card__title, .project-title, h2, h3, h4')?.textContent || '';
+        const links = [...card.querySelectorAll('a[href]')].map((link) => link.getAttribute('href')).join(' ');
+        if (!/\bpaige\b|\baquarium\b/i.test(`${title} ${links}`)) card.remove();
+      });
+    };
+
+    new MutationObserver(pruneCards).observe(portfolio, { childList: true, subtree: true });
+    pruneCards();
+    return true;
+  };
+
+  const start = () => {
+    if (mountPortfolioSelection()) return;
+    const observer = new MutationObserver(() => {
+      if (mountPortfolioSelection()) observer.disconnect();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, { once: true });
+  else start();
+})();

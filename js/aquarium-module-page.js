@@ -1,9 +1,9 @@
 const moduleFallback = {
-  title: "Aquarium Interactive Module",
-  subtitle: "Technical Art · Interaction · WebGL",
-  summary: "A standalone water-themed particle playground with stylized controls and interaction flow preserved from the original project source.",
+  title: "Aquarium Zen",
+  subtitle: "Computer Graphics Project",
+  summary: "An AI-driven biomimicry simulation that recreates lifelike aquatic behaviors through procedural animation, Bézier curve interpolation, and a particle system.",
   introSummary:
-    "An embedded interactive scene where users can experience stylized water behavior, drag interactions, and object response in one focused portfolio module.",
+    "This project is an AI-driven biomimicry simulation that recreates lifelike aquatic behaviors through procedural animation, Bézier curve interpolation, and a particle system. By combining AI behavioral modeling, procedural motion, and particle-driven visual effects, the project captures the essence of biomimicry in digital ecosystems, transforming algorithmic design into organic, expressive movement.",
   description:
     "This module is embedded as a full viewport inside the portfolio while keeping the original interaction, explanation blocks, and control flow from the source project intact.",
   role: "Preserved the original aquarium interaction experience and wrapped it as a dedicated portfolio project module inside the current site.",
@@ -156,7 +156,7 @@ async function loadModuleData() {
   }
 
   const allProjects = normalizeProjectList(data);
-  const project = allProjects.find((item) => item.isStandaloneModule || item.modulePage === "./aquarium-module.html") ||
+  const project = allProjects.find((item) => item.modulePage === "./aquarium-module.html") ||
     allProjects.find((item) => item.name === moduleFallback.title) ||
     moduleFallback;
 

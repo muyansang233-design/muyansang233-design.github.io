@@ -14,6 +14,21 @@
   },
   "games": [
     {
+      "name": "Gnome More Shrooms",
+      "type": "2D Isometric RTS / Tower Defense / Farming",
+      "summary": "A cooperative mobile game that turns growing and delivering crops into the ammunition supply chain for tower defense. Rookie Awards 2026 Game of the Year Runner Up.",
+      "role": "Lead Programmer; Art Lead (2D animation and illustrations); Technical Artist (VFX and shaders).",
+      "tools": ["CUGL", "Spine Animation", "Adobe Photoshop", "Adobe Illustrator", "Figma", "VFX", "Custom Shader"],
+      "details": "https://www.therookies.co/entries/50955",
+      "modulePage": "./gnome-more-shrooms.html",
+      "modulePath": "./gnome-more-shrooms.html",
+      "isStandaloneModule": true,
+      "media": {
+        "kind": "image",
+        "src": "https://d3stdg5so273ei.cloudfront.net/muyansang/2026-06-21/493513/800xAUTO/%25E6%259C%25AA%25E6%25A0%2587%25E9%25A2%2598-1-muyansang-crop.png"
+      }
+    },
+    {
       "name": "Summerfront Tide",
       "type": "Action Exploration Game",
       "summary": "A cooperative wave-river traversal prototype where movement rhythm and atmosphere design are core pillars.",
@@ -52,34 +67,48 @@
   ],
   "tech": [
     {
-      "name": "Aquarium Interactive Module",
-      "type": "Interaction Module",
-      "summary": "A standalone WebGL water + particle playground with original on-page text explanations, interaction feedback, and visual experimentation kept intact.",
-      "introSummary": "An interactive WebGL module that stays true to the original module’s visual language while being presented inside the portfolio as a dedicated project page.",
-      "description": "This module is embedded as a standalone interactive block where viewers can see natural motion, drag interactions, and fluid feedback while still reading the original on-screen guidance from the source build.",
-      "role": "Preserved the original module flow, preserved text explanation overlays, and adapted the project page shell to the current portfolio style.",
-      "responsibilities": [
-        "Keep the built module output unchanged and avoid introducing regression in interaction behavior.",
-        "Build a dedicated project detail layout that matches the existing portfolio visual system.",
-        "Map the original module into a stable iframe embed and provide structured project metadata under it."
-      ],
-      "notes": [
-        "The original text explanations are kept in the embedded module iframe.",
-        "Project information and supporting metadata remain editable in portfolio-content.json.",
-        "All interaction assets are loaded from the existing /aquarium build."
-      ],
-      "process": [
-        "Bundle the original module and place it under /aquarium.",
-        "Create a project page route and link card flow to this page.",
-        "Render project metadata and detail lists from JSON with graceful fallback."
+      "name": "The PAIGE",
+      "type": "Rendering / Graphics Study",
+      "summary": "A scene-led rendering study presented through original artwork and comparisons of volumetric light, texture mapping, depth of field, metal BRDF, and medium radiance denoising.",
+      "role": "Final presentation by Jacky Pan for CS 5630.",
+      "technicalFeatures": [
+        "Physically Based Rendering",
+        "Path Tracing",
+        "Volumetric Rendering"
       ],
       "tools": [
-        "TypeScript",
-        "React",
-        "Three.js",
-        "WebGL"
+        "Volumetric Rendering",
+        "Textured Light",
+        "Depth of Field",
+        "Metal BRDF",
+        "Denoising"
       ],
-      "details": "https://example.com/projects/aquarium",
+      "details": "https://docs.google.com/presentation/d/1ZhORQN8BSRTG6c9IkzeNZpxrGNumrVtzt-s6jLfEijw/edit",
+      "modulePage": "./paige.html",
+      "modulePath": "./paige.html",
+      "isStandaloneModule": true,
+      "media": {
+        "kind": "image",
+        "src": "./assets/paige/final-render.png"
+      }
+    },
+    {
+      "name": "Aquarium Zen",
+      "type": "Computer Graphics Project",
+      "summary": "An AI-driven biomimicry simulation that recreates lifelike aquatic behaviors through procedural animation, Bézier curve interpolation, and a particle system.",
+      "introSummary": "This project is an AI-driven biomimicry simulation that recreates lifelike aquatic behaviors through procedural animation, Bézier curve interpolation, and a particle system. By combining AI behavioral modeling, procedural motion, and particle-driven visual effects, the project captures the essence of biomimicry in digital ecosystems, transforming algorithmic design into organic, expressive movement.",
+      "description": "This project is an AI-driven biomimicry simulation that recreates lifelike aquatic behaviors through procedural animation, Bézier curve interpolation, and a particle system. By combining AI behavioral modeling, procedural motion, and particle-driven visual effects, the project captures the essence of biomimicry in digital ecosystems, transforming algorithmic design into organic, expressive movement.",
+      "role": "Programming Lead",
+      "course": "CS 4620 Intro to Computer Graphics",
+      "timeline": "Oct 2025",
+      "technicalFeatures": [
+        "Cubic Bezier Curves",
+        "Behavioral Tree",
+        "Particle Systems"
+      ],
+      "tools": ["Anigraph(TypeScript)"],
+      "mediaTitle": "Anigraph(TypeScript)",
+      "details": "./aquarium-module.html",
       "modulePage": "./aquarium-module.html",
       "moduleEmbedPath": "./aquarium/index.html?embed=1",
       "modulePath": "./aquarium-module.html",

@@ -1,129 +1,282 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Aquarium Interaction Module - Technical Artist Project" />
-    <title>Aquarium Module | Jacky Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Raleway:wght@400;500;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./css/styles.css" />
-    <link rel="stylesheet" href="./css/project-module.css" />
-  </head>
-  <body>
-    <header id="header" class="header-scrolled">
-      <div class="container">
-        <div id="logo">
-          <h1><a href="./index.html#intro">JACKY</a></h1>
-        </div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Aquarium Zen, an AI-driven biomimicry simulation by Jacky Pan.">
+  <title>Aquarium Zen | Jacky Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/paige.css">
+  <link rel="stylesheet" href="./css/project-module.css">
+</head>
+<body class="paige-page aquarium-project">
+  <a class="paige-skip" href="#main">Skip to content</a>
 
-        <button id="mobile-nav-toggle" type="button" aria-label="Open navigation">☰</button>
+  <header class="paige-header">
+    <div class="container paige-header-inner">
+      <a class="paige-brand" href="./index.html">JACKY</a>
+      <nav aria-label="Main navigation">
+        <a href="./index.html#portfolio">Portfolio</a>
+        <a href="./index.html#about">About</a>
+        <a href="#interactive">Interactive module</a>
+      </nav>
+    </div>
+  </header>
 
-        <nav id="nav-menu-container" aria-label="Primary">
-          <ul class="nav-menu">
-            <li><a href="./index.html#portfolio">Portfolio</a></li>
-            <li><a href="./index.html#jams">Game Jams</a></li>
-            <li><a href="./index.html#experience">Experience</a></li>
-            <li><a href="./index.html#about">About</a></li>
-            <li><a href="./index.html#contact">Contact</a></li>
-          </ul>
-        </nav>
+  <main id="main">
+    <div class="container paige-breadcrumb" aria-label="Breadcrumb">
+      <a href="./index.html#portfolio">← Back to Portfolio</a>
+      <span aria-hidden="true">/</span>
+      <span>Aquarium Zen</span>
+    </div>
+
+    <section class="container paige-intro" aria-labelledby="project-title">
+      <div class="paige-intro-copy">
+        <p class="paige-eyebrow">COMPUTER GRAPHICS PROJECT</p>
+        <h1 id="project-title">Aquarium Zen</h1>
+        <p class="paige-lead" id="project-summary"></p>
+        <p class="paige-author" id="project-subtitle"></p>
+        <div class="paige-tags" id="project-types" aria-label="Project categories"></div>
       </div>
-    </header>
-
-    <section id="mobile-nav" aria-label="Mobile navigation">
-      <ul class="mobile-nav-list">
-        <li><a href="./index.html#portfolio">Portfolio</a></li>
-        <li><a href="./index.html#jams">Game Jams</a></li>
-        <li><a href="./index.html#experience">Experience</a></li>
-        <li><a href="./index.html#about">About</a></li>
-        <li><a href="./index.html#contact">Contact</a></li>
-      </ul>
     </section>
-    <div id="mobile-body-overly" aria-hidden="true"></div>
 
-  <main class="project-page-wrap">
-      <section class="project-breadcrumb container">
-        <a class="project-back" href="./index.html#portfolio">← Back to Portfolio</a>
-        <a class="project-back" href="./index.html">Home</a>
-      </section>
+    <nav class="container paige-index" aria-label="On this page">
+      <span>ON THIS PAGE</span>
+      <a href="#interactive">01 / Interactive Module</a>
+      <a href="#info">02 / Info</a>
+      <a href="#demo">03 / The Demo</a>
+      <a href="#features">04 / Technical Features</a>
+      <a href="#programming">05 / Programming</a>
+    </nav>
 
-      <section class="project-hero">
-        <div class="container">
-          <p class="project-kicker">PROJECT DETAIL</p>
-          <h1 id="project-title">Aquarium Interactive Module</h1>
-          <p id="project-subtitle" class="project-subtitle"></p>
-          <div id="project-types" class="project-types"></div>
+    <section class="container paige-section" id="interactive" aria-labelledby="interactive-title">
+      <div class="paige-section-heading">
+        <span>01 / INTERACTIVE MODULE</span>
+        <h2 id="interactive-title">Interactive Module</h2>
+      </div>
+      <figure class="paige-wide-media aquarium-module-media">
+        <div class="module-frame-wrap">
+          <iframe id="project-module-frame" src="./aquarium/index.html?embed=1" title="Aquarium Zen interactive module" loading="lazy" allowfullscreen></iframe>
         </div>
-      </section>
+        <figcaption><span>Aquarium Zen</span><span>Interactive Module</span></figcaption>
+      </figure>
+    </section>
 
-      <section class="project-module-wrap container">
-        <article class="project-module-card">
-          <h2>Interactive Module</h2>
-          <p class="module-note">This is the original interactive module integrated as an embedded object, keeping the original interaction behavior and explanation flow.</p>
-          <div class="module-frame-wrap">
-            <iframe
-              id="project-module-frame"
-              src="./aquarium/index.html?embed=1"
-              title="Aquarium Interactive Module"
-              loading="lazy"
-              allowfullscreen
-            ></iframe>
-          </div>
+    <section class="container paige-section" id="info" aria-labelledby="info-title">
+      <div class="paige-section-heading">
+        <span>02 / INFO</span>
+        <h2 id="info-title">Info</h2>
+      </div>
+      <dl class="aquarium-info-grid">
+        <div><dt>Role</dt><dd>Programming Lead</dd></div>
+        <div><dt>Engine/Framework</dt><dd>Anigraph(TypeScript)</dd></div>
+        <div><dt>Course</dt><dd>CS 4620 Intro to Computer Graphics</dd></div>
+        <div><dt>Timeline</dt><dd>Oct 2025</dd></div>
+      </dl>
+    </section>
+
+    <section class="container paige-section" id="demo" aria-labelledby="demo-title">
+      <div class="paige-section-heading">
+        <span>03 / THE DEMO</span>
+        <h2 id="demo-title">The Demo</h2>
+        <p id="project-intro-summary"></p>
+      </div>
+      <figure class="paige-wide-media aquarium-demo-media">
+        <div class="aquarium-video">
+          <iframe src="https://www.youtube.com/embed/pJX37yXn2K4" title="Aquarium Zen demo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+    </section>
+
+    <section class="container paige-section" id="features" aria-labelledby="features-title">
+      <div class="paige-section-heading">
+        <span>04 / TECHNICAL FEATURES</span>
+        <h2 id="features-title">Technical Features</h2>
+        <p>Overview</p>
+      </div>
+      <div class="aquarium-feature-grid">
+        <article>
+          <h3>Cubic Bezier Curves</h3>
+          <p>The fish body geometry and motion are generated through cubic Bézier curves, enabling smooth deformation, natural oscillation, and continuous local-to-world pose transformation along a mathematically defined path.</p>
         </article>
-      </section>
-
-      <section class="project-intro container">
-        <article class="project-block">
-          <h2>Project Introduction</h2>
-          <p id="project-summary" class="project-summary"></p>
-          <p id="project-intro-summary" class="project-intro-summary"></p>
+        <article>
+          <h3>Behavioral Tree</h3>
+          <p>A behavior tree governs each fish’s AI, dynamically prioritizing states such as patrol, pursuit, feeding, and escape based on environmental stimuli shared through a blackboard system.</p>
         </article>
-      </section>
-
-      <section class="project-content-wrap container">
-        <article class="project-panel">
-          <h2>About Me</h2>
-          <p id="about-me"></p>
+        <article>
+          <h3>Particle Systems</h3>
+          <p>The particle system powers visual effects like water ripples, trails, and fish food, using object pooling and per-instance updates to maintain high performance and lifelike fluidity.</p>
         </article>
-      </section>
+      </div>
+    </section>
 
-      <section class="project-content-wrap container">
-        <article class="project-panel">
-          <h2>Project Details</h2>
-          <p id="project-description"></p>
+    <section class="container paige-section" id="programming" aria-labelledby="programming-title">
+      <div class="paige-section-heading">
+        <span>05 / PROGRAMMING</span>
+        <h2 id="programming-title">Programming</h2>
+      </div>
 
-          <h3>My role</h3>
-          <p id="project-role"></p>
+      <article class="aquarium-technical-block">
+        <h3>Bezier Curve Simulated Body Curves</h3>
+        <p>Each fish’s motion is procedurally generated along a cubic Bézier curve, where the curve defines the fish’s silhouette and body deformation. The Bézier function provides relative body height at any position t, which determines the radius of each particle—each fish is composed of 150 particles, and their radii are dynamically calculated based on their positions along the curve. Parameters such as head, body, tail, and tip control the overall proportions, while TailEscalationIndex and TailOscillation modulate wave intensity. The body’s deformation is driven by traveling waves defined by wavelength, frequency, and speed, with orientation updated tangentially along the curve using Mat3 translation and rotation for smooth local-to-world pose transformations.</p>
+        <figure class="paige-wide-media aquarium-diagram">
+          <img src="./assets/aquarium/aqzen_bb.png" alt="Aquarium Zen Bézier body curve diagram" loading="lazy">
+          <figcaption>Bezier Curve Simulated Body Curves</figcaption>
+        </figure>
+      </article>
 
-          <h3>Responsibilities</h3>
-          <ul id="project-responsibilities" class="project-list"></ul>
+      <article class="aquarium-technical-block">
+        <h3>Bezier Curve Simulated Pathfinding</h3>
+        <p>The auto-pathfinding system continuously updates each fish’s trajectory using a dynamically generated Bézier curve. The control points are defined as follows:</p>
+        <ul>
+          <li>P₀: Fish’s current head position</li>
+          <li>P₁: extends from its current direction and p0 (head location) with a small random offset</li>
+          <li>P₂: Midpoint between P1 and P3</li>
+          <li>P₃: Fish’s current target position</li>
+        </ul>
+        <p>These four points are used to construct a new Bézier matrix in real time, allowing the fish to smoothly adjust its forward path and maintain fluid, natural movement.</p>
+        <figure class="paige-wide-media aquarium-diagram">
+          <img src="./assets/aquarium/aqzen_br.png" alt="Aquarium Zen Bézier pathfinding control-point diagram" loading="lazy">
+          <figcaption>Bezier Curve Simulated Pathfinding</figcaption>
+        </figure>
+      </article>
 
-          <h3>Tools &amp; Tech</h3>
-          <div id="project-tools" class="project-tools"></div>
+      <article class="aquarium-technical-block">
+        <h3>Behavioral Tree</h3>
+        <p>The behavior of each fish is governed by a modular behavior tree that manages transitions between different states such as patrolling, pursuing, feeding, and escaping. The system uses a shared blackboard to communicate conditions and environmental inputs, dynamically selecting the appropriate branch based on situational context. This structure allows each fish to react autonomously to stimuli—whether avoiding threats, seeking food, or idly exploring—creating varied and lifelike behavioral patterns within the simulation.</p>
+        <figure class="paige-wide-media aquarium-diagram">
+          <img src="./assets/aquarium/aqzen_btree.png" alt="Aquarium Zen fish behavior tree diagram" loading="lazy">
+          <figcaption>Behavioral Tree</figcaption>
+        </figure>
+        <pre class="aquarium-code"><code>// ========================= Blackboard ==============================
+...
+// AI BTree Black Board
+isTouched: boolean = false;
+seeFood: boolean = false;
+reachTarget: boolean = false;
+canEat: boolean = false;
+escapeTargetSetted: boolean = false;
+sawFood: boolean = false;
+lostFood: boolean = true;
+currentFood: FoodParticle = new FoodParticle();
+...
 
-          <h3>Details Notes</h3>
-          <ul id="project-notes" class="project-list"></ul>
+// ========================= Behavior Tree ==============================
 
-          <h3>Process</h3>
-          <ol id="project-process" class="project-list"></ol>
+// Actions
+const action_escape = new Action_Escape();
+const action_setEscapeTarget = new Action_SetEscapeTarget();
+const action_setNewTarget = new Action_SetNewTarget();
+const action_patrol = new Action_Patrol();
+const action_chaseFood = new Action_ChaseFood();
+const action_eatFood = new Action_EatFood();
 
-          <div class="project-actions">
-            <a id="project-link" href="#" target="_blank" rel="noreferrer">Project Reference</a>
-            <a class="project-source" href="#">Git Repository (Optional)</a>
-          </div>
-        </article>
-      </section>
-    </main>
+// Conditions
+const condition_reachTarget = new Conditional_ReachTarget();
+const condition_touched = new Conditional_Touched();
+const condition_escapeTarget = new Conditional_SetTargetEscape();
+const condition_sawFood = new Conditional_SawFood();
+const condition_lostFood = new Conditional_LostFood();
+const condition_canEat = new Conditional_CanEat();
 
-    <footer id="site-footer">
-      <div class="container">© <span id="current-year"></span> Jacky</div>
-    </footer>
+// Default Failure Node
+const failureNode = new FailNode()
 
-    <script src="./js/aquarium-module-page.js"></script>
-  </body>
+// Selectors
+const targetUpdate_selector = new SelectorNode(
+    action_setNewTarget,
+    action_patrol,
+    [condition_reachTarget]
+);
+
+const escapeUpdate_selector = new SelectorNode(
+    action_escape,
+    action_setEscapeTarget,
+    [condition_escapeTarget]
+);
+
+const canEat_selector = new SelectorNode(
+    action_eatFood,
+    action_chaseFood,
+    [condition_canEat]
+)
+
+const eat_selector = new SelectorNode(
+    canEat_selector,
+    failureNode,
+    [condition_sawFood]
+)
+
+const lost_selector = new SelectorNode(
+    eat_selector,
+    targetUpdate_selector,
+    [condition_lostFood]
+)
+
+const touch_selector = new SelectorNode(
+    escapeUpdate_selector,
+    lost_selector,
+    [condition_touched]
+);
+
+this.BehaviorTree = touch_selector;</code></pre>
+      </article>
+
+      <article class="aquarium-technical-block">
+        <h3>Water ripples (WaterWaveModel)</h3>
+        <p>Each ripple is an expanding ring that grows in tidy, discrete steps. A fixed step size and total step count shape how far it travels, while a small start delay or initial offset lets different ripples fire in a pleasing stagger. A lightweight frame-skip keeps the motion slow and silky instead of racing outward.</p>
+        <p>As the ring moves, its particles gently fade and shrink—opacity and size taper linearly so the ripple feels natural. You can loop the effect for a continuous pulse, or let it finish once and quietly disable itself to avoid extra work.</p>
+        <p>Every frame we place a set number of instanced particles evenly around the circle (uniform angles). We only update per-instance position, scale, and alpha—no geometry rebuilds—so frame rate stays high even with lots of overlapping ripples.</p>
+      </article>
+
+      <article class="aquarium-technical-block">
+        <h3>Fish Food System</h3>
+        <p>The fish food system operates as a circular particle pool. We allocate 50 particles in total, but players can only spawn up to 20 visible particles at once.</p>
+        <p>Active particles are tracked in a list, and each has a health value. When a particle’s health drops below zero, it’s reset and recycled back into the pool, ensuring smooth performance and continuous reuse.</p>
+        <pre class="aquarium-code"><code>timeUpdate(t: number, ...args:any[]) {
+    super.timeUpdate(t, ...args);
+    let deltaTime:number = t - this.lastUpdateTime;
+
+    // Updating Fish Food Particles
+    for (let i = 0; i &lt; this.particleQueue.length; ++i) {
+        let p = this.particleQueue[i];
+        p.life -= deltaTime;
+        p.color.a = p.life/p.maxLife;
+        p.radius = p.maxRadius * (p.life/p.maxLife);
+
+        // Circulate particles back to the pool when their life expires
+        if (p.life &lt; 0){
+            p.life = p.maxLife;
+            p.visible = false;
+            let temp = this.particleQueue[this.particleQueue.length - 1]
+            this.particleQueue[this.particleQueue.length - 1] = p;
+            this.particleQueue[i] = temp;
+            this.particleQueue.pop()
+        }
+    }
+
+    this.signalParticlesUpdated();
+
+    this.lastUpdateTime = t;
+}</code></pre>
+      </article>
+    </section>
+
+    <div class="container paige-outro">
+      <a href="./index.html#portfolio">Back to Portfolio</a>
+    </div>
+  </main>
+
+  <footer class="paige-footer">
+    <div class="container">
+      <span>© <span id="current-year"></span> Jacky</span>
+      <a href="./index.html#portfolio">Portfolio</a>
+    </div>
+  </footer>
+
+  <script src="./js/aquarium-module-page.js" defer></script>
+</body>
 </html>

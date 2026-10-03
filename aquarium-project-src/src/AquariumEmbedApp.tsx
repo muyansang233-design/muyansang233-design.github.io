@@ -157,7 +157,6 @@ export default function AquariumEmbedApp() {
                 </section>
 
                 <aside className="aquarium-embed-panel" aria-label="Aquarium controls">
-                    <h3>Interaction Panel</h3>
                     <label htmlFor="fish-color">Fish Color</label>
                     <input id="fish-color" type="color" value={presetColor} onChange={handleColorChange} />
 

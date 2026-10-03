@@ -1,20 +1,20 @@
 .aquarium-embed-root {
   width: 100%;
   height: auto;
-  min-height: min(560px, 74vh);
-  padding: 10px;
+  min-height: 0;
+  padding: 0;
   display: flex;
   align-items: stretch;
   justify-content: center;
-  background: linear-gradient(160deg, #f5fcff 0%, #e5f0f8 100%);
+  background: #0a0c14;
   color: #eef2fb;
 }
 
 .aquarium-embed-shell {
-  width: min(1280px, 100%);
-  min-height: min(560px, 74vh);
+  width: 100%;
+  min-height: 0;
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
   gap: 14px;
   align-items: start;
 }
@@ -25,8 +25,8 @@
 }
 
 .aquarium-embed-panel {
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 10px;
+  border: 0;
+  border-radius: 4px;
   padding: 14px;
   background: linear-gradient(160deg, rgba(8, 15, 27, 0.92), rgba(14, 20, 32, 0.92));
   display: grid;
@@ -98,8 +98,8 @@
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
+  border: 0;
+  border-radius: 4px;
   overflow: hidden;
   background: #08101a;
   min-height: 280px;
@@ -141,24 +141,19 @@
 
 .aquarium-canvas-status {
   position: absolute;
-  left: 12px;
-  top: 12px;
-  z-index: 5;
-  color: rgba(255, 255, 255, 0.82);
-  font-size: 12px;
-  letter-spacing: 0.03em;
-  padding: 4px 8px;
-  border-radius: 999px;
-  background: rgba(5, 10, 16, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.24);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  clip-path: inset(50%);
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 800px) {
   .aquarium-embed-shell {
     grid-template-columns: 1fr;
   }
 
   .aquarium-embed-root {
-    min-height: 720px;
+    min-height: 0;
   }
 }
