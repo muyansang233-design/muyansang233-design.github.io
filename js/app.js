@@ -70,20 +70,6 @@ const fallbackData = {
       media: { kind: "image", src: "./assets/paige/final-render.png", alt: "The PAIGE final rendering" },
     },
     {
-      name: "Procedural Tree Scene",
-      type: "Technical Art / Real-Time Graphics",
-      summary:
-        "A wind-driven procedural tree study with generated branches, camera-facing foliage, and falling leaves, isolated from the original project's water simulation.",
-      role: "Tree system, wind response, foliage rendering, and scene integration.",
-      technicalFeatures: ["Procedural Branching", "Wind Field Animation", "Billboard Foliage"],
-      tools: ["AniGraph", "TypeScript", "Three.js", "WebGL"],
-      details: "./tree-scene.html",
-      modulePage: "./tree-scene.html",
-      modulePath: "./tree-scene.html",
-      isStandaloneModule: true,
-      media: { kind: "image", src: "./assets/tree-scene-preview.svg" },
-    },
-    {
       name: "Aquarium Interactive Module",
       type: "Interaction Module",
       summary:

@@ -93,25 +93,6 @@
       }
     },
     {
-      "name": "Procedural Tree Scene",
-      "type": "Technical Art / Real-Time Graphics",
-      "summary": "A wind-driven procedural tree study with generated branches, camera-facing foliage, and falling leaves, isolated from the original project's water simulation.",
-      "role": "Tree system, wind response, foliage rendering, and scene integration.",
-      "technicalFeatures": [
-        "Procedural Branching",
-        "Wind Field Animation",
-        "Billboard Foliage"
-      ],
-      "tools": ["AniGraph", "TypeScript", "Three.js", "WebGL"],
-      "modulePage": "./tree-scene.html",
-      "modulePath": "./tree-scene.html",
-      "isStandaloneModule": true,
-      "media": {
-        "kind": "image",
-        "src": "./assets/tree-scene-preview.svg"
-      }
-    },
-    {
       "name": "Aquarium Zen",
       "type": "Computer Graphics Project",
       "summary": "An AI-driven biomimicry simulation that recreates lifelike aquatic behaviors through procedural animation, Bézier curve interpolation, and a particle system.",
