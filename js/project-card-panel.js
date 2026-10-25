@@ -81,6 +81,27 @@
     const detail = card.querySelector(".project-card-morph__detail");
     const route = record?.modulePage || record?.modulePath || record?.detailPage;
     if (route && detail.tagName === "A") detail.href = route;
+
+    if (record?.coverVideo && !window.matchMedia("(prefers-reduced-motion: reduce)").matches && !card.querySelector(".project-card-morph__video")) {
+      const url = new URL(record.coverVideo, window.location.href);
+      url.searchParams.set("autoplay", "1");
+      url.searchParams.set("mute", "1");
+      url.searchParams.set("loop", "1");
+      url.searchParams.set("playlist", url.pathname.split("/").pop());
+      url.searchParams.set("controls", "0");
+      url.searchParams.set("playsinline", "1");
+      url.searchParams.set("rel", "0");
+      const video = document.createElement("iframe");
+      video.className = "project-card-morph__video";
+      video.src = url.toString();
+      video.title = `${title} video preview`;
+      video.loading = "lazy";
+      video.allow = "autoplay; encrypted-media";
+      video.tabIndex = -1;
+      video.setAttribute("aria-hidden", "true");
+      card.prepend(video);
+      card.classList.add("project-card-morph--video");
+    }
   }
 
   function decorate(card) {

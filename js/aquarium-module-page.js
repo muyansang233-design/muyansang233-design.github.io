@@ -127,6 +127,45 @@ function initScrollLinks() {
   });
 }
 
+function initModuleFrameResize() {
+  const frame = document.getElementById("project-module-frame");
+  const wrap = frame?.parentElement;
+  if (!frame || !wrap) return;
+
+  let resizeObserver;
+  let mutationObserver;
+
+  frame.addEventListener("load", () => {
+    resizeObserver?.disconnect();
+    mutationObserver?.disconnect();
+
+    // The embedded module is served from this site, so its content can be measured directly.
+    const doc = frame.contentDocument;
+    if (!doc) return;
+
+    const observeShell = () => {
+      const shell = doc.querySelector(".aquarium-embed-shell");
+      if (!shell) return false;
+
+      mutationObserver?.disconnect();
+      const updateHeight = () => {
+        const bottom = shell.getBoundingClientRect().bottom + (doc.defaultView?.scrollY || 0);
+        const margin = parseFloat(doc.defaultView?.getComputedStyle(doc.body).marginBottom || "0");
+        wrap.style.height = `${Math.ceil(bottom + margin)}px`;
+      };
+      resizeObserver = new ResizeObserver(updateHeight);
+      resizeObserver.observe(shell);
+      updateHeight();
+      return true;
+    };
+
+    if (!observeShell()) {
+      mutationObserver = new MutationObserver(observeShell);
+      mutationObserver.observe(doc.body, { childList: true, subtree: true });
+    }
+  });
+}
+
 async function loadModuleData() {
   const title = document.getElementById("project-title");
   const subtitle = document.getElementById("project-subtitle");
@@ -230,4 +269,5 @@ async function loadModuleData() {
 
 initMobileNav();
 initScrollLinks();
+initModuleFrameResize();
 loadModuleData();

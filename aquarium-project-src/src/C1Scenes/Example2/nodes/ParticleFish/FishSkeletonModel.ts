@@ -134,7 +134,7 @@ export class FishSkeletonModel extends Instanced2DParticleSystemModel<A2DParticl
     private trailPositions: Vec2[] = [];
     private lastTrailDrop = new Vec2(0, 0);
 
-    public trailEnabled = true;
+    public trailEnabled = false;
     public trailSpacing = 0.05;
     public trailMaxAlpha = 0.8;
     public trailRadiusHead = 2;
@@ -687,6 +687,17 @@ export class FishSkeletonModel extends Instanced2DParticleSystemModel<A2DParticl
     }
 
     private updateTrailVisuals() {
+        if (!this.trailEnabled) {
+            this.trailPositions.length = 0;
+            for (let j = 0; j < this.trailPoolSize; j++) {
+                this.particles[this.trailPoolStartIndex + j].visible = false;
+            }
+            this.lastTrailDrop = this.getTailCenterPos(4).clone();
+            this.prevAnchor = this.lastTrailDrop.clone();
+            this.trailAcc = 0;
+            return;
+        }
+
         const n = this.trailPositions.length;
         for (let j = 0; j < this.trailPoolSize; j++) {
             const p = this.particles[this.trailPoolStartIndex + j];
@@ -702,13 +713,9 @@ export class FishSkeletonModel extends Instanced2DParticleSystemModel<A2DParticl
                 p.setRadius(12.0 * j / this.trailPoolSize);
                 const alpha = (this.trailPoolSize - j)/this.trailPoolSize;
                 p.setColor(new Color(this.trailColor.r, this.trailColor.g, this.trailColor.b, (1-t)/10));
-                if (this.trailEnabled){
-                    p.visible = true;
-                } else {
-                    p.visible = false;
-                }
+                p.visible = true;
             } else {
-                // p.visible = false;
+                p.visible = false;
             }
         }
     }
@@ -818,7 +825,7 @@ export class FishSkeletonModel extends Instanced2DParticleSystemModel<A2DParticl
 
         this.updateBezierCurvePoint();
 
-        this.maybeDropTrailPoint();
+        if (this.trailEnabled) this.maybeDropTrailPoint();
         this.updateTrailVisuals();
 
         // Check targetReaching

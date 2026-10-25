@@ -83,10 +83,15 @@
   border-color: rgba(255, 255, 255, 0.45);
 }
 
-.aquarium-toggle-row {
+.aquarium-embed-panel .aquarium-toggle-row {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.aquarium-toggle-row input[type="checkbox"] {
+  flex: 0 0 auto;
+  margin: 0;
 }
 
 .aquarium-toggle-row span {

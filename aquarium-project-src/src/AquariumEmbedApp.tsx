@@ -3,8 +3,7 @@ import {
     AThreeJSContextComponent,
     AppState,
     Color,
-    CreateAppState,
-    Vec2
+    CreateAppState
 } from "./anigraph";
 import AppClasses from "./C1Scenes/Example2";
 import {Example2SceneModel} from "./C1Scenes/Example2/Example2SceneModel";
@@ -33,11 +32,9 @@ export default function AquariumEmbedApp() {
     const [isReady, setIsReady] = useState(false);
     const [isSceneReady, setIsSceneReady] = useState(false);
     const [presetColor, setPresetColor] = useState("#ffffff");
-    const [trailEnabled, setTrailEnabled] = useState(true);
+    const [trailEnabled, setTrailEnabled] = useState(false);
     const [feedingMode, setFeedingMode] = useState(false);
     const [selectedFish, setSelectedFish] = useState<number>(0);
-    const [rippleRadius, setRippleRadius] = useState(2.8);
-    const [rippleSteps, setRippleSteps] = useState(80);
 
     const sceneStatusText = useMemo(() => {
         if (!isReady) return "Initializing aquarium...";
@@ -98,19 +95,6 @@ export default function AquariumEmbedApp() {
         sceneRef.current.removeLastFish();
     }, []);
 
-    const spawnRipple = useCallback(() => {
-        if (!appStateRef.current || !sceneRef.current) return;
-        const sceneController = appStateRef.current.mainSceneController;
-        const camera = (sceneController as any).cameraModel;
-        const bounds = camera?.getOrthoBounds ? camera.getOrthoBounds() : null;
-        const center = bounds
-            ? new Vec2((bounds.left + bounds.right) / 2, (bounds.top + bounds.bottom) / 2)
-            : new Vec2(0, 0);
-        const steps = Math.max(10, Math.floor(rippleSteps));
-        sceneRef.current.fireWaterWave(center, rippleRadius, steps);
-        appStateRef.current.updateComponents();
-    }, [rippleRadius, rippleSteps]);
-
     const handleColorChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
         setPresetColor(event.target.value);
     }, []);
@@ -119,16 +103,6 @@ export default function AquariumEmbedApp() {
         const value = Number(event.target.value);
         if (Number.isNaN(value)) return;
         setSelectedFish(value);
-    }, []);
-
-    const handleRippleRadiusChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-        const nextValue = Number(event.target.value);
-        if (!Number.isNaN(nextValue)) setRippleRadius(nextValue);
-    }, []);
-
-    const handleRippleStepsChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-        const nextValue = Number(event.target.value);
-        if (!Number.isNaN(nextValue)) setRippleSteps(nextValue);
     }, []);
 
     return (
@@ -176,28 +150,6 @@ export default function AquariumEmbedApp() {
                         Remove Last Fish
                     </button>
 
-                    <label htmlFor="ripple-radius">Ripple Radius ({rippleRadius.toFixed(1)})</label>
-                    <input
-                        id="ripple-radius"
-                        type="range"
-                        min="0.5"
-                        max="4"
-                        step="0.1"
-                        value={rippleRadius}
-                        onChange={handleRippleRadiusChange}
-                    />
-
-                    <label htmlFor="ripple-steps">Ripple Spread ({rippleSteps})</label>
-                    <input
-                        id="ripple-steps"
-                        type="range"
-                        min="20"
-                        max="140"
-                        step="1"
-                        value={rippleSteps}
-                        onChange={handleRippleStepsChange}
-                    />
-
                     <label className="aquarium-toggle-row" htmlFor="trail-enabled">
                         <input
                             id="trail-enabled"
@@ -218,9 +170,6 @@ export default function AquariumEmbedApp() {
                         <span>Feeding Mode</span>
                     </label>
 
-                    <button type="button" onClick={spawnRipple}>
-                        Trigger Ripple
-                    </button>
                 </aside>
             </div>
         </div>

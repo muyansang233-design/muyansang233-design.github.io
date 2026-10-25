@@ -108,6 +108,7 @@
       ],
       "tools": ["Anigraph(TypeScript)"],
       "mediaTitle": "Anigraph(TypeScript)",
+      "coverVideo": "https://www.youtube.com/embed/pJX37yXn2K4",
       "details": "./aquarium-module.html",
       "modulePage": "./aquarium-module.html",
       "moduleEmbedPath": "./aquarium/index.html?embed=1",

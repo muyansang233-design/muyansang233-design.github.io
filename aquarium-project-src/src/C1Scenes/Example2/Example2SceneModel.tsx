@@ -95,7 +95,7 @@ export class Example2SceneModel extends App2DSceneModel{
     initAppState(appState:AppState){
         appState.addColorControl("presetColor", Color.FromString("#ffffff"));
         // Fish
-        appState.addCheckboxControl("TrailEnabled", true);
+        appState.addCheckboxControl("TrailEnabled", false);
         appState.addButton("Generate Asian Carp", ()=>{this.addFish(0)});
         appState.addButton("Generate Puffer Fish", ()=>{this.addFish(1)});
         appState.addButton("Generate Pacific Saury", ()=>{this.addFish(2)});

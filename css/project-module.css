@@ -156,8 +156,7 @@
 
 @media (max-width: 832px) {
   .module-frame-wrap {
-    aspect-ratio: auto;
-    height: calc(100vw + 520px);
+    aspect-ratio: 1 / 1;
   }
 }
 
@@ -172,10 +171,6 @@
 @media (max-width: 480px) {
   .aquarium-project .paige-intro h1 {
     font-size: clamp(3rem, 12vw, 4rem);
-  }
-
-  .module-frame-wrap {
-    height: calc(100vw + 430px);
   }
 
   .aquarium-code {
