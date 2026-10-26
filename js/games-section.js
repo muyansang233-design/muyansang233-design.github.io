@@ -123,10 +123,16 @@
       const copy = i18n.portfolio().featuredGames;
       if (!copy) return;
 
-      const setFact = (element, label, value) => {
-        const heading = document.createElement("strong");
-        heading.textContent = label;
-        element.replaceChildren(heading, ` ${value}`);
+      const setRoles = (element, label, roles) => {
+        const list = document.createElement("span");
+        list.className = "standalone-games__role-list";
+        roles.forEach((role) => {
+          const chip = document.createElement("span");
+          chip.className = "standalone-games__role-chip";
+          chip.textContent = role;
+          list.append(chip);
+        });
+        element.replaceChildren(list);
       };
       section.querySelector(".standalone-games__title").textContent = copy.title;
       section.querySelector(".games-slider__viewport")?.setAttribute("aria-label", copy.showcaseLabel);
@@ -140,16 +146,14 @@
         const card = cards[index];
         card.querySelector(".standalone-games__year").textContent = `${copy.yearLabel} ${game.year}`;
         card.querySelector(".standalone-games__name").textContent = game.name;
-        card.querySelector(".standalone-games__description").textContent = game.description;
+        card.querySelector(".standalone-games__description").textContent = game.cardDescription || game.description;
         card.querySelector(".standalone-games__button").textContent = copy.viewProject;
         card.querySelector(".standalone-games__image-link").setAttribute("aria-label", `${copy.viewGame} ${game.name}`);
         section.querySelectorAll(".games-slider__preview")[index]?.setAttribute("aria-label", `${copy.showGame} ${game.name}`);
       });
-      setFact(cards[0].querySelector(".standalone-games__role"), copy.roleLabel, copy.gnome.role);
-      const toymareFacts = cards[1].querySelectorAll(".standalone-games__facts p");
-      setFact(toymareFacts[0], copy.gameplayLabel, copy.toymare.gameplay);
-      setFact(toymareFacts[1], copy.roleLabel, copy.toymare.role);
-      setFact(toymareFacts[2], copy.toolsLabel, copy.toymare.tools);
+      [copy.gnome, copy.toymare].forEach((game, index) => {
+        setRoles(cards[index].querySelector(".standalone-games__role"), copy.roleLabel, game.roles || [game.role]);
+      });
     });
   };
 
@@ -174,9 +178,12 @@
         <div class="standalone-games__content">
           <span class="standalone-games__year">Year: 2026</span>
           <h3 class="standalone-games__name">Gnome More Shrooms</h3>
-          <p class="standalone-games__description">A 2D isometric mobile strategy game where farming fuels tower defense. Grow crops, supply towers, expand the garden, and fight through waves of mushroom enemies.</p>
-          <p class="standalone-games__role"><strong>My role:</strong> Lead Programmer, Art Lead, and Technical Artist (VFX and shaders).</p>
+          <p class="standalone-games__description">A 2D isometric strategy game where farming fuels tower defense.</p>
+          <div class="standalone-games__role"><span class="standalone-games__role-list"><span class="standalone-games__role-chip">Lead Programmer</span><span class="standalone-games__role-chip">Art Lead</span><span class="standalone-games__role-chip">Technical Artist</span></span></div>
           <a class="standalone-games__button" href="gnome-more-shrooms.html">View Project</a>
+        </div>
+        <div class="standalone-games__award" aria-label="The Rookies Game of the Year Runner Up">
+          <img src="https://d3stdg5so273ei.cloudfront.net/andrew/2023-07-27/420090/150x150/rookie-awards-goty-runnerup.png" alt="" width="181" height="181">
         </div>
       </article>
       <article class="standalone-games__card">
@@ -186,12 +193,8 @@
         <div class="standalone-games__content">
           <span class="standalone-games__year">Year: 2025</span>
           <h3 class="standalone-games__name">Toymare</h3>
-          <p class="standalone-games__description">Play as Nox the delivery cat, assembling toys from rebellious living parcels to restore order to a chaotic warehouse.</p>
-          <div class="standalone-games__facts">
-            <p><strong>Gameplay:</strong> Recognize order shapes, combine toy parts, use color bonuses, and erase mistakes under time pressure.</p>
-            <p><strong>My role:</strong> Programmer, UI/UX Lead, and Game Designer.</p>
-            <p><strong>Engine and tools:</strong> LibGDX (Java), IntelliJ, Git, and Tiled.</p>
-          </div>
+          <p class="standalone-games__description">Assemble toys from living parcels as Nox the delivery cat.</p>
+          <div class="standalone-games__role"><span class="standalone-games__role-list"><span class="standalone-games__role-chip">Programmer</span><span class="standalone-games__role-chip">UI/UX Lead</span><span class="standalone-games__role-chip">Game Designer</span></span></div>
           <a class="standalone-games__button" href="toymare.html">View Project</a>
         </div>
       </article>

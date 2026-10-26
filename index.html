@@ -21,7 +21,8 @@
     <link rel="stylesheet" href="./css/experience.css" />
     <link rel="stylesheet" href="./css/contact.css" />
     <script src="./js/i18n.js"></script>
-  </head>
+  <link rel="stylesheet" href="css/hero-type-fluid.css">
+</head>
   <body>
     <div id="preloader" aria-hidden="true"></div>
     <a href="#intro" class="back-to-top" aria-label="Back to top">↑</a>
@@ -29,7 +30,7 @@
     <header id="header">
       <div class="container">
         <div id="logo">
-          <h1><a href="#intro" class="scrollto">JACKY</a></h1>
+          <h1><a href="#intro" class="scrollto"><img src="assets/muyan-studio-logo-white.png" alt="Muyan Studio" width="534" height="267" /></a></h1>
         </div>
 
         <button id="mobile-nav-toggle" type="button" aria-label="Open navigation">☰</button>
@@ -85,12 +86,6 @@
           <div class="section-header text-center">
             <h2>PORTFOLIO</h2>
             <p>Selected Projects</p>
-          </div>
-          <div class="filter-row">
-            <button type="button" class="btn portfolio-filter active" data-filter=".portfolio-featured">All</button>
-            <button type="button" class="btn portfolio-filter" data-filter=".portfolio-personal">Personal</button>
-            <button type="button" class="btn portfolio-filter" data-filter=".portfolio-professional">Professional</button>
-            <button type="button" class="btn portfolio-filter" data-filter=".portfolio-tools">Tools</button>
           </div>
           <div id="portfolio-grid" class="grid" aria-live="polite"></div>
         </div>
@@ -226,5 +221,6 @@
   <script src="js/games-section.js" defer></script>
   <script src="js/project-card-tilt.js" defer></script>
   <script src="js/project-card-panel.js" defer></script>
+  <script src="js/hero-type-fluid.js" defer></script>
 </body>
 </html>

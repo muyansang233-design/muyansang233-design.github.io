@@ -1,0 +1,74 @@
+#intro #hero-name .hero-type-line {
+  display: block;
+}
+
+#intro #hero-name .hero-type-line--name {
+  color: #fff;
+}
+
+#intro #hero-name .hero-type-line--role {
+  color: var(--link);
+}
+
+#intro #hero-name .hero-type-word,
+#intro #hero-name .hero-type-glyph {
+  display: inline-block !important;
+  color: inherit !important;
+}
+
+#intro #hero-name .hero-type-word {
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+#intro #hero-name .hero-type-glyph {
+  position: relative;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #intro #hero-name .hero-type-glyph {
+    transform: none !important;
+    will-change: auto;
+  }
+}
+
+#intro #hero-name.hero-type-scattering .hero-type-glyph {
+  transition: transform 560ms cubic-bezier(0.18, 0.62, 0.22, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #intro #hero-name.hero-type-scattering .hero-type-glyph {
+    transition: none;
+  }
+}
+
+/* Separate CSS translate/rotate from the JS transform so the letters gently bob on the surface. */
+#intro #hero-name .hero-type-glyph {
+  --surface-x: 1.1px;
+  --surface-y: 1.4px;
+  animation: hero-surface-bob 7.6s ease-in-out infinite alternate;
+}
+
+#intro #hero-name .hero-type-glyph:nth-child(3n + 1) { animation-delay: -1.5s; }
+#intro #hero-name .hero-type-glyph:nth-child(3n + 2) { animation-delay: -3.2s; }
+#intro #hero-name .hero-type-glyph:nth-child(3n) { animation-delay: -4.3s; }
+
+@keyframes hero-surface-bob {
+  0% { translate: calc(var(--surface-x) * -0.4) 0; rotate: -0.2deg; }
+  50% { translate: var(--surface-x) calc(var(--surface-y) * -1); rotate: 0.25deg; }
+  100% { translate: calc(var(--surface-x) * -0.6) calc(var(--surface-y) * 0.45); rotate: -0.15deg; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #intro #hero-name .hero-type-glyph { animation: none; }
+}
+
+#intro #hero-name .hero-type-glyph {
+  transition: transform 160ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #intro #hero-name .hero-type-glyph { transition: none; }
+}

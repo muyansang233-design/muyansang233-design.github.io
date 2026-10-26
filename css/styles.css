@@ -148,7 +148,7 @@ a:focus {
   color: rgba(202, 206, 221, 0.8);
   font-family: "Raleway", sans-serif;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 18px;
   padding: 8px;
   display: inline-flex;
   position: relative;
@@ -990,4 +990,43 @@ main {
     margin-inline: auto;
     padding-inline: 0;
   }
+}
+
+/* White transparent studio mark in the site header. */
+#header #logo h1 { line-height: 1; }
+#header #logo h1 a { display: inline-flex; align-items: center; }
+#header #logo img { display: block; height: 62.4px; width: auto; }
+#header #logo h1 { width: 124.8px; height: 62.4px; }
+#header #logo h1 a { position: fixed; top: 24px; left: 24px; }
+
+#header {
+  --header-edge: 24px;
+  --header-logo-height: 62.4px;
+  box-sizing: border-box;
+  height: calc(var(--header-edge) + var(--header-logo-height) + var(--header-edge)) !important;
+  min-height: calc(var(--header-edge) + var(--header-logo-height) + var(--header-edge)) !important;
+  padding: 0 !important;
+}
+
+#header > .container {
+  box-sizing: border-box;
+  height: 100% !important;
+  min-height: 100%;
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
+#header #logo h1 { margin: 0; }
+#header #logo h1 a { top: var(--header-edge); left: var(--header-edge); }
+#header #logo img { height: var(--header-logo-height); }
+#nav-menu-container { margin-left: auto; display: flex; align-items: center; }
+.nav-menu { align-items: center; }
+
+@media (max-width: 767px) {
+  #header { --header-edge: 16px; --header-logo-height: 50.4px; }
+  #header #logo img { height: 50.4px; }
+  #header #logo h1 { width: 100.8px; height: 50.4px; }
+  #mobile-nav-toggle { top: 41.2px; transform: translateY(-50%); }
 }

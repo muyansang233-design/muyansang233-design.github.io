@@ -167,7 +167,9 @@
 .standalone-games__content {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   color: #c6c8d2;
 }
 
@@ -280,6 +282,35 @@
 }
 
 /* Real project cards trade places; the first and last cards do not wrap. */
+.standalone-games__content .standalone-games__role-list {
+  justify-content: center;
+}
+
+.standalone-games__content .standalone-games__button {
+  align-self: center;
+  margin-top: 24px;
+}
+
+.standalone-games__card {
+  position: relative;
+}
+
+.standalone-games__award {
+  position: absolute;
+  right: 25px;
+  bottom: 30px;
+  transform: translate(50%, 50%);
+  z-index: 4;
+  pointer-events: none;
+}
+
+.standalone-games__award img {
+  display: block;
+  width: 181px;
+  height: 181px;
+  object-fit: contain;
+}
+
 .standalone-games .games-slider__deck { display: none; }
 .standalone-games .games-slider__stage {
   position: relative;
@@ -287,7 +318,8 @@
   --side-gutter: clamp(24px, 3vw, 64px);
   width: 100%;
   overflow: hidden;
-  padding-block: clamp(64px, 7vw, 112px);
+  padding-top: clamp(76px, 7vw, 112px);
+  padding-bottom: clamp(136px, 9vw, 160px);
   outline-offset: 5px;
   touch-action: pan-y;
 }
@@ -404,4 +436,32 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .standalone-games .games-slider__slide { transition: none; }
+}
+
+/* Each role gets its own compact chip; the description stays unboxed. */
+.standalone-games__content > .standalone-games__role {
+  max-width: 100%;
+  margin: 0 0 1.5rem;
+  line-height: 1.5;
+}
+.standalone-games__role > strong {
+  display: block;
+  margin-bottom: .55rem;
+  font-size: .9rem;
+}
+.standalone-games__role-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+.standalone-games__role-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: .45rem .7rem;
+  border: 1px solid rgba(198, 218, 229, .24);
+  border-radius: 5px;
+  background: rgba(8, 14, 25, .42);
+  color: #e7edf3;
+  font-size: .88rem;
+  line-height: 1.35;
 }

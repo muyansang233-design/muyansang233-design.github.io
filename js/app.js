@@ -638,42 +638,35 @@ function runTextSlider(strings) {
   let currentIndex = 0;
   let charIndex = 0;
   let deleting = false;
-  let pause = false;
 
   function tick() {
     const text = typedWords[currentIndex];
-    if (pause) {
-      pause = false;
-      if (deleting) {
-        charIndex = text.length;
-      } else {
-        charIndex = 0;
-      }
-    }
-
     if (deleting) {
       charIndex = Math.max(0, charIndex - 1);
       typeElement.textContent = text.slice(0, charIndex);
       if (charIndex <= 0) {
         deleting = false;
         currentIndex = (currentIndex + 1) % typedWords.length;
-        pause = true;
+        state.typedInterval = setTimeout(tick, 450);
+      } else {
+        state.typedInterval = setTimeout(tick, 90);
       }
       return;
     }
 
-    charIndex += 1;
-    charIndex = Math.min(charIndex, text.length);
+    charIndex = Math.min(charIndex + 1, text.length);
     typeElement.textContent = text.slice(0, charIndex);
     if (charIndex === text.length) {
       deleting = true;
-      pause = true;
+      state.typedInterval = setTimeout(tick, 2000);
+    } else {
+      state.typedInterval = setTimeout(tick, 140);
     }
   }
 
-  clearInterval(state.typedInterval);
+  clearTimeout(state.typedInterval);
   typeElement.textContent = "";
-  state.typedInterval = setInterval(tick, 80);
+  state.typedInterval = setTimeout(tick, 140);
 }
 
 function bindNavigation() {

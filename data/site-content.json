@@ -34,14 +34,18 @@
             "name": "Gnome More Shrooms",
             "year": "2026",
             "description": "A 2D isometric mobile strategy game where farming fuels tower defense. Grow crops, supply towers, expand the garden, and fight through waves of mushroom enemies.",
-            "role": "Lead Programmer, Art Lead, and Technical Artist (VFX and shaders)."
+            "cardDescription": "A 2D isometric strategy game where farming fuels tower defense.",
+            "role": "Lead Programmer, Art Lead, and Technical Artist.",
+            "roles": ["Lead Programmer","Art Lead","Technical Artist"]
           },
           "toymare": {
             "name": "Toymare",
             "year": "2025",
             "description": "Play as Nox the delivery cat, assembling toys from rebellious living parcels to restore order to a chaotic warehouse.",
+            "cardDescription": "Assemble toys from living parcels as Nox the delivery cat.",
             "gameplay": "Recognize order shapes, combine toy parts, use color bonuses, and erase mistakes under time pressure.",
             "role": "Programmer, UI/UX Lead, and Game Designer.",
+            "roles": ["Programmer","UI/UX Lead","Game Designer"],
             "tools": "LibGDX (Java), IntelliJ, Git, and Tiled."
           }
         },
@@ -50,7 +54,7 @@
             "name": "Gnome More Shrooms",
             "type": "2D Isometric RTS / Tower Defense / Farming",
             "summary": "A cooperative mobile game that turns growing and delivering crops into the ammunition supply chain for tower defense. Rookie Awards 2026 Game of the Year Runner Up.",
-            "role": "Lead Programmer; Art Lead (2D animation and illustrations); Technical Artist (VFX and shaders).",
+            "role": "Lead Programmer; Art Lead (2D animation and illustrations); Technical Artist.",
             "tools": [
               "CUGL",
               "Spine Animation",
@@ -248,7 +252,7 @@
           }
         ],
         "aboutMe": {
-          "summary": "I am Jacky, a Technical Artist focused on shipping visual systems that feel alive while staying production-friendly. I enjoy balancing creative visuals with engineering constraints and helping teams iterate quickly.",
+          "summary": "I am Jacky, a Technical Artist and game developer with a keen eye for visual expression. I care about how gameplay and visuals work together to shape the player experience: visuals should not only be engaging, but also make interactive feedback clearer and more expressive. I enjoy refining small but meaningful details that reward players with moments of discovery.\n\nDuring development, I enjoy building lively real-time visual systems and finding a balance between artistic goals, performance, and engineering constraints. Through reusable shaders, VFX, and tools, I hope to help teams iterate faster and turn strong ideas into complete experiences.",
           "highlights": [
             {
               "label": "Core focus",
@@ -584,7 +588,7 @@
         "Harvest fruit": "Harvest fruit",
         "Harvest:": "Harvest:",
         "Homogeneous volumetric rendering": "Homogeneous volumetric rendering",
-        "I am Jacky, a Technical Artist focused on shipping visual systems that feel alive while staying production-friendly. I enjoy balancing creative visuals with engineering constraints and helping teams iterate quickly.": "I am Jacky, a Technical Artist focused on shipping visual systems that feel alive while staying production-friendly. I enjoy balancing creative visuals with engineering constraints and helping teams iterate quickly.",
+        "I am Jacky, a Technical Artist and game developer with a keen eye for visual expression. I care about how gameplay and visuals work together to shape the player experience: visuals should not only be engaging, but also make interactive feedback clearer and more expressive. I enjoy refining small but meaningful details that reward players with moments of discovery.\n\nDuring development, I enjoy building lively real-time visual systems and finding a balance between artistic goals, performance, and engineering constraints. Through reusable shaders, VFX, and tools, I hope to help teams iterate faster and turn strong ideas into complete experiences.": "I am Jacky, a Technical Artist and game developer with a keen eye for visual expression. I care about how gameplay and visuals work together to shape the player experience: visuals should not only be engaging, but also make interactive feedback clearer and more expressive. I enjoy refining small but meaningful details that reward players with moments of discovery.\n\nDuring development, I enjoy building lively real-time visual systems and finding a balance between artistic goals, performance, and engineering constraints. Through reusable shaders, VFX, and tools, I hope to help teams iterate faster and turn strong ideas into complete experiences.",
         "I focus on technical-art workflows that keep visuals expressive while keeping interaction and rendering stable across teams.": "I focus on technical-art workflows that keep visuals expressive while keeping interaction and rendering stable across teams.",
         "Identify the anonymous shape shown on the order board and assemble it using enemies available on the field.": "Identify the anonymous shape shown on the order board and assemble it using enemies available on the field.",
         "Images appear in the same sequence as the original The Rookies entry. They are served directly from the entry's image host.": "Images appear in the same sequence as the original The Rookies entry. They are served directly from the entry's image host.",
@@ -609,7 +613,7 @@
         "Lead Musician, Programmer": "Lead Musician, Programmer",
         "Lead Programmer": "Lead Programmer",
         "Lead Programmer · Art Lead · Technical Artist": "Lead Programmer · Art Lead · Technical Artist",
-        "Lead Programmer; Art Lead (2D animation and illustrations); Technical Artist (VFX and shaders).": "Lead Programmer; Art Lead (2D animation and illustrations); Technical Artist (VFX and shaders).",
+        "Lead Programmer; Art Lead (2D animation and illustrations); Technical Artist.": "Lead Programmer; Art Lead (2D animation and illustrations); Technical Artist.",
         "Lead Senior Technical Artist": "Lead Senior Technical Artist",
         "Leaf Motion Pipeline": "Leaf Motion Pipeline",
         "Led shader architecture and authored modular pass for ripple accumulation and shoreline attenuation.": "Led shader architecture and authored modular pass for ripple accumulation and shoreline attenuation.",
@@ -893,14 +897,18 @@
             "name": "Gnome More Shrooms",
             "year": "2026",
             "description": "一款将种植与塔防结合的 2D 等距视角移动策略游戏。种植作物、为防御塔补给、扩建花园，并抵御一波波蘑菇敌人。",
-            "role": "主程序员、美术负责人及技术美术（视觉特效与着色器）。"
+            "cardDescription": "一款将种植与塔防结合的 2D 等距视角策略游戏。",
+            "role": "主程序员、美术负责人及技术美术。",
+            "roles": ["主程序员","美术负责人","技术美术"]
           },
           "toymare": {
             "name": "Toymare",
             "year": "2025",
             "description": "扮演快递猫 Nox，从调皮的活体包裹中组装玩具，让混乱的仓库重回秩序。",
+            "cardDescription": "扮演快递猫 Nox，从活体包裹中组装玩具。",
             "gameplay": "识别订单形状、组合玩具部件、利用颜色加成，并在时间压力下擦除错误。",
             "role": "程序员、UI/UX 负责人及游戏设计师。",
+            "roles": ["程序员","UI/UX 负责人","游戏设计师"],
             "tools": "LibGDX（Java）、IntelliJ、Git 和 Tiled。"
           }
         },
@@ -1107,7 +1115,7 @@
           }
         ],
         "aboutMe": {
-          "summary": "我是 Jacky，一名专注于交付兼具生命力与制作可行性的视觉系统的技术美术。我喜欢在创意表现与工程约束之间寻找平衡，并帮助团队快速迭代。",
+          "summary": "我是 Jacky，一名技术美术与游戏开发者。我对视觉表达格外敏感，也关注玩法与视觉如何共同塑造玩家体验：视觉不仅要引人入胜，也要让交互反馈更清晰、更有感染力。我喜欢打磨那些细小却有意义的设计，让玩家在探索中发现惊喜。\n\n开发时，我享受构建生动的实时视觉系统，也乐于在艺术目标、性能与工程限制之间寻找平衡。通过可复用的 Shader、VFX 和工具，我希望帮助团队更快迭代，把好的创意打磨成完整的体验。",
           "highlights": [
             {
               "label": "核心方向",
@@ -1412,7 +1420,7 @@
         "Recognize order shapes, combine toy parts, use color bonuses, and erase mistakes under time pressure.": "识别订单形状、组合玩具部件、利用颜色加成，并在时间压力下擦除错误。",
         "Programmer, UI/UX Lead, and Game Designer.": "程序员、UI/UX 负责人及游戏设计师。",
         "LibGDX (Java), IntelliJ, Git, and Tiled.": "LibGDX（Java）、IntelliJ、Git 和 Tiled。",
-        "Lead Programmer, Art Lead, and Technical Artist (VFX and shaders).": "主程序员、美术负责人及技术美术（视觉特效与着色器）。",
+        "Lead Programmer, Art Lead, and Technical Artist.": "主程序员、美术负责人及技术美术。",
         "Game Design": "Game Design",
         "Game Design / UI & UX / Programming": "游戏设计 / UI 与 UX / 程序开发",
         "Game Developer": "游戏开发者",
@@ -1452,7 +1460,7 @@
         "Harvest fruit": "收获果实",
         "Harvest:": "收获：",
         "Homogeneous volumetric rendering": "均匀介质体积渲染",
-        "I am Jacky, a Technical Artist focused on shipping visual systems that feel alive while staying production-friendly. I enjoy balancing creative visuals with engineering constraints and helping teams iterate quickly.": "我是 Jacky，一名专注于交付兼具生命力与制作可行性的视觉系统的技术美术。我喜欢在创意表现与工程约束之间寻找平衡，并帮助团队快速迭代。",
+        "I am Jacky, a Technical Artist and game developer with a keen eye for visual expression. I care about how gameplay and visuals work together to shape the player experience: visuals should not only be engaging, but also make interactive feedback clearer and more expressive. I enjoy refining small but meaningful details that reward players with moments of discovery.\n\nDuring development, I enjoy building lively real-time visual systems and finding a balance between artistic goals, performance, and engineering constraints. Through reusable shaders, VFX, and tools, I hope to help teams iterate faster and turn strong ideas into complete experiences.": "我是 Jacky，一名技术美术与游戏开发者。我对视觉表达格外敏感，也关注玩法与视觉如何共同塑造玩家体验：视觉不仅要引人入胜，也要让交互反馈更清晰、更有感染力。我喜欢打磨那些细小却有意义的设计，让玩家在探索中发现惊喜。\n\n开发时，我享受构建生动的实时视觉系统，也乐于在艺术目标、性能与工程限制之间寻找平衡。通过可复用的 Shader、VFX 和工具，我希望帮助团队更快迭代，把好的创意打磨成完整的体验。",
         "I focus on technical-art workflows that keep visuals expressive while keeping interaction and rendering stable across teams.": "我专注于技术美术工作流，让视觉保持表现力，同时确保交互与渲染在团队协作中稳定可靠。",
         "Identify the anonymous shape shown on the order board and assemble it using enemies available on the field.": "识别订单板上显示的未知形状，再利用场上的敌人将其拼装出来。",
         "Images appear in the same sequence as the original The Rookies entry. They are served directly from the entry's image host.": "图片按 The Rookies 原始作品页面的顺序展示，并直接由原页面的图片服务器提供。",
@@ -1477,7 +1485,7 @@
         "Lead Musician, Programmer": "Lead Musician, Programmer",
         "Lead Programmer": "Lead Programmer",
         "Lead Programmer · Art Lead · Technical Artist": "主程序员 · 美术负责人 · 技术美术",
-        "Lead Programmer; Art Lead (2D animation and illustrations); Technical Artist (VFX and shaders).": "主程序员；美术负责人（2D 动画与插画）；技术美术（VFX 与着色器）。",
+        "Lead Programmer; Art Lead (2D animation and illustrations); Technical Artist.": "主程序员；美术负责人（2D 动画与插画）；技术美术（VFX 与着色器）。",
         "Lead Senior Technical Artist": "高级技术美术负责人",
         "Leaf Motion Pipeline": "叶片运动流程",
         "Led shader architecture and authored modular pass for ripple accumulation and shoreline attenuation.": "负责着色器架构，并制作波纹累积与岸线衰减的模块化渲染通道。",

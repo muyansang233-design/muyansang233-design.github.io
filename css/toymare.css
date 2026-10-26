@@ -6,7 +6,8 @@ a { color: inherit; }
 img, video { display: block; max-width: 100%; }
 .tm-container { width: min(calc(100% - 64px), 1320px); margin-inline: auto; }
 .tm-topbar { min-height: 76px; padding: 16px max(32px, calc((100vw - 1320px) / 2)); display: flex; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 1px solid var(--tm-line); background: rgba(8, 11, 18, .94); }
-.tm-brand { color: #fff; font: 800 1.3rem "Raleway", sans-serif; letter-spacing: .14em; text-decoration: none; }
+.tm-brand { display: inline-flex; align-items: center; flex: none; text-decoration: none; }
+.tm-brand img { display: block; width: auto; height: 48px; }
 .tm-topbar nav { display: flex; flex-wrap: wrap; gap: 12px 28px; }
 .tm-topbar nav a { color: #c4cad5; font-weight: 700; text-decoration: none; }
 .tm-topbar nav a:hover, .tm-topbar nav a:focus-visible, .tm-back:hover, .tm-back:focus-visible { color: var(--tm-accent); }
@@ -64,5 +65,5 @@ figcaption { margin-top: 9px; color: #98a6b5; font-size: .75rem; }
 .tm-footer { display: flex; justify-content: space-between; gap: 20px; padding: 32px max(32px, calc((100vw - 1320px) / 2)); color: #aab5c3; font-size: .85rem; }
 .tm-footer a { color: var(--tm-accent); text-decoration: none; }
 @media (max-width: 900px) { .tm-facts { grid-template-columns: repeat(2,minmax(0,1fr)); } .tm-hero-grid, .tm-overview-grid, .tm-ui-row, .tm-tech-row { grid-template-columns: 1fr; } .tm-ui-row:nth-child(even) video { order: 0; } .tm-media-grid { grid-template-columns: 1fr; } }
-@media (max-width: 640px) { .tm-container { width: min(calc(100% - 32px), 1320px); } .tm-topbar { padding: 16px; align-items: flex-start; flex-direction: column; } .tm-topbar nav { gap: 8px 18px; font-size: .82rem; } .tm-facts, .tm-goals { grid-template-columns: 1fr; } .tm-footer { padding-inline: 16px; flex-direction: column; } }
+@media (max-width: 640px) { .tm-container { width: min(calc(100% - 32px), 1320px); } .tm-topbar { padding: 16px; align-items: flex-start; flex-direction: column; } .tm-brand img { height: 42px; } .tm-topbar nav { gap: 8px 18px; font-size: .82rem; } .tm-facts, .tm-goals { grid-template-columns: 1fr; } .tm-footer { padding-inline: 16px; flex-direction: column; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
