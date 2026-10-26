@@ -1,0 +1,68 @@
+.experience-content.experience-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.experience-card {
+  padding: clamp(24px, 3vw, 38px);
+  border: 1px solid rgba(152, 169, 188, .24);
+  border-radius: 8px;
+  background: rgba(24, 30, 42, .8);
+}
+
+.experience-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px 32px;
+}
+
+.experience-card__role {
+  margin: 0 0 8px;
+  color: #fff;
+  font: 700 clamp(19px, 2vw, 24px)/1.3 "Raleway", sans-serif;
+}
+
+.experience-card__company {
+  margin: 0;
+  color: #c5cbd6;
+  font-size: 15px;
+}
+
+.experience-card__date {
+  flex: none;
+  color: var(--link, #35c8e9);
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.experience-card__highlights {
+  display: grid;
+  gap: 10px;
+  margin: 22px 0 0;
+  padding-left: 20px;
+  color: #c5cbd6;
+  line-height: 1.65;
+}
+
+.experience-card__highlights li::marker { color: var(--link, #35c8e9); }
+
+.experience-card__link {
+  display: inline-flex;
+  margin-top: 20px;
+  color: var(--link, #35c8e9);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.experience-card__link:hover,
+.experience-card__link:focus-visible { text-decoration: underline; }
+
+@media (max-width: 640px) {
+  .experience-card__header { flex-direction: column; }
+  .experience-card__date { order: -1; }
+}

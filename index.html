@@ -17,7 +17,11 @@
   <link rel="stylesheet" href="css/games-section.css">
   <link rel="stylesheet" href="css/project-card-tilt.css">
   <link rel="stylesheet" href="css/project-card-panel.css">
-</head>
+    <link rel="stylesheet" href="./css/i18n.css" />
+    <link rel="stylesheet" href="./css/experience.css" />
+    <link rel="stylesheet" href="./css/contact.css" />
+    <script src="./js/i18n.js"></script>
+  </head>
   <body>
     <div id="preloader" aria-hidden="true"></div>
     <a href="#intro" class="back-to-top" aria-label="Back to top">↑</a>
@@ -33,10 +37,10 @@
         <nav id="nav-menu-container" aria-label="Primary">
           <ul class="nav-menu">
             <li><a href="#portfolio" class="scrollto">Portfolio</a></li>
-            <li><a href="#jams" class="scrollto">Game Jams</a></li>
             <li><a href="#experience" class="scrollto">Experience</a></li>
             <li><a href="#about" class="scrollto">About</a></li>
             <li><a href="#contact" class="scrollto">Contact</a></li>
+            <li><a href="assets/Rui-Pan-CV.pdf" target="_blank" rel="noopener noreferrer">CV</a></li>
           </ul>
         </nav>
       </div>
@@ -45,10 +49,10 @@
     <section id="mobile-nav" aria-label="Mobile navigation">
       <ul class="mobile-nav-list">
         <li><a href="#portfolio" class="scrollto">Portfolio</a></li>
-        <li><a href="#jams" class="scrollto">Game Jams</a></li>
         <li><a href="#experience" class="scrollto">Experience</a></li>
         <li><a href="#about" class="scrollto">About</a></li>
         <li><a href="#contact" class="scrollto">Contact</a></li>
+        <li><a href="assets/Rui-Pan-CV.pdf" target="_blank" rel="noopener noreferrer">CV</a></li>
       </ul>
     </section>
     <div id="mobile-body-overly" aria-hidden="true"></div>
@@ -124,8 +128,7 @@
           <div class="section-header text-center">
             <h2>EXPERIENCE</h2>
           </div>
-          <ul id="experience-tabs" class="nav-tabs" role="tablist"></ul>
-          <div id="experience-content" class="experience-content"></div>
+          <div id="experience-content" class="experience-content experience-list"></div>
         </div>
       </section>
 
@@ -183,7 +186,21 @@
           <div class="section-header text-center">
             <h2>CONTACT</h2>
             <p>Open to opportunities in technical art, graphics R&D, and interactive art production.</p>
-            <a href="mailto:hello@jacky-portfolio.com">hello@jacky-portfolio.com</a>
+            <a class="contact-email" href="mailto:ruipan556@gmail.com">ruipan556@gmail.com</a>
+            <div class="contact-links" aria-label="Social links">
+              <a class="contact-icon" href="https://www.artstation.com/jackypan5" target="_blank" rel="noopener noreferrer" aria-label="ArtStation" title="ArtStation">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18.5h4.1L14.2 6H10L3 18.5Zm8.1-8.5 4.9 8.5h4.5L13.4 6h-1.9l-2 3.5h1.6ZM8.1 16h7.1l-2-3.5h-3.1L8.1 16Z"/></svg>
+              </a>
+              <a class="contact-icon" href="https://github.com/muyansang233-design" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.21.68-.48v-1.7c-2.77.6-3.36-1.18-3.36-1.18-.45-1.14-1.1-1.44-1.1-1.44-.9-.61.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.82.09-.64.35-1.08.63-1.33-2.21-.25-4.54-1.11-4.54-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.55 9.55 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.33 4.69-4.55 4.94.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+              </a>
+              <a class="contact-icon" href="https://www.linkedin.com/in/jacky-pan-65756430a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="2.5"/><path d="M7 10v7m0-10v.1M11 17v-7m0 3.2c0-2.1 1.1-3.2 3-3.2 2 0 3 1.2 3 3.4V17"/></svg>
+              </a>
+              <a class="contact-icon" href="mailto:ruipan556@gmail.com" aria-label="Email Jacky" title="Email Jacky">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="m3.5 6 8.5 7 8.5-7"/></svg>
+              </a>
+            </div>
           </div>
         </div>
       </section>

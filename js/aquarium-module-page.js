@@ -186,10 +186,8 @@ async function loadModuleData() {
 
   let data = { tech: [] };
   try {
-    const response = await fetch("./data/portfolio-content.json", { cache: "no-store" });
-    if (response.ok) {
-      data = await response.json();
-    }
+    await window.siteI18n.ready;
+    data = window.siteI18n.portfolio();
   } catch {
     data = { tech: [] };
   }

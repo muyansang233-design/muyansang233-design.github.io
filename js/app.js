@@ -85,7 +85,7 @@ const fallbackData = {
       ],
       notes: [
         "The original text explanations are kept in the embedded module iframe.",
-        "Project information and supporting metadata remain editable in portfolio-content.json.",
+        "Project information and supporting metadata remain editable in site-content.json.",
         "All interaction assets are loaded from the existing /aquarium build.",
       ],
       process: [
@@ -220,16 +220,17 @@ function init() {
 async function loadData() {
   let data = fallbackData;
   try {
-    const response = await fetch("./data/portfolio-content.json", { cache: "no-store" });
-    if (response.ok) data = await response.json();
+    await window.siteI18n.ready;
+    data = window.siteI18n.portfolio();
   } catch {
     data = fallbackData;
   }
 
   state.data = data;
   dom.sliderItems.textContent = (data.identity?.roles || fallbackData.identity.roles).join(",");
-  dom.heroDescription.textContent = data.metadata?.intro || fallbackData.metadata.intro;
-  dom.heroName.innerHTML = `${data.identity?.name || fallbackData.identity.name}<span>Technical Artist</span>`;
+  dom.heroDescription.textContent = data.metadata?.intro ?? "";
+  dom.heroDescription.style.display = dom.heroDescription.textContent ? "" : "none";
+  dom.heroName.innerHTML = `${data.identity?.name || fallbackData.identity.name}<span>${data.identity?.roles?.[0] || "Technical Artist"}</span>`;
   buildIntroMedia(data.identity?.demoReel);
   setupPortfolio(data);
   setupAbout(data);
@@ -340,6 +341,24 @@ function renderPortfolio(items) {
     });
 
     dom.portfolioGrid.appendChild(wrap);
+
+    if (media instanceof HTMLVideoElement && media.classList.contains("portfolio-cover-video") && media.autoplay) {
+      const previewObserver = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting && !document.hidden) {
+          media.play().catch(() => {});
+        } else {
+          media.pause();
+        }
+      }, { threshold: 0.01 });
+      previewObserver.observe(media);
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+          media.pause();
+        } else if (media.getBoundingClientRect().top < window.innerHeight && media.getBoundingClientRect().bottom > 0) {
+          media.play().catch(() => {});
+        }
+      });
+    }
   });
 }
 
@@ -347,6 +366,22 @@ function createPortfolioMedia(project, index) {
   const fallback = document.createElement("div");
   fallback.className = "portfolio-placeholder";
   fallback.textContent = project.name.slice(0, 2).toUpperCase();
+
+  if (project.coverVideo) {
+    const video = document.createElement("video");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    video.src = project.coverVideo;
+    video.className = "portfolio-thumb portfolio-cover-video";
+    video.muted = true;
+    video.defaultMuted = true;
+    video.autoplay = !reducedMotion;
+    video.loop = true;
+    video.playsInline = true;
+    video.preload = "auto";
+    video.tabIndex = -1;
+    video.setAttribute("aria-hidden", "true");
+    return video;
+  }
 
   if (!project.media || !project.media.src) {
     return fallback;
@@ -494,117 +529,97 @@ function bindGameJamControls() {
 }
 
 function setupAbout(data) {
-  const intro = data.metadata?.intro || fallbackData.metadata.intro;
+  const intro = data.metadata?.intro ?? "";
   dom.aboutIntro.textContent = intro;
-  const aboutMe = data.aboutMe || fallbackData.aboutMe || {};
-  dom.aboutMeSummary.textContent = aboutMe.summary || fallbackData.aboutMe.summary;
-  dom.aboutMeHighlights.innerHTML = "";
-  const highlights = Array.isArray(aboutMe.highlights) && aboutMe.highlights.length
-    ? aboutMe.highlights
-    : fallbackData.aboutMe.highlights;
-  highlights.forEach((entry) => {
+  dom.aboutIntro.style.display = intro ? "" : "none";
+  const aboutMe = data.aboutMe || fallbackData.aboutMe;
+  dom.aboutMeSummary.textContent = aboutMe.summary;
+  dom.aboutMeHighlights.replaceChildren();
+  for (const entry of aboutMe.highlights || []) {
     const block = document.createElement("article");
     block.className = "about-highlight";
-    block.innerHTML = `<strong>${entry.label}</strong><span>${entry.value}</span>`;
-    dom.aboutMeHighlights.appendChild(block);
-  });
-  const tools = collectTools(data);
-  const roleText = (data.identity?.roles || fallbackData.identity.roles).slice(0, 3).join(" · ");
+    const label = document.createElement("strong");
+    label.textContent = entry.label;
+    const value = document.createElement("span");
+    value.textContent = entry.value;
+    block.append(label, value);
+    dom.aboutMeHighlights.append(block);
+  }
 
-  const leftTitle = document.createElement("h3");
-  leftTitle.textContent = "Professional focus";
-  const leftP = document.createElement("p");
-  leftP.textContent =
-    "I focus on technical-art workflows that keep visuals expressive while keeping interaction and rendering stable across teams.";
-  const tagWrap = document.createElement("div");
-  tagWrap.className = "tools";
+  const profile = data.profile || {};
+  const focusTitle = document.createElement("h3");
+  focusTitle.textContent = profile.focusTitle || "Professional focus";
+  const focusSummary = document.createElement("p");
+  focusSummary.textContent = profile.focusSummary || "";
+  const areas = document.createElement("div");
+  areas.className = "tools";
+  for (const area of profile.focusAreas || []) {
+    const item = document.createElement("div");
+    item.className = "tool-item";
+    const icon = document.createElement("i");
+    icon.textContent = "▸";
+    const label = document.createElement("span");
+    label.textContent = area;
+    item.append(icon, label);
+    areas.append(item);
+  }
+  dom.aboutLeft.replaceChildren(focusTitle, focusSummary, areas);
 
-  ["Technical Art", "Shader Craft", "VFX", "Tooling", "Pipeline", roleText].forEach((tool) => {
-    const t = document.createElement("div");
-    t.className = "tool-item";
-    t.innerHTML = `<i>▸</i><span>${tool}</span>`;
-    tagWrap.appendChild(t);
-  });
-
-  const rightTitle = document.createElement("h3");
-  rightTitle.textContent = "Main tools";
+  const toolsTitle = document.createElement("h3");
+  toolsTitle.textContent = profile.toolsTitle || "Main tools";
   const skills = document.createElement("div");
   skills.className = "skills";
-
-  tools.slice(0, 10).forEach((tool) => {
-    const t = document.createElement("div");
-    t.className = "skill-item";
-    t.innerHTML = `<i>✦</i><span>${tool}</span>`;
-    skills.appendChild(t);
-  });
-
-  dom.aboutLeft.innerHTML = "";
-  dom.aboutLeft.append(leftTitle, leftP, tagWrap);
-
-  dom.aboutRight.innerHTML = "";
-  dom.aboutRight.append(rightTitle, skills);
+  for (const tool of profile.tools || collectTools(data).slice(0, 10)) {
+    const item = document.createElement("div");
+    item.className = "skill-item";
+    const icon = document.createElement("i");
+    icon.textContent = "✦";
+    const label = document.createElement("span");
+    label.textContent = tool;
+    item.append(icon, label);
+    skills.append(item);
+  }
+  dom.aboutRight.replaceChildren(toolsTitle, skills);
 }
 
 function setupExperience(data) {
-  const entries = [
-    {
-      role: "Technical Artist",
-      company: "Independent / Personal Projects",
-      date: "2022 - Present",
-      desc:
-        "Shipped interactive demos and production-ready VFX/Shader tools with lightweight pipelines for small and medium teams.",
-    },
-    {
-      role: "Graphics Engineer",
-      company: "Collaborative Studio",
-      date: "2020 - 2022",
-      desc:
-        "Created custom rendering and procedural solutions for environments, particles, and character showcase scenes.",
-    },
-  ];
-
-  (data.games || []).slice(0, 2).forEach((project) => {
-    entries.push({
-      role: project.name,
-      company: project.type,
-      date: "Recent Build",
-      desc: project.summary,
-    });
-  });
-
-  dom.expTabs.innerHTML = "";
-  dom.expContent.innerHTML = "";
-
-  entries.forEach((entry, index) => {
-    const tab = document.createElement("button");
-    tab.type = "button";
-    tab.className = `experience-tab${index === 0 ? " active" : ""}`;
-    tab.textContent = entry.role;
-    tab.dataset.tab = `${index}`;
-    tab.setAttribute("role", "tab");
-
-    const panel = document.createElement("article");
-    panel.className = `experience-pane${index === 0 ? "" : " is-hidden"}`;
-    panel.dataset.panel = `${index}`;
-    panel.innerHTML = `
-      <div class="experience-item">
-        <span class="experience-date">${entry.date}</span>
-        <h4>${entry.role} <span>· ${entry.company}</span></h4>
-        <p>${entry.desc}</p>
-      </div>
-    `;
-
-    tab.addEventListener("click", () => {
-      dom.expTabs.querySelectorAll(".experience-tab").forEach((btn) =>
-        btn.classList.toggle("active", btn === tab)
-      );
-      dom.expContent.querySelectorAll(".experience-pane").forEach((p) => p.classList.add("is-hidden"));
-      panel.classList.remove("is-hidden");
-    });
-
-    dom.expTabs.appendChild(tab);
-    dom.expContent.appendChild(panel);
-  });
+  dom.expContent.replaceChildren();
+  for (const entry of data.experience || []) {
+    const card = document.createElement("article");
+    card.className = "experience-card";
+    const header = document.createElement("div");
+    header.className = "experience-card__header";
+    const heading = document.createElement("div");
+    const role = document.createElement("h3");
+    role.className = "experience-card__role";
+    role.textContent = entry.role;
+    const company = document.createElement("p");
+    company.className = "experience-card__company";
+    company.textContent = entry.company;
+    heading.append(role, company);
+    const date = document.createElement("span");
+    date.className = "experience-card__date";
+    date.textContent = entry.date;
+    header.append(heading, date);
+    const highlights = document.createElement("ul");
+    highlights.className = "experience-card__highlights";
+    for (const detail of entry.highlights || (entry.desc ? [entry.desc] : [])) {
+      const item = document.createElement("li");
+      item.textContent = detail;
+      highlights.append(item);
+    }
+    card.append(header, highlights);
+    if (entry.link) {
+      const link = document.createElement("a");
+      link.className = "experience-card__link";
+      link.href = entry.link;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = entry.linkLabel || "View profile";
+      card.append(link);
+    }
+    dom.expContent.append(card);
+  }
 }
 
 function collectTools(data) {
