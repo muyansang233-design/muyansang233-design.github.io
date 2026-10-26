@@ -115,12 +115,50 @@
     updateActive(0);
   };
 
+  const localizeGamesSection = (section) => {
+    const i18n = window.siteI18n;
+    if (!i18n?.ready) return;
+    i18n.ready.then(() => {
+      if (!section.isConnected) return;
+      const copy = i18n.portfolio().featuredGames;
+      if (!copy) return;
+
+      const setFact = (element, label, value) => {
+        const heading = document.createElement("strong");
+        heading.textContent = label;
+        element.replaceChildren(heading, ` ${value}`);
+      };
+      section.querySelector(".standalone-games__title").textContent = copy.title;
+      section.querySelector(".games-slider__viewport")?.setAttribute("aria-label", copy.showcaseLabel);
+      section.querySelector(".games-slider__deck")?.setAttribute("aria-label", copy.otherGamesLabel);
+      const controls = section.querySelectorAll(".games-slider__controls button");
+      controls[0]?.setAttribute("aria-label", copy.previousGameLabel);
+      controls[1]?.setAttribute("aria-label", copy.nextGameLabel);
+
+      const cards = section.querySelectorAll(".standalone-games__card");
+      [copy.gnome, copy.toymare].forEach((game, index) => {
+        const card = cards[index];
+        card.querySelector(".standalone-games__year").textContent = `${copy.yearLabel} ${game.year}`;
+        card.querySelector(".standalone-games__name").textContent = game.name;
+        card.querySelector(".standalone-games__description").textContent = game.description;
+        card.querySelector(".standalone-games__button").textContent = copy.viewProject;
+        card.querySelector(".standalone-games__image-link").setAttribute("aria-label", `${copy.viewGame} ${game.name}`);
+        section.querySelectorAll(".games-slider__preview")[index]?.setAttribute("aria-label", `${copy.showGame} ${game.name}`);
+      });
+      setFact(cards[0].querySelector(".standalone-games__role"), copy.roleLabel, copy.gnome.role);
+      const toymareFacts = cards[1].querySelectorAll(".standalone-games__facts p");
+      setFact(toymareFacts[0], copy.gameplayLabel, copy.toymare.gameplay);
+      setFact(toymareFacts[1], copy.roleLabel, copy.toymare.role);
+      setFact(toymareFacts[2], copy.toolsLabel, copy.toymare.tools);
+    });
+  };
+
   const buildGamesSection = () => {
     if (document.getElementById("featured-games")) return true;
 
     const gameJamsHeading = [...document.querySelectorAll("h1, h2, h3")]
       .find((heading) => heading.textContent.trim().toLowerCase() === "game jams");
-    const gameJamsSection = gameJamsHeading?.closest("section");
+    const gameJamsSection = document.getElementById("jams")?.closest("section") || gameJamsHeading?.closest("section");
     if (!gameJamsSection) return false;
 
     const section = document.createElement("section");
@@ -164,6 +202,7 @@
   const portfolioSection = portfolioAnchor?.closest('section') || portfolioAnchor;
   if (portfolioSection && portfolioSection !== section) portfolioSection.before(section);
     mountGamesSlider(section);
+    localizeGamesSection(section);
 
     const gameJamsNavLinks = [...document.querySelectorAll("nav a, header a")]
       .filter((link) => link.textContent.trim().toLowerCase() === "game jams");

@@ -17,6 +17,34 @@
           ],
           "demoReel": "https://www.w3schools.com/html/mov_bbb.mp4"
         },
+        "featuredGames": {
+          "title": "Games",
+          "yearLabel": "Year:",
+          "roleLabel": "My role:",
+          "gameplayLabel": "Gameplay:",
+          "toolsLabel": "Engine and tools:",
+          "viewProject": "View Project",
+          "viewGame": "View",
+          "showGame": "Show",
+          "showcaseLabel": "Games showcase",
+          "otherGamesLabel": "Other games",
+          "previousGameLabel": "Previous game",
+          "nextGameLabel": "Next game",
+          "gnome": {
+            "name": "Gnome More Shrooms",
+            "year": "2026",
+            "description": "A 2D isometric mobile strategy game where farming fuels tower defense. Grow crops, supply towers, expand the garden, and fight through waves of mushroom enemies.",
+            "role": "Lead Programmer, Art Lead, and Technical Artist (VFX and shaders)."
+          },
+          "toymare": {
+            "name": "Toymare",
+            "year": "2025",
+            "description": "Play as Nox the delivery cat, assembling toys from rebellious living parcels to restore order to a chaotic warehouse.",
+            "gameplay": "Recognize order shapes, combine toy parts, use color bonuses, and erase mistakes under time pressure.",
+            "role": "Programmer, UI/UX Lead, and Game Designer.",
+            "tools": "LibGDX (Java), IntelliJ, Git, and Tiled."
+          }
+        },
         "games": [
           {
             "name": "Gnome More Shrooms",
@@ -848,6 +876,34 @@
           ],
           "demoReel": "https://www.w3schools.com/html/mov_bbb.mp4"
         },
+        "featuredGames": {
+          "title": "游戏",
+          "yearLabel": "年份：",
+          "roleLabel": "我的职责：",
+          "gameplayLabel": "玩法：",
+          "toolsLabel": "引擎与工具：",
+          "viewProject": "查看项目",
+          "viewGame": "查看",
+          "showGame": "显示",
+          "showcaseLabel": "游戏作品展示",
+          "otherGamesLabel": "其他游戏",
+          "previousGameLabel": "上一个游戏",
+          "nextGameLabel": "下一个游戏",
+          "gnome": {
+            "name": "Gnome More Shrooms",
+            "year": "2026",
+            "description": "一款将种植与塔防结合的 2D 等距视角移动策略游戏。种植作物、为防御塔补给、扩建花园，并抵御一波波蘑菇敌人。",
+            "role": "主程序员、美术负责人及技术美术（视觉特效与着色器）。"
+          },
+          "toymare": {
+            "name": "Toymare",
+            "year": "2025",
+            "description": "扮演快递猫 Nox，从调皮的活体包裹中组装玩具，让混乱的仓库重回秩序。",
+            "gameplay": "识别订单形状、组合玩具部件、利用颜色加成，并在时间压力下擦除错误。",
+            "role": "程序员、UI/UX 负责人及游戏设计师。",
+            "tools": "LibGDX（Java）、IntelliJ、Git 和 Tiled。"
+          }
+        },
         "games": [
           {
             "name": "Gnome More Shrooms",
@@ -1348,6 +1404,15 @@
         "GAME JAMS": "游戏项目",
         "GAME PROJECT / ROOKIE AWARDS 2026 / MOBILE": "游戏项目 / 2026 Rookie Awards / 移动端",
         "GAMES": "游戏",
+        "A 2D isometric mobile strategy game where farming fuels tower defense. Grow crops, supply towers, expand the garden, and fight through waves of mushroom enemies.": "一款将种植与塔防结合的 2D 等距视角移动策略游戏。种植作物、为防御塔补给、扩建花园，并抵御一波波蘑菇敌人。",
+        "Play as Nox the delivery cat, assembling toys from rebellious living parcels to restore order to a chaotic warehouse.": "扮演快递猫 Nox，从调皮的活体包裹中组装玩具，让混乱的仓库重回秩序。",
+        "Gameplay:": "玩法：",
+        "My role:": "我的职责：",
+        "Engine and tools:": "引擎与工具：",
+        "Recognize order shapes, combine toy parts, use color bonuses, and erase mistakes under time pressure.": "识别订单形状、组合玩具部件、利用颜色加成，并在时间压力下擦除错误。",
+        "Programmer, UI/UX Lead, and Game Designer.": "程序员、UI/UX 负责人及游戏设计师。",
+        "LibGDX (Java), IntelliJ, Git, and Tiled.": "LibGDX（Java）、IntelliJ、Git 和 Tiled。",
+        "Lead Programmer, Art Lead, and Technical Artist (VFX and shaders).": "主程序员、美术负责人及技术美术（视觉特效与着色器）。",
         "Game Design": "Game Design",
         "Game Design / UI & UX / Programming": "游戏设计 / UI 与 UX / 程序开发",
         "Game Developer": "游戏开发者",
