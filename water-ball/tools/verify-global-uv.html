@@ -1,0 +1,57 @@
+<!doctype html><meta charset="utf-8"><title>Global UV verification</title>
+<style>body{background:#111;color:#ddd;font:14px monospace;white-space:pre-wrap}canvas{width:320px;height:320px}</style>
+<pre id="result">Initializing…</pre><canvas id="preview" width="320" height="320"></canvas>
+<script type="module">
+import { WaterRenderer } from '../renderer.js?v=14';
+const result=document.querySelector('#result');
+const lines=[];
+function report(line){lines.push(line);result.textContent=lines.join('\n');}
+class CheckedRenderer extends WaterRenderer {
+  program(v,f){report('Compiling program');const p=super.program(v,f);report('Program linked');return p;}
+  async loadTexture(url,srgb){report(`Loading ${url.pathname.split('/').pop()}`);const t=await super.loadTexture(url,srgb);report(`Loaded ${url.pathname.split('/').pop()}`);return t;}
+}
+try {
+  const r=await new CheckedRenderer().init();
+  report('Initialized');
+  const gl=r.gl,program=r.water.program,canvas=document.querySelector('#preview');
+  gl.transformFeedbackVaryings(program,['vPosition'],gl.SEPARATE_ATTRIBS);
+  gl.linkProgram(program);
+  if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(program));
+  r.water.uniforms.clear();
+  gl.bindVertexArray(r.vao);
+  gl.bindBuffer(gl.ARRAY_BUFFER,gl.getVertexAttrib(0,gl.VERTEX_ATTRIB_ARRAY_BUFFER_BINDING));
+  const count=gl.getBufferParameter(gl.ARRAY_BUFFER,gl.BUFFER_SIZE)/20;
+  gl.bindVertexArray(null);
+  const feedback=gl.createTransformFeedback(),buffer=gl.createBuffer();
+  gl.bindBuffer(gl.TRANSFORM_FEEDBACK_BUFFER,buffer);
+  gl.bufferData(gl.TRANSFORM_FEEDBACK_BUFFER,count*3*4,gl.DYNAMIC_READ);
+  function positions(progress,isolate=0){
+    r.render(canvas,{time:3,progress,isolate,width:320,height:320});
+    gl.bindTransformFeedback(gl.TRANSFORM_FEEDBACK,feedback);
+    gl.bindBufferBase(gl.TRANSFORM_FEEDBACK_BUFFER,0,buffer);
+    gl.bindVertexArray(r.vao);
+    gl.enable(gl.RASTERIZER_DISCARD);
+    gl.beginTransformFeedback(gl.POINTS);
+    gl.drawArrays(gl.POINTS,0,count);
+    gl.endTransformFeedback();
+    gl.disable(gl.RASTERIZER_DISCARD);
+    gl.bindVertexArray(null);
+    const data=new Float32Array(count*3);
+    gl.getBufferSubData(gl.TRANSFORM_FEEDBACK_BUFFER,0,data);
+    gl.bindBufferBase(gl.TRANSFORM_FEEDBACK_BUFFER,0,null);
+    gl.bindTransformFeedback(gl.TRANSFORM_FEEDBACK,null);
+    if(gl.getError()!==gl.NO_ERROR)throw Error('WebGL feedback error');
+    if(!data.every(Number.isFinite))throw Error('Non-finite vertex positions');
+    return data;
+  }
+  const delta=(a,b)=>a.reduce((max,value,i)=>Math.max(max,Math.abs(value-b[i])),0);
+  const base=positions(6),partial=positions(6.5),full=positions(7),final=positions(8);
+  const stats={vertices:count,halfWarpDelta:delta(base,partial),fullWarpDelta:delta(base,full),finalStageDelta:delta(full,final)};
+  if(stats.halfWarpDelta<=1e-6||stats.fullWarpDelta<=1e-6)throw Error('WPO did not respond to global UV distortion');
+  if(stats.finalStageDelta>1e-6)throw Error('Stage 8 changed the shared WPO coordinates');
+  for(let isolate=1;isolate<=6;isolate++)if(delta(base,positions(8,isolate))>1e-6)throw Error(`Early isolate ${isolate} enabled distortion`);
+  report(JSON.stringify(stats,null,2));
+  report('PASS: WPO changes in stage 7; stage 8 keeps it; isolated 1–6 exclude it.');
+  r.render(canvas,{time:3,progress:8,width:320,height:320});
+} catch(error){report(`FAIL: ${error.message}`);console.error(error);}
+</script>

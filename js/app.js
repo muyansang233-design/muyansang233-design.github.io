@@ -59,6 +59,20 @@ const fallbackData = {
   ],
   tech: [
     {
+      name: "Water Ball",
+      type: "Material / Shader Breakdown",
+      summary:
+        "Explore M_Water_Inst from its Unreal material graph to an interactive GLSL water sphere, with isolated passes, progressive layer compositing, and a looping breakdown.",
+      role: "Material graph analysis and interactive GLSL reconstruction.",
+      technicalFeatures: ["Material Graph", "GLSL Reconstruction", "Layer Compositing"],
+      tools: ["Unreal Engine", "GLSL", "WebGL"],
+      details: "./water-ball/",
+      modulePage: "./water-ball/",
+      modulePath: "./water-ball/",
+      isStandaloneModule: true,
+      media: { kind: "image", src: "./water-ball/assets/cover.png" },
+    },
+    {
       name: "The PAIGE",
       type: "Rendering / Graphics Study",
       summary:
@@ -774,75 +788,7 @@ init();
     backLabel.setAttribute('aria-hidden', 'true');
     backLabel.textContent = 'Back to Intro';
     button.append(icon, label, backLabel);
-    let reelRngState = (Date.now() ^ Math.floor(Math.random() * 0xffffffff)) || 1;
-    const reelRng = () => {
-      reelRngState ^= reelRngState << 13;
-      reelRngState ^= reelRngState >>> 17;
-      reelRngState ^= reelRngState << 5;
-      return (reelRngState >>> 0) / 4294967296;
-    };
-    const reelAnimations = new Set();
-    const reelLayer = document.createElement('div');
-    reelLayer.className = 'hero-reel-motes-layer';
-    reelLayer.setAttribute('aria-hidden', 'true');
-    for (let i = 0; i < 10; i++) {
-      const mote = document.createElement('span');
-      mote.className = 'hero-reel-toggle__mote';
-      mote.setAttribute('aria-hidden', 'true');
-      mote.style.animation = 'none';
-      reelLayer.append(mote);
-    }
-    const spawnReelMote = (mote, initial = false) => {
-      const edge = Math.floor(reelRng() * 4);
-      const position = `${reelRng() * 100}%`;
-      const outward = 5 + reelRng() * 10;
-      const sideways = (reelRng() - .5) * 16;
-      const x = edge === 0 ? '-2px' : edge === 1 ? 'calc(100% + 2px)' : position;
-      const y = edge === 2 ? '-2px' : edge === 3 ? 'calc(100% + 2px)' : position;
-      const driftX = edge === 0 ? -outward : edge === 1 ? outward : sideways;
-      const driftY = edge === 2 ? -outward : edge === 3 ? outward : sideways;
-      const life = .6 + reelRng() * .4;
-      mote.style.setProperty('--mote-x', x);
-      mote.style.setProperty('--mote-y', y);
-      mote.style.setProperty('--mote-size', `${11 + reelRng() * 11}px`);
-      const animation = mote.animate([
-        { opacity: 0, transform: 'translate3d(0, 0, 0) scale(.55)', offset: 0 },
-        { opacity: .72, offset: .2 },
-        { opacity: .42, offset: .65 },
-        { opacity: 0, transform: `translate3d(${driftX}px, ${driftY}px, 0) scale(1.25)`, offset: 1 }
-      ], { duration: life * 1000, delay: initial ? reelRng() * 1100 : reelRng() * 180, easing: 'ease-out' });
-      reelAnimations.add(animation);
-      animation.onfinish = () => {
-        reelAnimations.delete(animation);
-        if (button.matches(':hover, :focus-visible')) spawnReelMote(mote);
-      };
-    };
-    let reelFrame = 0;
-    const followReelButton = () => {
-      const rect = button.getBoundingClientRect();
-      reelLayer.style.left = `${rect.left}px`;
-      reelLayer.style.top = `${rect.top}px`;
-      reelLayer.style.width = `${rect.width}px`;
-      reelLayer.style.height = `${rect.height}px`;
-      reelFrame = reelAnimations.size ? requestAnimationFrame(followReelButton) : 0;
-    };
-    const startReelMotes = () => {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !button.matches(':hover, :focus-visible') || reelAnimations.size) return;
-      reelLayer.querySelectorAll('.hero-reel-toggle__mote').forEach((mote) => spawnReelMote(mote, true));
-      if (!reelFrame) followReelButton();
-    };
-    const stopReelMotes = () => {
-      if (button.matches(':hover, :focus-visible')) return;
-      for (const animation of reelAnimations) animation.cancel();
-      reelAnimations.clear();
-      cancelAnimationFrame(reelFrame);
-      reelFrame = 0;
-    };
-    button.addEventListener('pointerenter', startReelMotes);
-    button.addEventListener('pointerleave', stopReelMotes);
-    button.addEventListener('focusin', startReelMotes);
-    button.addEventListener('focusout', () => queueMicrotask(stopReelMotes));
-    hero.append(reelLayer, button);
+    hero.append(button);
 
     const primaryNav = [...document.querySelectorAll('nav')].find((nav) =>
       nav.querySelector('a[href*="portfolio"]') && nav.querySelector('a[href*="contact"]'));
@@ -900,7 +846,7 @@ init();
   else mountHeroReel();
 })();
 
-// Keep the homepage Portfolio showcase focused on the three finished graphics projects.
+// Keep the homepage Portfolio showcase focused on the finished graphics projects.
 (() => {
   const mountPortfolioSelection = () => {
     const anchor = document.querySelector('#portfolio, .portfolio-section, [data-section="portfolio"]');
@@ -918,7 +864,7 @@ init();
       cards.forEach((card) => {
         const title = card.querySelector('.project-card__title, .project-title, h2, h3, h4')?.textContent || '';
         const links = [...card.querySelectorAll('a[href]')].map((link) => link.getAttribute('href')).join(' ');
-        if (!/\bpaige\b|\baquarium\b|\btree\b/i.test(`${title} ${links}`)) card.remove();
+        if (!/\bpaige\b|\baquarium\b|\btree\b|\bwater[\s-]*ball\b/i.test(`${title} ${links}`)) card.remove();
       });
     };
 

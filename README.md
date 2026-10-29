@@ -36,3 +36,11 @@ python3 -m http.server 8080
 - `css/styles.css`：视觉系统与动画、配色、卡片样式
 - `js/app.js`：物理和交互主逻辑
 - `data/portfolio-content.json`：全部项目和身份文案
+
+## 项目封面
+
+Water Ball、The PAIGE、Aquarium Zen、Gnome More Shrooms、Toymare 的详情页均以 `.project-cover` section 展示标题和背景媒体。共用 `css/project-cover.css` 与 `js/project-cover.js`。
+
+更换封面时，编辑对应 HTML 中 `.project-cover__media` 内的 `img src`，或 `video` 的 `poster` 与 `source src`。视频使用静音循环，提供暂停按钮，滚出视口时暂停，并尊重系统的减少动态效果设置。标题保留在 `.project-cover__content` 内。
+
+Aquarium 的封面视频来自 `assets/aquarium/c1-demo-reel.mp4` 的 23–31 秒，裁去录屏界面，导出为 `cover.mp4`；`cover.jpg` 是该片段首帧。

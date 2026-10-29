@@ -1,0 +1,1443 @@
+{
+  "exports": [
+    {
+      "id": 1,
+      "name": "M_Water_Inst",
+      "type": "MaterialInstanceConstant",
+      "properties": {
+        "ParameterStateId": {
+          "ParameterStateId": "{D01F4BFB-422A-3D23-2FCE-56849F9901A3}"
+        },
+        "PhysMaterial": -7,
+        "Parent": -3,
+        "ScalarParameterValues": [
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "Absorbtion Fresnel_Power",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 2.0,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{94BCA959-4749-8716-55C2-75939C12548E}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "Distortion_Intensity",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 0.029999999329447746,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{5EAAA9BB-42E5-4963-4986-EDAF14F5B3BC}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "Distortion_Speed_U",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": "+0",
+            "ExpressionGUID": {
+              "ExpressionGUID": "{C928ED2D-4154-C53F-7606-B2A0D25C380F}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "Distortion_Speed_V",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": -0.10000000149011612,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{4E3AADF6-458D-5D0B-9C23-FDAC879DC7DD}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "Distortion_Tile_U",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 2.0,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{D0B002F3-4301-E415-2159-D09A00252453}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "Distortion_Tile_V",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 3.0,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{65FD990D-4BDC-7935-4710-709512D476F2}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "FoamTexture_Power",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 1.4438780546188354,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{C0FCB3A7-4091-EC3E-2156-78A80D427647}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "FoamTexture_Scalar",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 0.9520649909973145,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{E89BB92D-4197-21C9-34F5-7FA96DE5C963}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "Foam_U_Speed",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": -0.009999999776482582,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{A42365B3-4F2A-C63E-274C-209B56BD806F}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "Foam_V_Speed",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": -0.0820000022649765,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{348BD02C-4778-C395-A3E8-A197E52C73C0}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "FoamTile_U",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 1.0,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{E3C53A2A-4DC2-3D78-705A-C79E4443610B}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "FoamTile_V",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 2.0,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{87EEF4B1-4DAE-A222-0E64-A3968E2FCBEA}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "HemiSphereAlpha_Range",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 1.6766029596328735,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{2885B764-4033-80F3-719B-C4BFB52782F5}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "NormalScalar",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 1.0,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{0136387C-4F8B-C7BB-EF3E-DD9C25CD6126}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "Specular Range",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 0.8999999761581421,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{29B8374B-4C16-E90E-9ADC-B0AC10AB9166}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "Specular_Power",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 1.0,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{BB172076-4C67-B517-551B-0A96CA540BF9}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "Specular_Scalar",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 266.9732666015625,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{C9A883A3-4334-89D8-FFA4-129E401BBE27}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "Absorption_opacity",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 0.9704089760780334,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{3C1A56B6-4831-8027-1AE2-168BCADB5310}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "Opacity",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 0.39510300755500793,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{67795AAC-49D0-F795-2C2D-79B9DA601821}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "WaterFresnelAlpha_Power",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 1.1070829629898071,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{2A919A4F-40E4-31D6-9371-BDB6913327CE}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "WaterAlpha_Power",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 4.0,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{70915B4F-4C23-61FB-084A-8AA528B313A5}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "WaterAlpha_Scalar",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 4.0,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{23320186-42D4-AB02-50EC-20B129F53F36}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "WaterTexture_Power",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 1.0,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{72AB2B09-43B9-9F1E-B83B-FDA1EDB2A40F}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "WaterTexture_preDesaturation",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 1.0,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{55B3D092-47A5-A471-3020-DD92CC0A8B4C}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "WaterTexture_Scalar",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 1.7145659923553467,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{7E2BE782-4E74-EFE7-9CAA-D8A1064BDC01}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "WaterTexture_Tile_U",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 1.0,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{9F6387DF-435E-7B80-71E5-BD8BA7FF4CB3}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "WaterTexture_Tile_V",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 1.0,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{79D945DF-41B3-DB5B-E4AD-1F8830137637}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "WaterTexture_U_speed",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 0.009999999776482582,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{D9C3B54C-4B90-3D16-8D06-519AA2AA9C9A}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "WaterTexture_V_speed",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": -0.11400000005960464,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{0CD595E3-44B6-A6A4-B9CD-D39B95E6A7EF}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "Vertex_Power",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 0.44999998807907104,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{F76BF9E1-4C59-7070-2E16-B5B84E3DF5FD}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "Vertex_Scalar",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 8.0,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{713F8A11-4C21-3C50-78C7-A6820FBE9C19}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "VertexMaskRange",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 0.8999999761581421,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{0E919F27-4ED5-9318-D717-FEB5CB97E7C1}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "VertexTexture_U",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 2.0,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{DEBFA129-4C97-F5C1-B914-1DA4520C835A}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "VertexTexture_V",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 2.0,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{34BB2D1E-4F2C-B4F5-7396-B4BDA4D5DE01}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "WaterTextureNoise_Scalar",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 10.0,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{10EDFD46-449C-6962-F9EA-F284BE4D4600}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "WaterVertex_Speed_U",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": -0.07999999821186066,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{E15C2222-43D3-AC39-11D9-C0BC272B8F15}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "WaterVertex_Speed_V",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": -0.4000000059604645,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{81B53615-42CF-869A-19B5-95B2BA790F4E}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "WaterVertexNoise_Power",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 2.0,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{5536C89C-4EA5-4753-86F2-A0A01BB7172F}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "WaterVertexNoise_U",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 1.0,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{D361C737-4281-C802-F6F4-D8B49869C2BD}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "WaterVertexNoise_U_Speed",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": "+0",
+            "ExpressionGUID": {
+              "ExpressionGUID": "{FFB096CF-4097-8CAC-DB31-8B9D1DDB1E52}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "WaterVertexNoise_V",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": 1.0,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{A0E6B3F6-4820-8621-0FA3-BB8B1FBD79E5}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "WaterVertexNoise_V_Speed",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": -0.20000000298023224,
+            "ExpressionGUID": {
+              "ExpressionGUID": "{53EF567D-4419-62CC-B1EC-549CE2F31A9D}"
+            }
+          },
+          {
+            "AtlasData": {
+              "bIsUsedAsAtlasPosition": false,
+              "Curve": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              },
+              "Atlas": {
+                "AssetPath": {
+                  "PackageName": "None",
+                  "AssetName": "None"
+                },
+                "SubPathString": null
+              }
+            },
+            "ParameterInfo": {
+              "Name": "RefractionDepthBias",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": "+0",
+            "ExpressionGUID": {
+              "ExpressionGUID": "{00000000-0000-0000-0000-000000000000}"
+            }
+          }
+        ],
+        "VectorParameterValues": {
+          "VectorParameterValues": {
+            "ParameterInfo": {
+              "Name": "Param",
+              "Association": "GlobalParameter",
+              "Index": -1
+            },
+            "ParameterValue": {
+              "ParameterValue": {
+                "R": 0.12785300612449646,
+                "G": 0.3414050042629242,
+                "B": 0.40625,
+                "A": 1.0
+              }
+            },
+            "ExpressionGUID": {
+              "ExpressionGUID": "{DA60FAAE-436B-DEAA-D16D-C6B3A946E9E0}"
+            }
+          }
+        },
+        "BasePropertyOverrides": {
+          "BlendMode": "BLEND_Translucent",
+          "ShadingModel": "MSM_Unlit",
+          "OpacityMaskClipValue": 0.33329999446868896,
+          "UsageFlags": 4199424
+        },
+        "ReferencedTextureGuids": [
+          {
+            "ReferencedTextureGuids": "{DA59FF31-4D38-637C-176E-D4BA159FC092}"
+          },
+          {
+            "ReferencedTextureGuids": "{3EE4D1DB-4453-C230-1402-15A402183172}"
+          },
+          {
+            "ReferencedTextureGuids": "{F9A272B6-41F9-0438-C7BE-26A058982154}"
+          },
+          {
+            "ReferencedTextureGuids": "{89993EA9-4417-0BC8-B410-73A40E1DA88D}"
+          },
+          {
+            "ReferencedTextureGuids": "{76826538-4724-4490-B4E4-AEA2ED169266}"
+          },
+          {
+            "ReferencedTextureGuids": "{1B830CF6-414C-D914-CB71-AF9534356C4A}"
+          },
+          {
+            "ReferencedTextureGuids": "{9ECA3B9F-4BDA-E37D-96C4-FD85F3453011}"
+          },
+          {
+            "ReferencedTextureGuids": "{2878FB4D-4A49-AC5A-5CF6-2FAE6E0051DC}"
+          },
+          {
+            "ReferencedTextureGuids": "{00000000-0000-0000-0000-000000000000}"
+          }
+        ],
+        "EditorOnlyData": 2,
+        "TextureStreamingDataVersion": 1,
+        "TextureStreamingData": [
+          {
+            "SamplingScale": 1.0,
+            "UVChannelIndex": 0,
+            "TextureName": "T_Noise_Water",
+            "TextureReference": {
+              "TextureReference": {
+                "AssetPath": {
+                  "PackageName": "/Game/T_Noise_Water",
+                  "AssetName": "T_Noise_Water"
+                },
+                "SubPathString": null
+              }
+            }
+          },
+          {
+            "SamplingScale": 1.0,
+            "UVChannelIndex": 0,
+            "TextureName": "T_SwirlNoise",
+            "TextureReference": {
+              "TextureReference": {
+                "AssetPath": {
+                  "PackageName": "/Game/T_SwirlNoise",
+                  "AssetName": "T_SwirlNoise"
+                },
+                "SubPathString": null
+              }
+            }
+          },
+          {
+            "SamplingScale": 1.0,
+            "UVChannelIndex": 0,
+            "TextureName": "T_Water_N",
+            "TextureReference": {
+              "TextureReference": {
+                "AssetPath": {
+                  "PackageName": "/Game/Texture/T_Water_N",
+                  "AssetName": "T_Water_N"
+                },
+                "SubPathString": null
+              }
+            }
+          },
+          {
+            "SamplingScale": 1.0,
+            "UVChannelIndex": 0,
+            "TextureName": "T_WaterColor",
+            "TextureReference": {
+              "TextureReference": {
+                "AssetPath": {
+                  "PackageName": "/Game/T_WaterColor",
+                  "AssetName": "T_WaterColor"
+                },
+                "SubPathString": null
+              }
+            }
+          },
+          {
+            "SamplingScale": 1.0,
+            "UVChannelIndex": 0,
+            "TextureName": "water_n",
+            "TextureReference": {
+              "TextureReference": {
+                "AssetPath": {
+                  "PackageName": "/Game/Texture/water_n",
+                  "AssetName": "water_n"
+                },
+                "SubPathString": null
+              }
+            }
+          },
+          {
+            "SamplingScale": 2.0,
+            "UVChannelIndex": 0,
+            "TextureName": "Water_normal",
+            "TextureReference": {
+              "TextureReference": {
+                "AssetPath": {
+                  "PackageName": "/Game/Water_normal",
+                  "AssetName": "Water_normal"
+                },
+                "SubPathString": null
+              }
+            }
+          }
+        ],
+        "LightingGuid": {
+          "LightingGuid": "{A29EB52D-4D21-F2C1-1112-558002593DDE}"
+        }
+      },
+      "offset": 11428,
+      "size": 20100
+    },
+    {
+      "id": 2,
+      "name": "M_Water_InstEditorOnlyData",
+      "type": "MaterialInstanceEditorOnlyData",
+      "properties": {},
+      "offset": 31528,
+      "size": 17
+    }
+  ],
+  "imports": [
+    {
+      "$type": "UAssetAPI.Import, UAssetAPI",
+      "ObjectName": "MaterialInstanceConstant",
+      "OuterIndex": -6,
+      "ClassPackage": "/Script/CoreUObject",
+      "ClassName": "Class",
+      "PackageName": "None",
+      "bImportOptional": false
+    },
+    {
+      "$type": "UAssetAPI.Import, UAssetAPI",
+      "ObjectName": "MaterialInstanceEditorOnlyData",
+      "OuterIndex": -6,
+      "ClassPackage": "/Script/CoreUObject",
+      "ClassName": "Class",
+      "PackageName": "None",
+      "bImportOptional": false
+    },
+    {
+      "$type": "UAssetAPI.Import, UAssetAPI",
+      "ObjectName": "M_Water",
+      "OuterIndex": -5,
+      "ClassPackage": "/Script/Engine",
+      "ClassName": "Material",
+      "PackageName": "None",
+      "bImportOptional": false
+    },
+    {
+      "$type": "UAssetAPI.Import, UAssetAPI",
+      "ObjectName": "/Engine/EngineMaterials/DefaultPhysicalMaterial",
+      "OuterIndex": 0,
+      "ClassPackage": "/Script/CoreUObject",
+      "ClassName": "Package",
+      "PackageName": "None",
+      "bImportOptional": false
+    },
+    {
+      "$type": "UAssetAPI.Import, UAssetAPI",
+      "ObjectName": "/Game/M_Water",
+      "OuterIndex": 0,
+      "ClassPackage": "/Script/CoreUObject",
+      "ClassName": "Package",
+      "PackageName": "None",
+      "bImportOptional": false
+    },
+    {
+      "$type": "UAssetAPI.Import, UAssetAPI",
+      "ObjectName": "/Script/Engine",
+      "OuterIndex": 0,
+      "ClassPackage": "/Script/CoreUObject",
+      "ClassName": "Package",
+      "PackageName": "None",
+      "bImportOptional": false
+    },
+    {
+      "$type": "UAssetAPI.Import, UAssetAPI",
+      "ObjectName": "DefaultPhysicalMaterial",
+      "OuterIndex": -4,
+      "ClassPackage": "/Script/PhysicsCore",
+      "ClassName": "PhysicalMaterial",
+      "PackageName": "None",
+      "bImportOptional": false
+    }
+  ]
+}

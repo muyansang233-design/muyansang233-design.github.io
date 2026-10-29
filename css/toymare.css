@@ -1,6 +1,6 @@
 :root { color-scheme: dark; --tm-bg: #0a0c14; --tm-panel: #111826; --tm-line: rgba(255,255,255,.14); --tm-text: #d7dce5; --tm-accent: #47d2f4; }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 140px; }
 body { margin: 0; background: radial-gradient(circle at 85% 10%, #102438 0, transparent 34%), var(--tm-bg); color: var(--tm-text); font-family: "Open Sans", sans-serif; line-height: 1.65; }
 a { color: inherit; }
 img, video { display: block; max-width: 100%; }

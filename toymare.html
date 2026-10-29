@@ -8,30 +8,44 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/toymare.css">
+    <link rel="stylesheet" href="css/toymare.css?v=2">
     <script src="js/toymare-code.js" defer></script>
       <link rel="stylesheet" href="./css/i18n.css" />
+    <link rel="stylesheet" href="./css/project-cover.css?v=5" />
+    <script src="./js/project-cover.js?v=4" defer></script>
     <script src="./js/i18n.js"></script>
-  </head>
+    <link rel="stylesheet" href="./css/topbar.css?v=8">
+</head>
   <body>
-    <header class="tm-topbar">
+    <header class="tm-topbar media-topbar">
       <a class="tm-brand" href="index.html#intro"><img src="./assets/muyan-studio-logo-white.png" alt="Muyan Studio" width="534" height="267" /></a>
-      <nav aria-label="Primary navigation">
-        <a href="index.html#portfolio">Portfolio</a>
-        <a href="index.html#featured-games">Games</a>
-        <a href="index.html#about">About</a>
-        <a href="index.html#contact">Contact</a>
+      <nav aria-label="On this page">
+        <a href="#overview"><span class="project-nav-number">01</span> Overview</a>
+        <a href="#design"><span class="project-nav-number">02</span> Design</a>
+        <a href="#mechanics"><span class="project-nav-number">03</span> Mechanics</a>
+        <a href="#ui"><span class="project-nav-number">04</span> UI/UX</a>
+        <a href="#programming"><span class="project-nav-number">05</span> Programming</a>
+        <a href="#code"><span class="project-nav-number">06</span> Code</a>
+        <a href="#preview"><span class="project-nav-number">07</span> Preview</a>
       </nav>
     </header>
 
     <main>
+      <section class="project-cover" aria-labelledby="tm-title">
+        <div class="project-cover__media" aria-hidden="true">
+          <img src="media/toymare/toymare.png" alt="" fetchpriority="high">
+        </div>
+        <div class="project-cover__content">
+          <h1 id="tm-title">Toymare</h1>
+        </div>
+      </section>
+
       <section class="tm-hero tm-container" aria-labelledby="tm-title">
         <a class="tm-back" href="index.html#featured-games">Back to Games</a>
         <div class="tm-hero-grid">
           <div class="tm-hero-copy">
             <p class="tm-kicker">Game Design / UI &amp; UX / Programming</p>
             <img class="tm-logo" src="media/toymare/toymare_logo.png" alt="Toymare logo">
-            <h1 id="tm-title">Toymare</h1>
             <p class="tm-lede">A fast-moving action puzzle game about Nox, a delivery cat rebuilding order in a warehouse where every parcel has come to life.</p>
             <div class="tm-tags" aria-label="Project disciplines">
               <span>Game Design</span><span>LibGDX</span><span>Java</span><span>UI/UX</span>
@@ -53,7 +67,7 @@
         </div>
       </section>
 
-      <section class="tm-section tm-container tm-overview" aria-labelledby="tm-game-title">
+      <section id="overview" class="tm-section tm-container tm-overview" aria-labelledby="tm-game-title">
         <div class="tm-section-head"><p class="tm-kicker">01 / Overview</p><h2 id="tm-game-title">The Game</h2></div>
         <div class="tm-overview-grid">
           <p>In a busy delivery warehouse, Nox the delivery cat was sorting packages as usual until a strange energy swept through, bringing every parcel to life. Now chaotic creatures are wreaking havoc, and it is up to Nox to stop them. Players fend off the rebellious parcels by quickly assembling and combining scattered toy parts into powerful constructs. Strategy, timing, and quick thinking restore order to the warehouse and keep the deliveries moving.</p>
@@ -61,7 +75,7 @@
         </div>
       </section>
 
-      <section class="tm-section tm-container" aria-labelledby="tm-design-title">
+      <section id="design" class="tm-section tm-container" aria-labelledby="tm-design-title">
         <div class="tm-section-head"><p class="tm-kicker">02 / Game Design</p><h2 id="tm-design-title">Design Goals</h2></div>
         <div class="tm-goals">
           <article><span>01</span><h3>Sense of Accomplishment</h3><p>For each completed order, players should feel accomplishment by revealing a new toy and seeing the score grow exponentially.</p></article>
@@ -70,7 +84,7 @@
         </div>
       </section>
 
-      <section class="tm-section tm-container" aria-labelledby="tm-mechanics-title">
+      <section id="mechanics" class="tm-section tm-container" aria-labelledby="tm-mechanics-title">
         <div class="tm-section-head"><p class="tm-kicker">03 / Interaction</p><h2 id="tm-mechanics-title">Game Mechanics</h2></div>
         <div class="tm-media-grid">
           <article class="tm-media-card"><video controls muted playsinline preload="none" poster="media/toymare/toymare.png" aria-label="Recognize and assemble the shape gameplay"><source src="media/toymare/mech_1.mp4" type="video/mp4"></video><div><h3>Recognize and Assemble the Shape</h3><p>Identify the anonymous shape shown on the order board and assemble it using enemies available on the field.</p></div></article>
@@ -79,7 +93,7 @@
         </div>
       </section>
 
-      <section class="tm-section tm-container" aria-labelledby="tm-ui-title">
+      <section id="ui" class="tm-section tm-container" aria-labelledby="tm-ui-title">
         <div class="tm-section-head"><p class="tm-kicker">04 / Arts &amp; Design</p><h2 id="tm-ui-title">UI/UX Design</h2></div>
         <div class="tm-ui-list">
           <article class="tm-ui-row"><video controls muted playsinline preload="none" poster="media/toymare/toymare.png" aria-label="Toymare menu screen animation"><source src="media/toymare/menu_demo.mp4" type="video/mp4"></video><div><span>01 / Menu Screen</span><h3>Animated Introduction</h3><p>The menu aims for a lighthearted, cute atmosphere through animated illustration. Its motion is programmed by changing UI element offsets with oscillation constants derived from sine and cosine.</p></div></article>
@@ -88,7 +102,7 @@
         </div>
       </section>
 
-      <section class="tm-section tm-container" aria-labelledby="tm-programming-title">
+      <section id="programming" class="tm-section tm-container" aria-labelledby="tm-programming-title">
         <div class="tm-section-head"><p class="tm-kicker">05 / Engineering</p><h2 id="tm-programming-title">Programming</h2></div>
         <div class="tm-tech-list">
           <article class="tm-tech-row"><div><span>01 / Architecture</span><h3>Dependency Diagram</h3><p>Toymare follows the Model-View-Control (MVC) practice. Objects are defined in the Model layer, while interactions between models are resolved in the Control layer.</p></div><figure><img src="media/toymare/dependency.png" alt="Toymare class dependency diagram" loading="lazy"><figcaption>Original dependency diagram</figcaption></figure></article>
@@ -99,13 +113,13 @@
         </div>
       </section>
 
-      <section class="tm-section tm-container" aria-labelledby="tm-code-title">
+      <section id="code" class="tm-section tm-container" aria-labelledby="tm-code-title">
         <div class="tm-section-head"><p class="tm-kicker">06 / Source Excerpts</p><h2 id="tm-code-title">Original Code Examples</h2></div>
         <p class="tm-code-intro">Code excerpts are carried over from the original Toymare project page, including the Tiled parser and animation logic.</p>
         <div id="toymare-code-appendix"></div>
       </section>
 
-      <section class="tm-section tm-container tm-preview" aria-labelledby="tm-preview-title">
+      <section id="preview" class="tm-section tm-container tm-preview" aria-labelledby="tm-preview-title">
         <div class="tm-section-head"><p class="tm-kicker">07 / Motion</p><h2 id="tm-preview-title">Portfolio Preview</h2></div>
         <video controls muted playsinline preload="none" poster="media/toymare/toymare.png" aria-label="Toymare portfolio preview video"><source src="media/toymare/toymare_hover_video.mp4" type="video/mp4"></video>
       </section>

@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Water Ball render capture</title>
+<style>html,body{margin:0;background:#0a0e12}canvas{display:block;width:100vw;height:100vh}p{position:absolute;left:-9999px}</style>
+<canvas id="capture" aria-label="Water Ball final GLSL render"></canvas><p id="status">Rendering…</p>
+<script type="module">
+import {WaterRenderer} from '../renderer.js?v=4';
+const canvas=document.querySelector('canvas');
+try{const renderer=await new WaterRenderer().init();const width=Math.min(1600,innerWidth*devicePixelRatio);renderer.render(canvas,{time:3,progress:8,width,height:Math.round(width*innerHeight/innerWidth)});document.querySelector('#status').textContent='Rendered with original material parameters · t = 3 s';}catch(error){document.querySelector('#status').style.left='0';document.querySelector('#status').textContent=error.message;}
+</script></html>

@@ -12,27 +12,40 @@
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/gnome-more-shrooms.css" />
       <link rel="stylesheet" href="./css/i18n.css" />
+    <link rel="stylesheet" href="./css/project-cover.css?v=5" />
+    <script src="./js/project-cover.js?v=4" defer></script>
     <script src="./js/i18n.js"></script>
-  </head>
+    <link rel="stylesheet" href="./css/topbar.css?v=8">
+</head>
   <body class="gnome-page">
     <a class="gnome-skip" href="#main">Skip to project</a>
-    <header class="gnome-header">
+    <header class="gnome-header media-topbar">
       <div class="container gnome-header-inner">
         <a class="gnome-brand" href="./index.html#intro"><img src="./assets/muyan-studio-logo-white.png" alt="Muyan Studio" width="534" height="267" /></a>
-        <nav aria-label="Project navigation">
-          <a href="./index.html#portfolio">Portfolio</a>
-          <a href="./index.html#about">About</a>
-          <a href="https://www.therookies.co/entries/50955" target="_blank" rel="noopener noreferrer">The Rookies ↗</a>
+        <nav aria-label="On this page">
+          <a href="#overview"><span class="project-nav-number">01</span> Overview</a>
+          <a href="#trailer"><span class="project-nav-number">02</span> Trailer</a>
+          <a href="#gameplay"><span class="project-nav-number">03</span> Gameplay</a>
+          <a href="#gallery"><span class="project-nav-number">04</span> Gallery</a>
+          <a href="#credits"><span class="project-nav-number">05</span> Credits</a>
         </nav>
       </div>
     </header>
 
     <main id="main">
+      <section class="project-cover" aria-labelledby="gnome-title">
+        <div class="project-cover__media" aria-hidden="true">
+          <img src="https://d3stdg5so273ei.cloudfront.net/muyansang/2026-06-21/493513/1400xAUTO/%25E6%259C%25AA%25E6%25A0%2587%25E9%25A2%2598-1-muyansang-crop.png" alt="" fetchpriority="high" />
+        </div>
+        <div class="project-cover__content">
+          <h1 id="gnome-title">Gnome More <span>Shrooms</span></h1>
+        </div>
+      </section>
+
       <div class="container gnome-breadcrumb"><a href="./index.html#portfolio">← Back to Portfolio</a><span>/</span><span>Gnome More Shrooms</span></div>
 
       <section class="container gnome-hero" aria-labelledby="gnome-title">
         <p class="gnome-kicker">GAME PROJECT / ROOKIE AWARDS 2026 / MOBILE</p>
-        <h1 id="gnome-title">Gnome More <span>Shrooms</span></h1>
         <p class="gnome-lead">Grow your ammo. Defend your garden.</p>
         <p class="gnome-summary">A 2D-isometric mobile RTS that combines farming with tower defense. Grow crops, deliver the harvest to plant-shooting towers, expand the garden, and push back the mushroom invasion.</p>
         <p class="gnome-byline">Cornell University · 22 June 2026 · Entry by EZlla, MoooWu, muyansang, szt, and titititing</p>
@@ -41,9 +54,6 @@
           <div><img src="https://d3stdg5so273ei.cloudfront.net/andrew/2021-02-16/016415/150x150/finalist-rookie-awards.png" alt="Rookie of the Year Finalist badge" width="60" height="60" /><span>Rookie of the Year<br /><strong>Finalist</strong></span></div>
           <div><img src="https://d3stdg5so273ei.cloudfront.net/andrew/2021-02-16/580598/150x150/draft-selection.png" alt="Rookie Awards Draft Selection badge" width="60" height="60" /><span>Rookie Awards<br /><strong>Draft Selection</strong></span></div>
         </div>
-        <figure class="gnome-cover">
-          <img src="https://d3stdg5so273ei.cloudfront.net/muyansang/2026-06-21/493513/1400xAUTO/%25E6%259C%25AA%25E6%25A0%2587%25E9%25A2%2598-1-muyansang-crop.png" alt="Gnome More Shrooms project cover" fetchpriority="high" />
-        </figure>
       </section>
 
       <nav class="container gnome-jump" aria-label="On this page">

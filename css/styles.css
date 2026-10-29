@@ -882,25 +882,6 @@ main {
 #intro.hero-reel-active .hero-reel-toggle:hover,
 #intro.hero-reel-active .hero-reel-toggle:focus-visible { transform: scale(1.065); }
 #intro .hero-reel-toggle { z-index: 20; }
-#intro .hero-reel-motes-layer {
-  position: fixed;
-  z-index: 19;
-  overflow: visible;
-  pointer-events: none;
-}
-#intro.hero-reel-active .hero-reel-motes-layer { z-index: 9998; }
-#intro .hero-reel-toggle__mote {
-  position: absolute;
-  z-index: 0;
-  top: var(--mote-y);
-  left: var(--mote-x);
-  width: var(--mote-size);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, .95) 0 8%, rgba(162, 242, 255, .7) 24%, rgba(63, 211, 246, .28) 50%, transparent 76%);
-  opacity: 0;
-  pointer-events: none;
-}
 #intro .hero-reel-toggle__icon {
   display: grid;
   place-items: center;
@@ -964,7 +945,6 @@ main {
   #intro .hero-reel-toggle:hover { transform: scale(1.065); }
 }
 @media (prefers-reduced-motion: reduce) {
-  #intro .hero-reel-toggle__mote { display: none; }
   .hero-reel-topbar,
   #intro .hero-reel-toggle,
   #intro .hero-reel-toggle__icon,

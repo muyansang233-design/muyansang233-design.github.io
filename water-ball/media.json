@@ -1,0 +1,40 @@
+{
+  "overall": {
+    "src": "",
+    "poster": ""
+  },
+  "nodes": {
+    "1": {
+      "src": "",
+      "alt": "WPO 原始 Unreal 节点图"
+    },
+    "2": {
+      "src": "",
+      "alt": "UV Flow 原始 Unreal 节点图"
+    },
+    "3": {
+      "src": "",
+      "alt": "Detail normals 原始 Unreal 节点图"
+    },
+    "4": {
+      "src": "",
+      "alt": "Water color 原始 Unreal 节点图"
+    },
+    "5": {
+      "src": "",
+      "alt": "Reflection 原始 Unreal 节点图"
+    },
+    "6": {
+      "src": "",
+      "alt": "Foam 原始 Unreal 节点图"
+    },
+    "7": {
+      "src": "",
+      "alt": "UV distortion 原始 Unreal 节点图"
+    },
+    "8": {
+      "src": "",
+      "alt": "Transparency 原始 Unreal 节点图"
+    }
+  }
+}

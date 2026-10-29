@@ -1,0 +1,139 @@
+CURRENT M_WATER_INST — ACTIVE BRANCH FORMULAS
+
+Notation: sat(x)=clamp(x,0,1); pow uses a positive epsilon as Unreal does.
+UV uses the mesh's original TexCoord0; t is time in seconds.
+N is world shading normal, Nv is the vertex world normal, V points to camera.
+Samples use source texture color-space/normal decoding, not raw PNG RGB values.
+Panning is added BEFORE tile multiplication, preserving the original graph.
+UE up is (0,0,1). A Y-up web scene must convert this explicitly.
+Values below are effective instance values (rounded for readability).
+The eight teaching stages explain parallel material branches; they are not
+eight GPU rendering passes. Flow and distortion are separated only for teaching.
+
+01 VERTEX DISPLACEMENT / WPO
+Node chain: Time/Append -> Add -> Multiply -> TextureSample -> Power -> Multiply;
+two height branches -> Add -> Subtract(1) -> Multiply Nv -> pole mask.
+uvGrad = (uv + 1 + t * (-0.08,-0.4)) * (2,2)
+uvNoise = (uv + t * (0,-0.2)) * (1,1)
+grad = pow(sample(T_GradationPattern, uvGrad).rgb, 0.45) * 8
+noise = pow(sample(LowResBlurredNoise, uvNoise).rgb, 2) * 10
+h = grad + noise - 1
+poleMask = 1 - smoothstep(0.9,1,dot(Nv,up))
+             - smoothstep(0.9,1,dot(Nv,-up))
+WPO = Nv * h * poleMask
+The displacement height is in Unreal world units (centimeters). Convert units
+when using a normalized web mesh. Values are not arbitrary sine-wave animation.
+Key nodes: TextureSample_1(324), TextureSample_2(328), Power_9(193), Power_2(186),
+Multiply_22(113), Multiply_26(117), Add_13(9), Subtract_2(315), SmoothStep_0/1(304/305).
+FlattenNormal node 95 gets Nv with no Flatness override; cached compiler confirms
+its result is the input vertex normal for this branch.
+
+02 UV FLOW / PANNING BEFORE TILING
+The staged preview first exposes time-driven motion with the distortion offset
+set to zero. Water and foam have independent speeds and tiling:
+uvWaterFlow = (uv + t * (0.01,-0.114)) * (1,1)
+uvFoamFlow = (uv + t * (-0.01,-0.082)) * (1,2)
+These are teaching-stage coordinates, not additional outputs in the native graph.
+Stage 03 samples both detail normals using these undistorted flowing UVs.
+Stages 01 through 06 keep the offset at zero. Stage 07 enables the offset
+inside the same original expression:
+fullUV = (originalUV + offset + t * speed) * tile
+Panning before tiling preserves both the flow direction and the effective speed.
+Referenced native outputs: WaterTexture_UV(136), FoamTexture_UV(151).
+
+03 ANGLE-CORRECTED NORMALS
+In the cumulative stage-03 preview, uvWater is uvWaterFlow (offset is zero).
+The full material uses the distorted uvWater defined in stage 07 below.
+n1 = unpackNormal(sample(Texture/water_n, uvWater))
+n2 = unpackNormal(sample(Texture/T_Water_N, uvWater))
+a = (n1.x,n1.y,n1.z+1)
+b = (-n2.x,-n2.y,n2.z)
+combined = normalize(a * dot(a,b) - a.z * b)
+normalTS = (combined.rg * NormalScalar=1, combined.b)
+The graph applies a second BlendAngleCorrectedNormals with a flat normal because
+UseCurtainMask=false; this leaves the combined direction unchanged.
+N = normalize(TangentToWorld(normalTS))
+Key nodes: TextureSample_13/14(326/327), FunctionCall_1(94), FunctionCall_3(96),
+ComponentMask_3/4(60/61), Multiply_14(104), AppendVector_2(24), WaterNormal(148).
+
+04 WATER COLOR / ABSORPTION TINT
+luma(c) = dot(c, (0.212639,0.71516865,0.07219232))
+F = 0.04 + 0.96 * pow(1-max(dot(N,V),0),5)
+tex = sample(T_WaterColor, uvWater).rgb
+waterTexture = pow(mix(tex,luma(tex),1),1) * 1.714566
+ParamRGB = (0.127853,0.341405,0.40625)
+absorptionTint = mix(ParamRGB, (1,1,1), pow(F,2))
+water = waterTexture * absorptionTint
+This graph creates a Fresnel-based artistic absorption color. It does not use
+physical path-length Beer-Lambert absorption. Default mother-material tint is
+lighter; the values above are the M_Water_Inst vector override named "Param".
+Key nodes: TextureSample_3(329), Desaturation_0(75), Power_0(182), Multiply_3(121),
+Fresnel_1(82), Power_1(183), VectorParameter_0(342), Lerp_1(85), Multiply_9(134).
+
+05 REFLECTION / EXPLICIT SUN GLINT
+R = reflect(-V,N)
+envTex = sample(CubeRenderTarget,R).rgb
+env = mix(envTex,luma(envTex),1) * mix(0,1,pow(F,1))
+glintMask = pow(sat(dot(R,SunDirection)-0.9)/(1-0.9),1)
+specular = glintMask * 266.973267 * SunIlluminanceOnGround
+CubeRenderTarget is an external runtime cubemap; scene sunlight and the captured
+environment are rendering inputs outside the material itself. A browser studio
+cubemap or procedural environment is a presentation replacement.
+Key nodes: ReflectionVectorWS_0/1(194/195), TextureSample_4(330), Desaturation_1(76),
+Lerp_4(88), Multiply_0(98), DotProduct_0(78), Subtract_0(313), Saturate_0(196),
+Divide_0(77), Power_7(191), Multiply_10(100), Multiply_29(120).
+
+06 FOAM
+foamTex = sample(T_Noise_Water,uvFoam).r
+foam = pow(foamTex,1.443878) * 0.952065
+waterAndFoam = mix(water,(1,1,1),foam)
+foamOpacity = pow(foam,Foam_Power=1) * Foam_Scalar=5
+This is sampled surface foam from the texture's red channel. It is not shoreline
+intersection/depth foam. Power changes the relative emphasis of texture values;
+with exponent >1, low and mid values are suppressed relative to bright values.
+Key nodes: TextureSample_11(325), Power_3(187), Multiply_15(105), Lerp_2(86),
+Power_6(190), Multiply_28(119).
+
+07 UV DISTORTION / VIEW DEPENDENCE
+uvDist = (uv + t * (0,-0.1)) * (2,3)
+d = unpackNormal(sample(Water_normal, uvDist)).rg
+Vt = WorldToTangent(V)
+distortion = mix(d, d * Vt.rg, Use_Parallax=1) * 0.03
+uvWater = (uv + distortion + t * (0.01,-0.114)) * (1,1)
+uvFoam = (uv + distortion + t * (-0.01,-0.082)) * (1,2)
+This is a view-modulated UV offset, not a multi-step ray-marched parallax map.
+Stages 01 through 06 keep this offset at zero. Enabling it at stage 07 changes
+the sampling coordinates of the already-visible detail normals, water color and
+foam. The changed normals also update the reflection and glint directions.
+The flow checker is shown only at stage 02; stage 03 uses neutral lighting to
+reveal normals, and stage 04 water color covers these diagnostic aids. Stage 08
+then adds alpha and refraction using the distorted UVs and shading normals.
+The teaching order does not change the full material expression:
+(originalUV + offset + t * speed) * tile.
+Key nodes: TextureSample_9(333), ComponentMask_0(57), Transform_0(340),
+Multiply_17(107), Lerp_0(84), Multiply_7(132), WaterTexture_UV(136), FoamTexture_UV(151).
+
+08 ALPHA / HEMISPHERE / REFRACTION
+alphaTexture = sat(pow(sample(T_SwirlNoise,uvWater).rgb,4) * 4)
+Fa = 0.01 + 0.99 * pow(1-max(dot(N,V),0),5)
+absorptionAlpha = mix(0.970409,0,pow(Fa,1.107083))
+semiMask = sat(pow(dot(N,up)+1,1.676603))
+alphaRGB = ((alphaTexture + absorptionAlpha) * 0.395103 + foamOpacity) * semiMask
+Opacity is scalar; the material output truncates the RGB expression to its first
+component. The renderer ultimately clamps blending alpha to [0,1].
+IOR = mix(1,1.33,semiMask)
+effectiveRefraction = mix(1,IOR,0.5)
+RefractionDepthBias=0 in the instance.
+The final half-sphere mask is based on the PIXEL normal, whereas the WPO pole mask
+uses the VERTEX normal. Keep that distinction in the shader.
+Key nodes: TextureSample_5(331), Power_10(184), Saturate_3(198), Fresnel_2(83),
+Power_4(188), Lerp_3(87), Multiply_31(123), Add_9(19), DotProduct_2(80),
+Add_7(17), Power_8(192), Saturate_1(197), Multiply_32(124), Lerp_5/6(89/90).
+
+FINAL
+EmissiveColor = env + waterAndFoam + specular
+Normal = normalTS; WPO and opacity as above.
+UseCurtainMask=false selects identity mask so it does not alter these outputs.
+The desktop video placeholder should show the actual Unreal scene. The live
+GLSL result demonstrates the restored material branches with declared scene
+substitutions and the staged breakdown view, not an engine-identical frame.

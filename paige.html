@@ -12,27 +12,36 @@
     <link rel="stylesheet" href="./css/paige.css" />
       <link rel="stylesheet" href="./css/i18n.css" />
     <script src="./js/i18n.js"></script>
-  </head>
+    <link rel="stylesheet" href="./css/project-cover.css?v=5" />
+    <script src="./js/project-cover.js?v=4" defer></script>
+    <link rel="stylesheet" href="./css/topbar.css?v=8">
+</head>
   <body class="paige-page">
     <a class="paige-skip" href="#main">Skip to project</a>
-    <header class="paige-header">
+    <header class="paige-header media-topbar">
       <div class="container paige-header-inner">
         <a class="paige-brand" href="./index.html#intro"><img src="./assets/muyan-studio-logo-white.png" alt="Muyan Studio" width="534" height="267" /></a>
-        <nav aria-label="Project navigation">
-          <a href="./index.html#portfolio">Portfolio</a>
-          <a href="./index.html#about">About</a>
-          <a href="https://docs.google.com/presentation/d/1ZhORQN8BSRTG6c9IkzeNZpxrGNumrVtzt-s6jLfEijw/edit" target="_blank" rel="noopener noreferrer">Original slides ↗</a>
+        <nav aria-label="On this page">
+          <a href="#scene"><span class="project-nav-number">01</span> Scene</a>
+          <a href="#volumetrics"><span class="project-nav-number">02</span> Volume</a>
+          <a href="#textured-light"><span class="project-nav-number">03</span> Textured Light</a>
+          <a href="#depth"><span class="project-nav-number">04</span> Depth</a>
+          <a href="#materials"><span class="project-nav-number">05</span> Material</a>
+          <a href="#denoising"><span class="project-nav-number">06</span> Denoising</a>
         </nav>
       </div>
     </header>
 
     <main id="main">
+      <section class="project-cover" aria-labelledby="paige-title">
+        <div class="project-cover__media" aria-hidden="true"><img src="./assets/paige/final-render.png" alt="" width="1920" height="1080" fetchpriority="high" /></div>
+        <div class="project-cover__content"><h1 id="paige-title">THE <span>PAIGE</span></h1></div>
+      </section>
       <div class="container paige-breadcrumb"><a href="./index.html#portfolio">← Back to Portfolio</a><span> / </span><span>The PAIGE</span></div>
 
       <section class="container paige-intro" aria-labelledby="paige-title">
         <div class="paige-intro-copy">
           <p class="paige-eyebrow">TECH ART &amp; GRAPHICS / RENDERING STUDY</p>
-          <h1 id="paige-title">THE <span>PAIGE</span></h1>
           <p class="paige-lead">A scene-led graphics study exploring how light, materials, depth, and denoising shape a final image.</p>
           <p class="paige-author">Final presentation by Jacky Pan · CS 5630</p>
           <div class="paige-tags" aria-label="Topics">

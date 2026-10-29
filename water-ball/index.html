@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Water Ball — 从 Unreal 材质节点到实时 GLSL：水球材质的逐层拆解与交互演示。">
+  <title>Water Ball · Material study | Jacky</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&family=Raleway:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css?v=11">
+  <link rel="stylesheet" href="../css/project-cover.css?v=5">
+  <script src="../js/project-cover.js?v=4" defer></script>
+  <link rel="stylesheet" href="../css/topbar.css?v=8">
+</head>
+<body>
+  <a class="skip-link" href="#lab">跳到交互演示</a>
+  <header class="site-header wrap media-topbar">
+    <a class="brand" href="../index.html" aria-label="Muyan Studio 首页"><img src="../assets/muyan-studio-logo-white.png" width="534" height="267" alt="Muyan Studio"></a>
+    <nav aria-label="当前页面章节"><a href="#lab"><span class="project-nav-number">01</span> Preview</a><a href="#passes"><span class="project-nav-number">02</span> Layers</a><a href="#breakdown"><span class="project-nav-number">03</span> Breakdown</a><a href="#overview"><span class="project-nav-number">04</span> Unreal</a><a href="#source"><span class="project-nav-number">05</span> Source</a></nav>
+  </header>
+  <main>
+    <section class="project-cover" aria-labelledby="water-title">
+      <div class="project-cover__media" aria-hidden="true"><img src="./assets/cover.png" alt="" width="1280" height="720" fetchpriority="high"></div>
+      <div class="project-cover__content"><h1 id="water-title">Water<span class="title-outline"> Ball.</span></h1></div>
+    </section>
+
+    <section class="lab wrap" id="lab" aria-labelledby="lab-title">
+      <div class="section-kicker"><h2 id="lab-title">01 / MATERIAL PREVIEW</h2><span id="render-status" role="status" hidden></span></div>
+      <div class="lab-shell">
+        <div class="viewport" id="viewport">
+          <canvas id="water-canvas" aria-label="可拖动视角的实时水球材质演示" tabindex="0"></canvas>
+          <div class="viewport-bottom"><h3 id="active-name">完整水球</h3><span class="orbit-hint">拖动旋转视角</span></div>
+          <p id="render-error" role="alert" hidden></p>
+        </div>
+        <aside class="layer-panel">
+          <div class="mode-switch" role="group" aria-label="显示模式"><button id="mode-composite" class="selected" aria-pressed="true">逐层叠加</button><button id="mode-isolate" aria-pressed="false">单层查看</button></div>
+          <div id="layer-buttons" class="layer-buttons"></div>
+          <div class="layer-note"><p id="active-summary"></p><a id="active-detail" href="#breakdown">查看节点与原理 ↙</a></div>
+        </aside>
+      </div>
+      <div class="transport">
+        <button id="play-toggle" class="play-button" aria-label="暂停逐层循环" aria-pressed="true">Ⅱ</button>
+        <div class="timeline"><div class="timeline-labels"><label for="layer-progress">叠加进度</label><output id="progress-output" for="layer-progress">8.00 / 8</output></div><input id="layer-progress" type="range" min="0" max="8" step="0.001" value="8" aria-label="材质层叠加进度"><div id="timeline-ticks" class="timeline-ticks" aria-hidden="true"></div></div>
+        <label class="speed-select"><span>LOOP</span><select id="loop-speed" aria-label="循环速度"><option value="1">1×</option><option value="0.5">0.5×</option><option value="2">2×</option></select></label>
+        <button id="motion-toggle" class="text-button" aria-pressed="false">冻结水流</button>
+      </div>
+      <div class="lab-caption"><button id="reset-view" class="text-button">重置视角 ↺</button></div>
+      <details class="tuning"><summary>材质参数 ↗</summary><div class="parameter-controls"><label>位移强度 <output id="displacement-value">1.00×</output><input id="displacement" type="range" min="0" max="2" step="0.01" value="1"></label><label>法线强度 <output id="normal-value">1.00×</output><input id="normal" type="range" min="0" max="2" step="0.01" value="1"></label><label>泡沫强度 <output id="foam-value">1.00×</output><input id="foam" type="range" min="0" max="2" step="0.01" value="1"></label><button id="reset-material" class="text-button">恢复实例参数 ↺</button></div></details>
+    </section>
+
+    <section class="section wrap" id="passes" aria-labelledby="passes-title">
+      <div class="section-heading"><div><span class="eyebrow">02 / MATERIAL LAYERS</span><h2 id="passes-title">单层与叠加</h2></div></div>
+      <div class="strip-label"><span>ISOLATED</span><p>独立分支 · 诊断视图</p></div><div id="isolated-strip" class="pass-strip"></div>
+      <div class="strip-label"><span>ACCUMULATED</span><p>累积合成 · 几何起伏 → 完整水球</p><span class="strip-arrow">01 ───────────────────→ 08</span></div><div id="composite-strip" class="pass-strip"></div>
+      <p class="fine-print">这里的「层 / pass」是为了讲解而拆出的材质分支；原始 Unreal 材质会将它们编译到材质着色器中，并非八次独立的渲染 pass。</p>
+    </section>
+
+    <section class="section wrap" id="breakdown" aria-labelledby="breakdown-title">
+      <div class="section-heading"><div><span class="eyebrow">03 / MATERIAL BREAKDOWN</span><h2 id="breakdown-title">材质节点拆解</h2></div></div>
+      <div id="stage-articles"></div>
+    </section>
+
+    <section class="section wrap" id="overview" aria-labelledby="overview-title">
+      <div class="section-heading"><div><span class="eyebrow">04 / UNREAL ENGINE</span><h2 id="overview-title">Unreal 效果</h2></div></div>
+      <div class="overview-grid"><div id="overall-media" class="media-slot overall-slot" data-media="overall"><span class="slot-icon">▷</span><h3>水球整体效果</h3><p>视频占位 · 16:9</p><label class="upload-button">本地预览视频<input type="file" accept="video/*" data-upload="overall"></label></div><figure class="reference"><img src="./assets/unreal-reference.png" alt="原始 Unreal 工程截图：庭院环境中具有反射、波纹与透明质感的水球" loading="lazy"><figcaption>Unreal 工程截图</figcaption></figure></div>
+    </section>
+
+    <section class="source-section wrap" id="source">
+      <div><span class="eyebrow">SOURCE</span><h2>材质来源</h2></div>
+      <div class="source-copy"><p><code>M_Water_Inst → M_Water</code>。实例参数与母材质节点从原始 <code>.uasset</code> 中解析，纹理从工程源数据提取。</p><p id="fidelity-note">GLSL 复现材质的计算逻辑。浏览器使用独立的展示场景，Unreal 场景反射、灯光、色调映射与屏幕空间折射存在平台差异；对比时请以原工程截图和录屏为准。</p><div class="source-links"><a href="./source/material-analysis.md">材质解析说明 ↗</a><a href="./source/material-graph.svg" target="_blank" rel="noopener">完整节点图 ↗</a><a href="./source/M_Water.normalized.json">节点数据 ↗</a><a href="./shaders/water.frag.glsl">GLSL source ↗</a></div></div>
+    </section>
+  </main>
+  <footer class="wrap"><a href="../index.html#portfolio">← Back to portfolio</a><span>JACKY / TECHNICAL ART</span><a href="#">Back to top ↑</a></footer>
+  <noscript><p class="noscript">启用 JavaScript 后可以运行 GLSL 交互演示；原始工程截图仍可直接查看。</p></noscript>
+  <script type="module" src="./app.js?v=16"></script>
+</body>
+</html>

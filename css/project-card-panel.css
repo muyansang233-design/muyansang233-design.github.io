@@ -33,45 +33,6 @@
   pointer-events: none;
 }
 
-.project-card-morph__motes {
-  position: fixed;
-  z-index: 1;
-  overflow: visible;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 450ms ease;
-}
-
-.project-card-morph__motes.is-active {
-  opacity: 1;
-}
-
-.project-card-morph__mote {
-  position: absolute;
-  top: var(--mote-y);
-  left: var(--mote-x);
-  width: var(--mote-size);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, .96) 0 7%, rgba(157, 239, 255, .76) 23%, rgba(54, 209, 242, .36) 48%, transparent 76%);
-  opacity: 0;
-}
-
-.project-card-morph__mote:nth-child(4n) {
-  background: radial-gradient(circle, rgba(255, 255, 255, .92) 0 8%, rgba(255, 239, 190, .62) 26%, rgba(255, 223, 154, .18) 52%, transparent 76%);
-}
-
-.project-card-morph__motes.is-active .project-card-morph__mote {
-  animation: project-card-mote-drift var(--mote-duration) ease-out var(--mote-delay) infinite;
-}
-
-@keyframes project-card-mote-drift {
-  0% { opacity: 0; transform: translate3d(0, 0, 0) scale(.55); }
-  20% { opacity: .72; }
-  65% { opacity: .42; }
-  100% { opacity: 0; transform: translate3d(var(--mote-dx), var(--mote-dy), 0) scale(1.25); }
-}
-
 .project-card-morph__original-info {
   visibility: hidden !important;
   pointer-events: none !important;
@@ -314,7 +275,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .project-card-morph__motes { display: none; }
   .project-card-morph::before,
   .project-card-morph__panel,
   .project-card-morph__header,

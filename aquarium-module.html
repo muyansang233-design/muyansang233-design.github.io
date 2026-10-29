@@ -13,22 +13,31 @@
   <link rel="stylesheet" href="./css/project-module.css">
     <link rel="stylesheet" href="./css/i18n.css" />
     <script src="./js/i18n.js"></script>
-  </head>
+    <link rel="stylesheet" href="./css/project-cover.css?v=5">
+    <script src="./js/project-cover.js?v=4" defer></script>
+    <link rel="stylesheet" href="./css/topbar.css?v=8">
+</head>
 <body class="paige-page aquarium-project">
   <a class="paige-skip" href="#main">Skip to content</a>
 
-  <header class="paige-header">
+  <header class="paige-header media-topbar">
     <div class="container paige-header-inner">
       <a class="paige-brand" href="./index.html"><img src="./assets/muyan-studio-logo-white.png" alt="Muyan Studio" width="534" height="267" /></a>
-      <nav aria-label="Main navigation">
-        <a href="./index.html#portfolio">Portfolio</a>
-        <a href="./index.html#about">About</a>
-        <a href="#interactive">Interactive module</a>
+      <nav aria-label="On this page">
+        <a href="#interactive"><span class="project-nav-number">01</span> Interactive</a>
+        <a href="#info"><span class="project-nav-number">02</span> Info</a>
+        <a href="#demo"><span class="project-nav-number">03</span> Demo</a>
+        <a href="#features"><span class="project-nav-number">04</span> Features</a>
+        <a href="#programming"><span class="project-nav-number">05</span> Programming</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
+    <section class="project-cover" aria-labelledby="project-title">
+      <div class="project-cover__media" aria-hidden="true"><video muted loop playsinline preload="none" poster="./assets/aquarium/cover.jpg"><source src="./assets/aquarium/cover.mp4" type="video/mp4"></video></div>
+      <div class="project-cover__content"><h1 id="project-title">Aquarium Zen</h1></div>
+    </section>
     <div class="container paige-breadcrumb" aria-label="Breadcrumb">
       <a href="./index.html#portfolio">← Back to Portfolio</a>
       <span aria-hidden="true">/</span>
@@ -38,7 +47,6 @@
     <section class="container paige-intro" aria-labelledby="project-title">
       <div class="paige-intro-copy">
         <p class="paige-eyebrow">COMPUTER GRAPHICS PROJECT</p>
-        <h1 id="project-title">Aquarium Zen</h1>
         <p class="paige-lead" id="project-summary"></p>
         <p class="paige-author" id="project-subtitle"></p>
         <div class="paige-tags" id="project-types" aria-label="Project categories"></div>

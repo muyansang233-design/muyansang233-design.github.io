@@ -1,0 +1,73 @@
+WATER BALL MATERIAL RECONSTRUCTION — SOURCE NOTES
+
+Input: /Users/muyan/Downloads/WaterBall (already expanded Unreal project)
+EngineAssociation: 5.8
+Authoritative inputs: Content/M_Water.uasset and Content/M_Water_Inst.uasset
+The original project was read only. No Unreal project files were changed.
+
+PARSER
+The material and instance were deserialized with UAssetAPI commit
+b4e8a012939295a6fd890ddc64e57ea78b709b95.
+https://github.com/atenfyr/UAssetAPI
+The temporary .NET exporter used the public UAsset(path, EngineVersion.VER_UE5_8)
+API and SerializeJson(true). It was compiled locally for .NET 9 with preview
+language features. Three corrections to the temporary parser were necessary:
+1. Add JsonProperty annotations to MaterialInputPropertyData fields so native
+   Expression/OutputIndex/Mask connection data appears in exported JSON.
+2. Read ColorMaterialInput constants as LinearColor (four float32 values), not
+   packed Color bytes. The actual tag length in this UE 5.8 asset is 56 bytes.
+3. Read VectorMaterialInput / Vector2MaterialInput constants as Vector3f / Vector2f
+   (float32 values), not the UE 5 double precision general-purpose Vector types.
+   Actual tag lengths are 52 / 48 bytes respectively.
+After these corrections all 346 material exports and both instance exports parse
+as NormalExport. No opaque RawExport remains. Connected output references were
+also verified directly against native input payloads in the original binary.
+
+ARTIFACTS
+M_Water.raw.json, M_Water_Inst.raw.json: full library exports.
+M_Water.normalized.json, M_Water_Inst.normalized.json: compact exports with native
+input references, serialized values, editor positions and property names.
+material-analysis.json: provenance/hash, material outputs, all parameter defaults
+and effective instance values, active nodes, texture mapping, implementation caveats.
+effective-parameters.json: effective active graph parameter map.
+instance-parameters.json: actual scalar overrides stored on the instance only.
+extract-material-summary.py: reproducible normalization from the raw exports.
+water-curtain-original.hlsl: exact Custom node code, inactive for M_Water_Inst.
+The earlier *.graph.json files retain the initial inspection representation;
+prefer the newer *.normalized.json when consuming the data programmatically.
+
+OUTPUT / MODE
+BLEND_Translucent, MSM_Unlit, RM_IndexOfRefraction.
+Normal = export 109 (Multiply_19)
+EmissiveColor = export 129 (Multiply_4)
+Opacity = export 108 (Multiply_18)
+WorldPositionOffset = export 125 (Multiply_33)
+Refraction = export 90 (LinearInterpolate_6)
+Color, reflection and explicit sunlight glint are composed in EmissiveColor,
+not a conventional opaque/PBR water BRDF. The seven web stages are teaching
+views of branches, not seven independent Unreal GPU passes.
+
+STATIC WATER-CURTAIN BRANCH
+UseCurtainMask is a StaticBoolParameter with default false; the instance has
+no static parameter overrides and its editor-only export has no property data.
+The false path selects identity mask [1,1,1] and flat additional normal [0,0,1].
+The Custom node's water curtain / SDF code is present but does not contribute
+to this instance. Preserve the source as reference but do not silently enable it.
+Its supplied header credits Jan Mroz (jaszunio15), CC BY 3.0, and modifications
+on 2026-10-16. If showing or using the source code, retain that attribution.
+
+CACHED SHADERS
+Saved/ShaderDebugInfo includes generated pixel and vertex HLSL. These confirm
+node/function math for matching branches but are an older material version:
+the cache Custom node has 13 arguments while the current graph has independently
+parameterized layers. The cache also outputs IOR directly; current graph has an
+additional LinearInterpolate_6 with unconnected Alpha (UE default 0.5). Therefore
+the web reconstruction should prioritize current graph and instance values.
+
+LIMITS
+No live Unreal viewport render was executed here. Exact source mesh geometry,
+scene camera, transient CubeRenderTarget contents, sunlight/sky settings,
+translucency sorting, exposure and postprocessing are not recovered by the
+material graph export. A web preview must identify environment and refraction
+substitutions and avoid promising pixel-identical Unreal output. The original
+Unreal video placeholder is intended for the actual complete project result.

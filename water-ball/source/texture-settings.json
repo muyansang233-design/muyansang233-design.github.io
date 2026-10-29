@@ -1,0 +1,456 @@
+{
+  "schemaVersion": 1,
+  "parser": "UAssetAPI b4e8a012939295a6fd890ddc64e57ea78b709b95",
+  "defaultsNote": "Unserialized UTexture properties inherit engine defaults; explicit properties are separately retained.",
+  "documentation": "https://dev.epicgames.com/documentation/unreal-engine/texture-asset-editor-in-unreal-engine",
+  "textures": [
+    {
+      "name": "T_WaterColor",
+      "asset": "Content/T_WaterColor.uasset",
+      "sha256": "8a58955f0b25494ccf89ec23c6deec947c3a518f1668a62b98166c3ddfee5fac",
+      "source": {
+        "SizeX": 2048,
+        "SizeY": 2048,
+        "NumSlices": 1,
+        "NumMips": 1,
+        "Format": "TSF_BGRA8",
+        "CompressionFormat": "TSCF_UEDELTA"
+      },
+      "effectiveSettings": {
+        "SRGB": true,
+        "CompressionSettings": "TC_Default",
+        "bFlipGreenChannel": false,
+        "AdjustBrightness": 1.0,
+        "AdjustBrightnessCurve": 1.0,
+        "AdjustVibrance": 0.0,
+        "AdjustSaturation": 1.0,
+        "AdjustRGBCurve": 1.0,
+        "AdjustHue": 43.20000076293945,
+        "AdjustMinAlpha": 0.0,
+        "AdjustMaxAlpha": 1.0,
+        "LODBias": 0,
+        "Filter": "TF_Default"
+      },
+      "serializedProperties": {
+        "AdjustHue": 43.20000076293945,
+        "OodleTextureSdkVersion": "2.9.8"
+      },
+      "defaultedSettings": [
+        "SRGB",
+        "CompressionSettings",
+        "bFlipGreenChannel",
+        "AdjustBrightness",
+        "AdjustBrightnessCurve",
+        "AdjustVibrance",
+        "AdjustSaturation",
+        "AdjustRGBCurve",
+        "AdjustMinAlpha",
+        "AdjustMaxAlpha",
+        "LODBias",
+        "Filter"
+      ],
+      "textureObjectParsed": true,
+      "note": "Only the Texture2D export is required. Some Interchange import-metadata exports are unsupported; texture properties parse completely."
+    },
+    {
+      "name": "T_Noise_Water",
+      "asset": "Content/T_Noise_Water.uasset",
+      "sha256": "181d7201e19e3fc0fcf98c9d5ec9a31293476a7c58e0f9b08ea8abe244f94723",
+      "source": {
+        "SizeX": 2048,
+        "SizeY": 2048,
+        "NumSlices": 1,
+        "NumMips": 1,
+        "Format": "TSF_BGRA8",
+        "CompressionFormat": "TSCF_UEDELTA"
+      },
+      "effectiveSettings": {
+        "SRGB": true,
+        "CompressionSettings": "TC_Default",
+        "bFlipGreenChannel": false,
+        "AdjustBrightness": 1.0,
+        "AdjustBrightnessCurve": 1.0,
+        "AdjustVibrance": 0.0,
+        "AdjustSaturation": 1.0,
+        "AdjustRGBCurve": 1.0,
+        "AdjustHue": 0.0,
+        "AdjustMinAlpha": 0.0,
+        "AdjustMaxAlpha": 1.0,
+        "LODBias": 0,
+        "Filter": "TF_Default",
+        "LODGroup": "TEXTUREGROUP_Weapon"
+      },
+      "serializedProperties": {
+        "OodleTextureSdkVersion": "2.9.12",
+        "AlphaCoverageThresholds": {
+          "AlphaCoverageThresholds": {
+            "X": 0,
+            "Y": 0,
+            "Z": 0,
+            "W": 1.0
+          }
+        },
+        "LODGroup": "TEXTUREGROUP_Weapon"
+      },
+      "defaultedSettings": [
+        "SRGB",
+        "CompressionSettings",
+        "bFlipGreenChannel",
+        "AdjustBrightness",
+        "AdjustBrightnessCurve",
+        "AdjustVibrance",
+        "AdjustSaturation",
+        "AdjustRGBCurve",
+        "AdjustHue",
+        "AdjustMinAlpha",
+        "AdjustMaxAlpha",
+        "LODBias",
+        "Filter"
+      ],
+      "textureObjectParsed": true,
+      "note": "Only the Texture2D export is required. Some Interchange import-metadata exports are unsupported; texture properties parse completely."
+    },
+    {
+      "name": "T_SwirlNoise",
+      "asset": "Content/T_SwirlNoise.uasset",
+      "sha256": "1a51fdbefeca6acb73315ace594e2a61b5903d585f3bfc12ce9b16acc49939d0",
+      "source": {
+        "SizeX": 512,
+        "SizeY": 512,
+        "NumSlices": 1,
+        "NumMips": 1,
+        "Format": "TSF_G8",
+        "CompressionFormat": "TSCF_UEDELTA"
+      },
+      "effectiveSettings": {
+        "SRGB": true,
+        "CompressionSettings": "TC_Default",
+        "bFlipGreenChannel": false,
+        "AdjustBrightness": 1.0,
+        "AdjustBrightnessCurve": 1.0,
+        "AdjustVibrance": 0.0,
+        "AdjustSaturation": 1.0,
+        "AdjustRGBCurve": 1.0,
+        "AdjustHue": 0.0,
+        "AdjustMinAlpha": 0.0,
+        "AdjustMaxAlpha": 1.0,
+        "LODBias": 0,
+        "Filter": "TF_Default",
+        "bNormalizeNormals": true,
+        "bUseNewMipFilter": true,
+        "CompositeTextureMode": "CTM_Disabled"
+      },
+      "serializedProperties": {
+        "OodleTextureSdkVersion": "2.9.12",
+        "AlphaCoverageThresholds": {
+          "AlphaCoverageThresholds": {
+            "X": 0,
+            "Y": 0,
+            "Z": 0,
+            "W": 0.75
+          }
+        },
+        "bUseNewMipFilter": true,
+        "CompositeTextureMode": "CTM_Disabled",
+        "bNormalizeNormals": true
+      },
+      "defaultedSettings": [
+        "SRGB",
+        "CompressionSettings",
+        "bFlipGreenChannel",
+        "AdjustBrightness",
+        "AdjustBrightnessCurve",
+        "AdjustVibrance",
+        "AdjustSaturation",
+        "AdjustRGBCurve",
+        "AdjustHue",
+        "AdjustMinAlpha",
+        "AdjustMaxAlpha",
+        "LODBias",
+        "Filter"
+      ],
+      "textureObjectParsed": true,
+      "note": "Only the Texture2D export is required. Some Interchange import-metadata exports are unsupported; texture properties parse completely."
+    },
+    {
+      "name": "Water_normal",
+      "asset": "Content/Water_normal.uasset",
+      "sha256": "0677f348b4d16d7736d3a148c73c5daa5f1c5cd6b64d55b1aab1d291ca4335ff",
+      "source": {
+        "SizeX": 512,
+        "SizeY": 512,
+        "NumSlices": 1,
+        "NumMips": 1,
+        "Format": "TSF_BGRA8",
+        "CompressionFormat": "TSCF_JPEG"
+      },
+      "effectiveSettings": {
+        "SRGB": false,
+        "CompressionSettings": "TC_Normalmap",
+        "bFlipGreenChannel": false,
+        "AdjustBrightness": 1.0,
+        "AdjustBrightnessCurve": 1.0,
+        "AdjustVibrance": 0.0,
+        "AdjustSaturation": 1.0,
+        "AdjustRGBCurve": 1.0,
+        "AdjustHue": 0.0,
+        "AdjustMinAlpha": 0.0,
+        "AdjustMaxAlpha": 1.0,
+        "LODBias": 0,
+        "Filter": "TF_Default",
+        "LODGroup": "TEXTUREGROUP_WorldNormalMap",
+        "bNormalizeNormals": true,
+        "bUseNewMipFilter": true,
+        "CompositeTextureMode": "CTM_Disabled"
+      },
+      "serializedProperties": {
+        "OodleTextureSdkVersion": "2.9.16",
+        "AlphaCoverageThresholds": {
+          "AlphaCoverageThresholds": {
+            "X": 0,
+            "Y": 0,
+            "Z": 0,
+            "W": 0.75
+          }
+        },
+        "bUseNewMipFilter": true,
+        "CompositeTextureMode": "CTM_Disabled",
+        "CompressionSettings": "TC_Normalmap",
+        "LODGroup": "TEXTUREGROUP_WorldNormalMap",
+        "SRGB": false,
+        "bNormalizeNormals": true
+      },
+      "defaultedSettings": [
+        "bFlipGreenChannel",
+        "AdjustBrightness",
+        "AdjustBrightnessCurve",
+        "AdjustVibrance",
+        "AdjustSaturation",
+        "AdjustRGBCurve",
+        "AdjustHue",
+        "AdjustMinAlpha",
+        "AdjustMaxAlpha",
+        "LODBias",
+        "Filter"
+      ],
+      "textureObjectParsed": true,
+      "note": "Only the Texture2D export is required. Some Interchange import-metadata exports are unsupported; texture properties parse completely."
+    },
+    {
+      "name": "T_GradationPattern",
+      "asset": "Content/Texture/T_GradationPattern.uasset",
+      "sha256": "1dd50abbbcbad97a2993596486af0bdd3d2696727b4ede4a816f5c1f0b4ce6ed",
+      "source": {
+        "SizeX": 128,
+        "SizeY": 128,
+        "NumSlices": 1,
+        "NumMips": 1,
+        "Format": "TSF_BGRA8",
+        "CompressionFormat": "TSCF_UEDELTA"
+      },
+      "effectiveSettings": {
+        "SRGB": true,
+        "CompressionSettings": "TC_Default",
+        "bFlipGreenChannel": false,
+        "AdjustBrightness": 1.0,
+        "AdjustBrightnessCurve": 1.0,
+        "AdjustVibrance": 0.0,
+        "AdjustSaturation": 1.0,
+        "AdjustRGBCurve": 1.0,
+        "AdjustHue": 0.0,
+        "AdjustMinAlpha": 0.0,
+        "AdjustMaxAlpha": 1.0,
+        "LODBias": 0,
+        "Filter": "TF_Default",
+        "bNormalizeNormals": true,
+        "bUseNewMipFilter": true,
+        "CompositeTextureMode": "CTM_Disabled"
+      },
+      "serializedProperties": {
+        "OodleTextureSdkVersion": "2.9.12",
+        "AlphaCoverageThresholds": {
+          "AlphaCoverageThresholds": {
+            "X": 0,
+            "Y": 0,
+            "Z": 0,
+            "W": 0.75
+          }
+        },
+        "bUseNewMipFilter": true,
+        "CompositeTextureMode": "CTM_Disabled",
+        "bNormalizeNormals": true
+      },
+      "defaultedSettings": [
+        "SRGB",
+        "CompressionSettings",
+        "bFlipGreenChannel",
+        "AdjustBrightness",
+        "AdjustBrightnessCurve",
+        "AdjustVibrance",
+        "AdjustSaturation",
+        "AdjustRGBCurve",
+        "AdjustHue",
+        "AdjustMinAlpha",
+        "AdjustMaxAlpha",
+        "LODBias",
+        "Filter"
+      ],
+      "textureObjectParsed": true,
+      "note": "Only the Texture2D export is required. Some Interchange import-metadata exports are unsupported; texture properties parse completely."
+    },
+    {
+      "name": "LowResBlurredNoise",
+      "asset": "Content/Texture/LowResBlurredNoise.uasset",
+      "sha256": "9284655d4816757df747e20a140295c73e0d4833cbb2425d3c509952d4a77afe",
+      "source": {
+        "SizeX": 64,
+        "SizeY": 64,
+        "NumSlices": 1,
+        "NumMips": 1,
+        "Format": "TSF_BGRA8",
+        "CompressionFormat": "TSCF_UEDELTA"
+      },
+      "effectiveSettings": {
+        "SRGB": false,
+        "CompressionSettings": "TC_Grayscale",
+        "bFlipGreenChannel": false,
+        "AdjustBrightness": 1.0,
+        "AdjustBrightnessCurve": 1.0,
+        "AdjustVibrance": 0.0,
+        "AdjustSaturation": 1.0,
+        "AdjustRGBCurve": 1.0,
+        "AdjustHue": 0.0,
+        "AdjustMinAlpha": 0.0,
+        "AdjustMaxAlpha": 1.0,
+        "LODBias": 0,
+        "Filter": "TF_Default",
+        "bUseLegacyGamma": true
+      },
+      "serializedProperties": {
+        "OodleTextureSdkVersion": "2.9.12",
+        "CompressionSettings": "TC_Grayscale",
+        "SRGB": false,
+        "bUseLegacyGamma": true
+      },
+      "defaultedSettings": [
+        "bFlipGreenChannel",
+        "AdjustBrightness",
+        "AdjustBrightnessCurve",
+        "AdjustVibrance",
+        "AdjustSaturation",
+        "AdjustRGBCurve",
+        "AdjustHue",
+        "AdjustMinAlpha",
+        "AdjustMaxAlpha",
+        "LODBias",
+        "Filter"
+      ],
+      "textureObjectParsed": true,
+      "note": "Only the Texture2D export is required. Some Interchange import-metadata exports are unsupported; texture properties parse completely."
+    },
+    {
+      "name": "water_n",
+      "asset": "Content/Texture/water_n.uasset",
+      "sha256": "1ded75b23be18e4b8582f6ef118fb461cd7e57228925087bfe28ff54c8bb07b4",
+      "source": {
+        "SizeX": 512,
+        "SizeY": 512,
+        "NumSlices": 1,
+        "NumMips": 1,
+        "Format": "TSF_BGRA8",
+        "CompressionFormat": "TSCF_UEDELTA"
+      },
+      "effectiveSettings": {
+        "SRGB": false,
+        "CompressionSettings": "TC_Normalmap",
+        "bFlipGreenChannel": false,
+        "AdjustBrightness": 1.0,
+        "AdjustBrightnessCurve": 1.0,
+        "AdjustVibrance": 0.0,
+        "AdjustSaturation": 1.0,
+        "AdjustRGBCurve": 1.0,
+        "AdjustHue": 0.0,
+        "AdjustMinAlpha": 0.0,
+        "AdjustMaxAlpha": 1.0,
+        "LODBias": 0,
+        "Filter": "TF_Bilinear",
+        "LODGroup": "TEXTUREGROUP_WorldNormalMap",
+        "bUseLegacyGamma": true
+      },
+      "serializedProperties": {
+        "OodleTextureSdkVersion": "2.9.12",
+        "CompressionSettings": "TC_Normalmap",
+        "Filter": "TF_Bilinear",
+        "LODGroup": "TEXTUREGROUP_WorldNormalMap",
+        "SRGB": false,
+        "bUseLegacyGamma": true
+      },
+      "defaultedSettings": [
+        "bFlipGreenChannel",
+        "AdjustBrightness",
+        "AdjustBrightnessCurve",
+        "AdjustVibrance",
+        "AdjustSaturation",
+        "AdjustRGBCurve",
+        "AdjustHue",
+        "AdjustMinAlpha",
+        "AdjustMaxAlpha",
+        "LODBias"
+      ],
+      "textureObjectParsed": true,
+      "note": "Only the Texture2D export is required. Some Interchange import-metadata exports are unsupported; texture properties parse completely."
+    },
+    {
+      "name": "T_Water_N",
+      "asset": "Content/Texture/T_Water_N.uasset",
+      "sha256": "12bef8dc4f4ab9340075bbdf1db4dc4eff520bf0d15f95a7f0576174b9132dd8",
+      "source": {
+        "SizeX": 2048,
+        "SizeY": 2048,
+        "NumSlices": 1,
+        "NumMips": 1,
+        "Format": "TSF_BGRA8",
+        "CompressionFormat": "TSCF_UEDELTA"
+      },
+      "effectiveSettings": {
+        "SRGB": false,
+        "CompressionSettings": "TC_Normalmap",
+        "bFlipGreenChannel": false,
+        "AdjustBrightness": 1.0,
+        "AdjustBrightnessCurve": 1.0,
+        "AdjustVibrance": 0.0,
+        "AdjustSaturation": 1.0,
+        "AdjustRGBCurve": 1.0,
+        "AdjustHue": 0.0,
+        "AdjustMinAlpha": 0.0,
+        "AdjustMaxAlpha": 1.0,
+        "LODBias": 1,
+        "Filter": "TF_Default",
+        "LODGroup": "TEXTUREGROUP_WorldNormalMap",
+        "CompressionNoAlpha": true
+      },
+      "serializedProperties": {
+        "CompressionNoAlpha": true,
+        "OodleTextureSdkVersion": "2.9.12",
+        "LODBias": 1,
+        "CompressionSettings": "TC_Normalmap",
+        "LODGroup": "TEXTUREGROUP_WorldNormalMap",
+        "SRGB": false
+      },
+      "defaultedSettings": [
+        "bFlipGreenChannel",
+        "AdjustBrightness",
+        "AdjustBrightnessCurve",
+        "AdjustVibrance",
+        "AdjustSaturation",
+        "AdjustRGBCurve",
+        "AdjustHue",
+        "AdjustMinAlpha",
+        "AdjustMaxAlpha",
+        "Filter"
+      ],
+      "textureObjectParsed": true,
+      "note": "Only the Texture2D export is required. Some Interchange import-metadata exports are unsupported; texture properties parse completely."
+    }
+  ]
+}
